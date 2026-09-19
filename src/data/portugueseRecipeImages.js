@@ -1,3 +1,10 @@
+import cataplanaImg from '@/assets/recipes/cataplana.jpg';
+import arrozDePatoImg from '@/assets/recipes/arroz_de_pato.jpg';
+import ranchoImg from '@/assets/recipes/rancho.jpg';
+import pregoImg from '@/assets/recipes/prego.jpg';
+import alheiraImg from '@/assets/recipes/alheira.jpg';
+import paoDeChouricoImg from '@/assets/recipes/pao_de_chourico.jpg';
+
 // Real dish images from Wikimedia Commons and high-resolution culinary photography.
 // Keyed by the recipe `wiki` title. Recipes without a corresponding image fall back
 // to the gradient + icon in the UI.
@@ -10,13 +17,15 @@ export const RECIPE_IMAGES = {
   'Bacalhau_espiritual': 'https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=600&q=80',
   'Bacalhau_com_natas': 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Bacalhau_com_natas.jpg/500px-Bacalhau_com_natas.jpg',
   'Arroz_de_marisco': 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Arroz_de_marisco_-_Tavira_2.jpg/500px-Arroz_de_marisco_-_Tavira_2.jpg',
-  'Cataplana_de_marisco': 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Cataplana1.jpg/500px-Cataplana1.jpg',
+  'Cataplana_de_marisco': cataplanaImg,
   'Sardinha': 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Sardinhas_assadas.jpg/500px-Sardinhas_assadas.jpg',
   'Carapau': 'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=600&q=80',
   'Açorda_de_marisco': 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/A_orda_de_Marisco_%28cropped%29.jpg/500px-A_orda_de_Marisco_%28cropped%29.jpg',
   'Caldeirada': 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Caldeirada.jpg/500px-Caldeirada.jpg',
   'Bacalhau_à_Lagareiro': 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Bacalhau_assado_com_batatas_a_murro.jpg/500px-Bacalhau_assado_com_batatas_a_murro.jpg',
   'Pescada': 'https://images.unsplash.com/photo-1535400255456-984241443b29?auto=format&fit=crop&w=600&q=80',
+  'Salmão_grelhado': 'https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=600&q=80',
+  'Dourada_assada': 'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=600&q=80',
 
   // Carne
   'Cozido_à_portuguesa': 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Cozido_a_portuguesa_1.JPG/500px-Cozido_a_portuguesa_1.JPG',
@@ -25,11 +34,26 @@ export const RECIPE_IMAGES = {
   'Cabidela': 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/PortoExterior_PatoDeCabidela.JPG/500px-PortoExterior_PatoDeCabidela.JPG',
   'Rojões': 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Roj%C3%B5es_%C3%A0_moda_do_minho_com_arroz_de_sarrabulho.jpg/500px-Roj%C3%B5es_%C3%A0_moda_do_minho_com_arroz_de_sarrabulho.jpg',
   'Chanfana': 'https://images.unsplash.com/photo-1547928576-a4a33237cbc3?auto=format&fit=crop&w=600&q=80',
-  'Rancho': 'https://images.unsplash.com/photo-1541832676-9b763b0239ab?auto=format&fit=crop&w=600&q=80',
+  'Rancho': ranchoImg,
   'Tripas_à_moda_do_Porto': 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Tripas_%C3%A0_moda_do_Porto.JPG/500px-Tripas_%C3%A0_moda_do_Porto.JPG',
   'Favas_à_portuguesa': 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Favas_%C3%A0_Portuguesa_.png/500px-Favas_%C3%A0_Portuguesa_.png',
-  'Arroz_de_pato': 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Arroz_de_Pato_%284948416093%29.jpg/500px-Arroz_de_Pato_%284948416093%29.jpg',
+  'Arroz_de_pato': arrozDePatoImg,
   'Ensopado': 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Ensopado_de_borrego%2C_%C3%93bidos.jpg/500px-Ensopado_de_borrego%2C_%C3%93bidos.jpg',
+  'Frango_assado_com_batatas': 'https://images.unsplash.com/photo-1598103442097-8b74394b95c6?auto=format&fit=crop&w=600&q=80',
+  'Panados_de_frango': 'https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=600&q=80',
+  'Strogonoff_de_frango': 'https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=600&q=80',
+  'Caril_de_frango': 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=600&q=80',
+  'Bife_com_cogumelos': 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80',
+  'Hambúrguer_no_prato': 'https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80',
+  'Empadão_de_carne': 'https://images.unsplash.com/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&w=600&q=80',
+  'Febras_grelhadas': 'https://images.unsplash.com/photo-1529042410759-befb1204b468?auto=format&fit=crop&w=600&q=80',
+
+  // Massas & Rápidos
+  'Esparguete_à_bolonhesa': 'https://images.unsplash.com/photo-1622973536968-3ead9e780960?auto=format&fit=crop&w=600&q=80',
+  'Massa_com_atum': 'https://images.unsplash.com/photo-1608897013039-887f21d8c804?auto=format&fit=crop&w=600&q=80',
+  'Esparguete_à_carbonara': 'https://images.unsplash.com/photo-1612874742237-6526221588e3?auto=format&fit=crop&w=600&q=80',
+  'Lasanha_de_carne': 'https://images.unsplash.com/photo-1574894709920-11b28e7367e3?auto=format&fit=crop&w=600&q=80',
+  'Risotto_de_cogumelos': 'https://images.unsplash.com/photo-1633964913295-ceb43826e7c9?auto=format&fit=crop&w=600&q=80',
 
   // Entradas
   'Ameijoas_à_Bulhão_Pato': 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Am%C3%AAijoas_%C3%A0_Bulh%C3%A3o_Pato.jpg/500px-Am%C3%AAijoas_%C3%A0_Bulh%C3%A3o_Pato.jpg',
@@ -40,6 +64,8 @@ export const RECIPE_IMAGES = {
   'Melão_com_presunto': 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Prosciutto_with_melon.jpg/500px-Prosciutto_with_melon.jpg',
   'Polvo': 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Octopus_salad_%284497641966%29.jpg/500px-Octopus_salad_%284497641966%29.jpg',
   'Queijo_Azeitão': 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Queijo_de_Azeit%C3%A3o.jpg/500px-Queijo_de_Azeit%C3%A3o.jpg',
+  'Tortilha_de_batata': 'https://images.unsplash.com/photo-1584776296944-ab6fb57b0bdd?auto=format&fit=crop&w=600&q=80',
+  'Salada_russa': 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=600&q=80',
 
   // Sobremesas
   'Pastel_de_nata': 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Pastel_de_nata_%2818616473070%29.jpg/500px-Pastel_de_nata_%2818616473070%29.jpg',
@@ -54,6 +80,9 @@ export const RECIPE_IMAGES = {
   'Rabanadas': 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Rabanadas%2C_Christmas_cakes_%282135990222%29.jpg/500px-Rabanadas%2C_Christmas_cakes_%282135990222%29.jpg',
   'Ovos_moles_de_Aveiro': 'https://upload.wikimedia.org/wikipedia/commons/d/d1/Ovos_moles.jpg',
   'Pão_de_ló': 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/P%C3%A3o-de-l%C3%B3.jpg/500px-P%C3%A3o-de-l%C3%B3.jpg',
+  'Mousse_de_chocolate': 'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=600&q=80',
+  'Salame_de_chocolate': 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80',
+  'Panquecas': 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=600&q=80',
 
   // Sopas
   'Caldo_verde': 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Caldo_verde_-_Jul_2008.jpg/500px-Caldo_verde_-_Jul_2008.jpg',
@@ -67,9 +96,9 @@ export const RECIPE_IMAGES = {
   // Street food
   'Francesinha': 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/A_Francesinha_%285401346513%29.jpg/500px-A_Francesinha_%285401346513%29.jpg',
   'Bifana': 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Bifana_on_a_plate.jpg/500px-Bifana_on_a_plate.jpg',
-  'Prego_no_pão': 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Prego_%2850644636392%29.jpg/500px-Prego_%2850644636392%29.jpg',
-  'Alheira': 'https://images.unsplash.com/photo-1529042410759-befb1204b468?auto=format&fit=crop&w=600&q=80',
+  'Prego_no_pão': pregoImg,
+  'Alheira': alheiraImg,
   'Rissol': 'https://images.unsplash.com/photo-1608039829572-78524f79c4c7?auto=format&fit=crop&w=600&q=80',
-  'Pão_de_chouriço': 'https://images.unsplash.com/photo-1586444248902-2f64eddc13df?auto=format&fit=crop&w=600&q=80',
+  'Pão_de_chouriço': paoDeChouricoImg,
   'Tosta_mista': 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=600&q=80'
 };

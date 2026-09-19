@@ -8,6 +8,7 @@ import { RECIPE_IMAGES } from '@/data/portugueseRecipeImages';
 
 const CATEGORY_STYLES = {
   'entradas': 'from-amber-400 to-orange-500',
+  'massas': 'from-amber-500 to-yellow-500',
   'carne': 'from-rose-400 to-red-500',
   'peixe': 'from-sky-400 to-blue-500',
   'sobremesas': 'from-pink-400 to-fuchsia-500',

@@ -980,15 +980,436 @@ export const RECIPES = [
       'Prensar ligeiramente e tostar 3 a 4 minutos de cada lado, até o pão dourar e o queijo derreter.',
       'Corta ao meio e serve quente.'
     ]
+  },
+  // ---------- MASSAS & RÁPIDOS ----------
+  {
+    name: 'Esparguete à Bolonhesa', wiki: 'Esparguete_à_bolonhesa', category: 'massas',
+    description: 'Esparguete al dente com molho de carne picada estufada, tomate e parmesão.',
+    difficulty: 'Fácil', prep_time: '25 min',
+    ingredients: [
+      { name: 'Esparguete', quantity: '350 g' },
+      { name: 'Carne picada (vaca/porco)', quantity: '400 g' },
+      { name: 'Cebola e alho', quantity: '1 cebola + 2 dentes' },
+      { name: 'Polpa de tomate ou tomate pelado', quantity: '300 g' },
+      { name: 'Vinho branco ou tinto', quantity: '50 ml' },
+      { name: 'Azeite, orégãos, sal e pimenta', quantity: 'q.b.' },
+      { name: 'Queijo parmesão ralado', quantity: 'q.b.' }
+    ],
+    steps: [
+      'Pica a cebola e o alho finamente. Num tacho com azeite, refoga até a cebola ficar translúcida.',
+      'Junta a carne picada, tempera com sal, pimenta e orégãos, e vai mexendo com uma colher de pau para soltar a carne até mudar de cor.',
+      'Rega com o vinho e deixa evaporar o álcool durante 2 minutos.',
+      'Adiciona a polpa de tomate e um pouco de água. Tapa o tacho e deixa apurar em lume brando durante 15 a 20 minutos, mexendo ocasionalmente.',
+      'Entretanto, coze o esparguete em água abundante a ferver com sal até ficar al dente. Escorre.',
+      'Serve o esparguete com o molho bolonhesa generoso por cima e polvilha com queijo parmesão e orégãos frescos.'
+    ]
+  },
+  {
+    name: 'Massa com Atum e Natas', wiki: 'Massa_com_atum', category: 'massas',
+    description: 'Um clássico rápido e delicioso: massa penne com atum, milho, natas e ervas.',
+    difficulty: 'Fácil', prep_time: '15 min',
+    ingredients: [
+      { name: 'Massa (penne, espirais ou macarrão)', quantity: '350 g' },
+      { name: 'Atum em lata (azeite ou água)', quantity: '3 latas' },
+      { name: 'Pacote de natas de culinária', quantity: '200 ml' },
+      { name: 'Cebola pequena picada', quantity: '1' },
+      { name: 'Alho laminado', quantity: '1 dente' },
+      { name: 'Milho doce ou ervilhas', quantity: '100 g (opcional)' },
+      { name: 'Azeite, orégãos, sal e pimenta', quantity: 'q.b.' }
+    ],
+    steps: [
+      'Coze a massa em água a ferver temperada com sal conforme o tempo da embalagem. Escorre e reserva.',
+      'Num tacho largo, aquece um fio de azeite e refoga a cebola picada e o alho até amolecerem.',
+      'Escorre o atum, desfaz-o com um garfo e junta ao tacho com o milho doce. Envolve durante 2 minutos.',
+      'Verte as natas, tempera com sal, pimenta e uma pitada de orégãos ou noz-moscada. Deixa levantar fervura em lume brando.',
+      'Junta a massa cozida ao molho, envolve bem para que absorva os sabores e deixa cremoso por 1 minuto. Serve quente.'
+    ]
+  },
+  {
+    name: 'Esparguete à Carbonara', wiki: 'Esparguete_à_carbonara', category: 'massas',
+    description: 'Massa cremosa com pedacinhos estaladiços de bacon, gemas de ovo, pimenta preta e queijo.',
+    difficulty: 'Fácil', prep_time: '20 min',
+    ingredients: [
+      { name: 'Esparguete', quantity: '350 g' },
+      { name: 'Bacon em cubos ou tiras', quantity: '150 g' },
+      { name: 'Gemas de ovo + 1 ovo inteiro', quantity: '3 gemas + 1 ovo' },
+      { name: 'Queijo parmesão ou pecorino ralado', quantity: '60 g' },
+      { name: 'Pimenta preta moída na hora e sal', quantity: 'q.b.' }
+    ],
+    steps: [
+      'Leva ao lume uma panela com água abundante e sal. Quando ferver, coze o esparguete até ficar al dente.',
+      'Numa frigideira sem gordura, frita o bacon em lume médio até ficar dourado e crocante. Reserva a gordura da frigideira.',
+      'Numa taça, bate as gemas e o ovo inteiro com o queijo ralado e bastante pimenta preta moída, até formar uma pasta homogénea.',
+      'Escorre o esparguete guardando meia chávena da água da cozedura. Junta o esparguete quente à frigideira do bacon (com o lume apagado!).',
+      'Verte a mistura de ovos e queijo sobre a massa quente, mexendo vigorosamente fora do lume. O calor residual da massa cozinha os ovos tornando-os num molho aveludado e cremoso (junta umas colheres da água guardada se precisares de mais cremosidade).',
+      'Serve de imediato com mais queijo e pimenta moída.'
+    ]
+  },
+  {
+    name: 'Lasanha de Carne à Bolonhesa', wiki: 'Lasanha_de_carne', category: 'massas',
+    description: 'Camadas de massa, molho de carne picada rico, bechamel e queijo derretido no forno.',
+    difficulty: 'Média', prep_time: '50 min',
+    ingredients: [
+      { name: 'Placas de lasanha', quantity: '12 placas' },
+      { name: 'Carne picada mista', quantity: '500 g' },
+      { name: 'Polpa de tomate e cebola', quantity: '400 g + 1 cebola' },
+      { name: 'Molho bechamel', quantity: '500 ml' },
+      { name: 'Queijo mozzarella ralado', quantity: '200 g' },
+      { name: 'Azeite, alho, orégãos, sal e noz-moscada', quantity: 'q.b.' }
+    ],
+    steps: [
+      'Faz um refogado com cebola, alho e azeite. Junta a carne picada, tempera e salteia até ganhar cor.',
+      'Adiciona a polpa de tomate e orégãos. Deixa apurar em lume brando durante 15 minutos até obter um molho espesso.',
+      'Num tabuleiro de ir ao forno, coloca uma camada fina de bechamel no fundo. Cobre com placas de lasanha.',
+      'Espalha uma camada de carne à bolonhesa, depois um pouco de bechamel e queijo ralado. Repete as camadas alternadas.',
+      'Termina com placas de lasanha, cobre generosamente com o restante bechamel e polvilha com bastante queijo mozzarella.',
+      'Leva ao forno pré-aquecido a 190 °C durante 30 minutos, até a superfície ficar dourada e a borbulhar. Deixa repousar 5 minutos antes de cortar.'
+    ]
+  },
+  {
+    name: 'Risotto de Cogumelos', wiki: 'Risotto_de_cogumelos', category: 'massas',
+    description: 'Arroz arbóreo aveludado com cogumelos salteados, vinho branco, manteiga e parmesão.',
+    difficulty: 'Média', prep_time: '30 min',
+    ingredients: [
+      { name: 'Arroz para risotto (Arbóreo ou Carnaroli)', quantity: '300 g' },
+      { name: 'Cogumelos frescos laminados', quantity: '300 g' },
+      { name: 'Caldo de legumes ou galinha quente', quantity: '1 litro' },
+      { name: 'Cebola e alho picados', quantity: '1 pequena + 1 dente' },
+      { name: 'Vinho branco seco', quantity: '80 ml' },
+      { name: 'Manteiga e queijo parmesão ralado', quantity: '40 g + 50 g' },
+      { name: 'Azeite, sal e salsa picada', quantity: 'q.b.' }
+    ],
+    steps: [
+      'Numa frigideira com um fio de azeite, salteia os cogumelos em lume vivo até dourarem. Reserva.',
+      'Num tacho, refoga a cebola e o alho em azeite até ficarem translúcidos. Junta o arroz e mexe 2 minutos até os grãos ficarem nacarados.',
+      'Rega com o vinho branco e mexe até evaporar completamente.',
+      'Vai adicionando o caldo quente, concha a concha, mexendo quase continuamente e deixando absorver antes de juntar a concha seguinte (cerca de 18 minutos).',
+      'Quando o arroz estiver cozido mas al dente, retira do lume. Junta os cogumelos salteados, a manteiga e o queijo parmesão.',
+      'Mexe vigorosamente para emulsionar e criar o efeito aveludado (mantecatura). Tapa 2 minutos e serve de imediato polvilhado com salsa.'
+    ]
+  },
+  // ---------- MAIS PRATOS DE CARNE POPULARES ----------
+  {
+    name: 'Frango Assado no Forno com Batatas', wiki: 'Frango_assado_com_batatas', category: 'carne',
+    description: 'Frango suculento e dourado no forno com batatas assadas, limão, alho e louro.',
+    difficulty: 'Fácil', prep_time: '60 min',
+    ingredients: [
+      { name: 'Frango partido aos pedaços (ou inteiro aberto)', quantity: '1 (≈1,2 kg)' },
+      { name: 'Batatas médias cortadas em gomos', quantity: '6' },
+      { name: 'Alhos esmagados e louro', quantity: '4 dentes + 2 folhas' },
+      { name: 'Limão (sumo e rodelas)', quantity: '1' },
+      { name: 'Vinho branco e azeite', quantity: '100 ml + 50 ml' },
+      { name: 'Colorau / pimentão-doce, sal e pimenta', quantity: 'q.b.' }
+    ],
+    steps: [
+      'Numa tigela, faz uma pasta com o alho picado, colorau, sal, pimenta, azeite e sumo de meio limão. Esfrega bem os pedaços de frango.',
+      'Dispõe o frango no centro de um tabuleiro de forno e coloca os gomos de batata em volta.',
+      'Tempera as batatas com sal, um fio de azeite e as folhas de louro. Rega o fundo do tabuleiro com o vinho branco e espalha rodelas de limão.',
+      'Leva ao forno pré-aquecido a 200 °C durante cerca de 50 a 60 minutos, regando a meio com o molho do tabuleiro para ficar bem suculento.',
+      'Quando a pele do frango estiver tostada e estaladiça e as batatas tenras, retira e serve com salada verde.'
+    ]
+  },
+  {
+    name: 'Panados de Frango com Arroz de Tomate', wiki: 'Panados_de_frango', category: 'carne',
+    description: 'Bifes de frango finos e crocantes panados, acompanhados por arroz de tomate bem malandrinho.',
+    difficulty: 'Fácil', prep_time: '30 min',
+    ingredients: [
+      { name: 'Bifes de frango finos', quantity: '4' },
+      { name: 'Ovo batido e pão ralado', quantity: '2 ovos + 150 g pão' },
+      { name: 'Arroz carolino', quantity: '200 g' },
+      { name: 'Tomate maduro picado ou polpa', quantity: '200 g' },
+      { name: 'Cebola e alho picados', quantity: '1 cebola + 1 dente' },
+      { name: 'Limão, azeite, óleo para fritar, sal e pimenta', quantity: 'q.b.' }
+    ],
+    steps: [
+      'Tempera os bifes de frango com sal, pimenta, alho e sumo de limão durante 10 minutos.',
+      'Para o arroz de tomate: faz um refogado com azeite, cebola e alho. Junta o tomate pelado picado e deixa cozinhar 5 minutos. Adiciona o arroz, mexe e verte o triplo da água a ferver (600 ml). Coze em lume brando 12 a 15 minutos até ficar caldoso.',
+      'Passa cada bife de frango por farinha (opcional), pelo ovo batido e depois pelo pão ralado, pressionando bem.',
+      'Frita os panados em óleo quente até ficarem bem dourados de ambos os lados (2 a 3 minutos por lado). Escorre em papel absorvente.',
+      'Serve os panados crocantes com fatias de limão e o arroz de tomate fumegante.'
+    ]
+  },
+  {
+    name: 'Strogonoff de Frango com Cogumelos', wiki: 'Strogonoff_de_frango', category: 'carne',
+    description: 'Tiras de frango macias com cogumelos frescos, mostarda e molho cremoso com batata palha.',
+    difficulty: 'Fácil', prep_time: '25 min',
+    ingredients: [
+      { name: 'Peito de frango cortado em tiras', quantity: '500 g' },
+      { name: 'Cogumelos laminados', quantity: '200 g' },
+      { name: 'Natas de culinária', quantity: '200 ml' },
+      { name: 'Mostarda de Dijon ou clássica', quantity: '1 colher de sopa' },
+      { name: 'Polpa de tomate ou ketchup', quantity: '2 colheres de sopa' },
+      { name: 'Cebola picada e alho', quantity: '1 pequena + 1 dente' },
+      { name: 'Manteiga e azeite, sal e pimenta', quantity: 'q.b.' }
+    ],
+    steps: [
+      'Tempera as tiras de frango com sal e pimenta.',
+      'Numa frigideira larga com um pouco de azeite e manteiga em lume alto, sela o frango rapidamente até dourar por fora. Retira e reserva.',
+      'Na mesma frigideira, baixa o lume, junta mais um pouco de manteiga e refoga a cebola picada e o alho. Adiciona os cogumelos e cozinha até libertarem a água.',
+      'Junta a mostarda e a polpa de tomate, mexendo bem. Devolve o frango e os seus sucos à frigideira.',
+      'Adiciona as natas, mexe e deixa apurar em lume brando durante 3 a 4 minutos até o molho engrossar.',
+      'Retifica o sal e a pimenta. Serve de imediato com arroz branco solto e batata palha estaladiça.'
+    ]
+  },
+  {
+    name: 'Caril de Frango com Arroz Basmati', wiki: 'Caril_de_frango', category: 'carne',
+    description: 'Frango tenro em molho exótico e aromático de caril com leite de coco e maçã ou pimento.',
+    difficulty: 'Fácil', prep_time: '30 min',
+    ingredients: [
+      { name: 'Peito ou coxas de frango em cubos', quantity: '500 g' },
+      { name: 'Leite de coco', quantity: '400 ml' },
+      { name: 'Pó de caril de boa qualidade', quantity: '1 colher de sopa bem cheia' },
+      { name: 'Cebola, alho e gengibre ralado', quantity: '1 cebola + 2 dentes + 1 colher chá' },
+      { name: 'Maçã em cubinhos ou pimento', quantity: '1 unidade' },
+      { name: 'Arroz basmati', quantity: '250 g' },
+      { name: 'Azeite, coentros frescos, sal e pimenta', quantity: 'q.b.' }
+    ],
+    steps: [
+      'Num tacho largo com azeite, refoga a cebola, o alho e o gengibre ralado até dourarem ligeiramente.',
+      'Junta o pó de caril e mexe em lume brando durante 1 minuto para libertar os óleos aromáticos das especiarias.',
+      'Adiciona os cubos de frango e a maçã, envolvendo bem no refogado para ganharem a cor do caril.',
+      'Verte o leite de coco, tempera com sal e deixa cozinhar em lume brando tapado durante 15 a 20 minutos, até o frango ficar macio e o molho espesso.',
+      'Entretanto, coze o arroz basmati lavado em duas medidas de água com sal durante 10 minutos com o tacho tapado.',
+      'Serve o caril bem quente com o arroz basmati e polvilha com coentros frescos picados.'
+    ]
+  },
+  {
+    name: 'Bife com Molho de Cogumelos', wiki: 'Bife_com_cogumelos', category: 'carne',
+    description: 'Bife tenro grelhado na perfeição com um molho cremoso de cogumelos frescos, alho e natas.',
+    difficulty: 'Fácil', prep_time: '20 min',
+    ingredients: [
+      { name: 'Bifes de vaca (vazia, alcatra ou lombo)', quantity: '2 grandes' },
+      { name: 'Cogumelos frescos laminados', quantity: '200 g' },
+      { name: 'Natas de culinária', quantity: '150 ml' },
+      { name: 'Alho picado e manteiga', quantity: '2 dentes + 2 colheres sopa' },
+      { name: 'Vinho branco ou conhaque', quantity: '30 ml' },
+      { name: 'Azeite, sal grosso e pimenta preta', quantity: 'q.b.' }
+    ],
+    steps: [
+      'Seca bem os bifes com papel absorvente e tempera com sal grosso e pimenta moída na hora.',
+      'Numa frigideira bem quente com um fio de azeite e uma noz de manteiga, frita os bifes 2 a 3 minutos de cada lado (conforme o ponto desejado). Retira para um prato e deixa repousar cobertos com folha de alumínio.',
+      'Na mesma frigideira, junta o alho picado e os cogumelos. Salteia em lume médio durante 3 minutos até dourarem.',
+      'Rega com o vinho branco para soltar os sucos caramelizados do fundo da frigideira.',
+      'Adiciona as natas e os sucos libertados pela carne que repousou. Cozinha em lume brando até o molho engrossar.',
+      'Cobre os bifes com o molho de cogumelos cremoso e serve acompanhado de batatas fritas ou legumes.'
+    ]
+  },
+  {
+    name: 'Hambúrguer no Prato com Ovo a Cavalo', wiki: 'Hambúrguer_no_prato', category: 'carne',
+    description: 'Hambúrguer de vaca caseiro com molho de cerveja ou mostarda, ovo estrelado a cavalo e batatas.',
+    difficulty: 'Fácil', prep_time: '20 min',
+    ingredients: [
+      { name: 'Hambúrgueres de carne de vaca fresca', quantity: '2 (150 g cada)' },
+      { name: 'Ovos', quantity: '2' },
+      { name: 'Alho laminado e folha de louro', quantity: '2 dentes + 1 folha' },
+      { name: 'Cerveja ou vinho branco', quantity: '50 ml' },
+      { name: 'Mostarda e manteiga', quantity: '1 colher chá + 1 colher sopa' },
+      { name: 'Azeite, sal e pimenta', quantity: 'q.b.' }
+    ],
+    steps: [
+      'Tempera os hambúrgueres com sal e pimenta.',
+      'Numa frigideira com um fio de azeite e manteiga, frita os hambúrgueres 3 a 4 minutos de cada lado até ao ponto desejado. Retira para os pratos de servir.',
+      'Na mesma frigideira, junta o alho e o louro. Verte a cerveja e a mostarda, mexendo para dissolver os sucos da carne até criar um molho aromático e brilhante.',
+      'Estrela os ovos noutra frigideira com gema mal passada.',
+      'Coloca um ovo estrelado sobre cada hambúrguer (a cavalo) e rega tudo com o molho da frigideira. Serve com batatas fritas e arroz branco.'
+    ]
+  },
+  {
+    name: 'Empadão de Carne Picada', wiki: 'Empadão_de_carne', category: 'carne',
+    description: 'Carne picada bem estufada e aconchegante entre camadas de puré de batata dourado no forno.',
+    difficulty: 'Média', prep_time: '45 min',
+    ingredients: [
+      { name: 'Carne picada mista', quantity: '500 g' },
+      { name: 'Batatas para puré', quantity: '1 kg' },
+      { name: 'Leite e manteiga (para o puré)', quantity: '150 ml + 40 g' },
+      { name: 'Cebola, alho e polpa de tomate', quantity: '1 cebola + 2 dentes + 3 colheres sopa' },
+      { name: 'Gema de ovo batida (para pincelar)', quantity: '1' },
+      { name: 'Azeite, noz-moscada, sal e pimenta', quantity: 'q.b.' }
+    ],
+    steps: [
+      'Descasca e coze as batatas em água com sal. Escorre e desfaz em puré com o passe-vite. Junta o leite morno, a manteiga e uma pitada de noz-moscada, mexendo bem até ficar aveludado.',
+      'Faz um refogado com azeite, cebola e alho picados. Junta a carne picada e tempera com sal e pimenta. Adiciona a polpa de tomate e deixa cozinhar 15 minutos até a carne ficar tenra e sem excesso de líquido.',
+      'Num tabuleiro de forno untado, espalha metade do puré de batata.',
+      'Coloca toda a carne picada estufada por cima, nivelando bem.',
+      'Cobre com o restante puré de batata. Podes fazer desenhos com os dentes de um garfo na superfície.',
+      'Pincela com a gema de ovo batida e leva ao forno pré-aquecido a 200 °C durante 20 minutos, até dourar e criar uma crosta bonita. Serve quente.'
+    ]
+  },
+  {
+    name: 'Febras Grelhadas com Limão e Alho', wiki: 'Febras_grelhadas', category: 'carne',
+    description: 'Febras de porco suculentas marinadas em vinho, louro e alho, grelhadas na brasa ou frigideira.',
+    difficulty: 'Fácil', prep_time: '15 min',
+    ingredients: [
+      { name: 'Febras de porco tenras', quantity: '4 a 6' },
+      { name: 'Dentes de alho esmagados', quantity: '3' },
+      { name: 'Vinho branco', quantity: '50 ml' },
+      { name: 'Folha de louro e limão', quantity: '1 folha + 1 limão' },
+      { name: 'Azeite, sal grosso e pimenta', quantity: 'q.b.' }
+    ],
+    steps: [
+      'Num prato fundo, tempera as febras com os alhos picados, louro partido, sal grosso, pimenta e vinho branco durante pelo menos 15 minutos.',
+      'Aquece bem uma grelha ou frigideira canelada com umas gotas de azeite.',
+      'Coloca as febras na grelha bem quente e deixa selar 2 a 3 minutos de cada lado, regando com a marinada, para ficarem douradas mas suculentas (sem deixar secar).',
+      'Retira de imediato, rega com sumo de limão fresco e serve com batatas fritas e salada mista.'
+    ]
+  },
+  // ---------- MAIS PEIXES POPULARES ----------
+  {
+    name: 'Salmão Grelhado com Legumes', wiki: 'Salmão_grelhado', category: 'peixe',
+    description: 'Posta de salmão com pele crocante e interior macio, servida com batatas e legumes salteados.',
+    difficulty: 'Fácil', prep_time: '20 min',
+    ingredients: [
+      { name: 'Postas ou lombos de salmão fresco', quantity: '2' },
+      { name: 'Limão e dente de alho', quantity: '1 limão + 1 alho' },
+      { name: 'Brócolos ou feijão-verde cozido', quantity: '200 g' },
+      { name: 'Batatas pequenas cozidas', quantity: '4' },
+      { name: 'Azeite virgem extra, sal grosso e ervas', quantity: 'q.b.' }
+    ],
+    steps: [
+      'Seca o salmão com papel absorvente. Tempera com sal grosso, pimenta e umas gotas de sumo de limão.',
+      'Aquece uma frigideira antiaderente ou grelha com apenas umas gotas de azeite.',
+      'Coloca o salmão com o lado da pele para baixo e deixa grelhar em lume médio cerca de 4 a 5 minutos, até a pele ficar bem crocante.',
+      'Vira com cuidado e grelha mais 2 a 3 minutos do outro lado, para que o interior fique rosado e tenro.',
+      'Na mesma frigideira ou ao lado, salteia os brócolos e as batatinhas num fio de azeite com alho laminado.',
+      'Serve o salmão com os legumes, uma fatia de limão e um fio de azeite virgem extra.'
+    ]
+  },
+  {
+    name: 'Dourada Assada no Forno', wiki: 'Dourada_assada', category: 'peixe',
+    description: 'Dourada inteira assada no forno com batatas a murro, cebola, pimentos, alho e azeite.',
+    difficulty: 'Fácil', prep_time: '45 min',
+    ingredients: [
+      { name: 'Dourada fresca amanhada (escamada e limpa)', quantity: '1 grande (≈800 g) ou 2 médias' },
+      { name: 'Batatas pequenas com pele', quantity: '8' },
+      { name: 'Cebola e pimento cortados em tiras', quantity: '1 cebola + 1/2 pimento' },
+      { name: 'Alhos laminados e louro', quantity: '3 dentes + 1 folha' },
+      { name: 'Vinho branco e azeite generoso', quantity: '60 ml + 80 ml' },
+      { name: 'Sal grosso, salsa e rodelas de limão', quantity: 'q.b.' }
+    ],
+    steps: [
+      'Dá dois golpes transversais no lombo da dourada e introduz meias rodelas de limão. Tempera com sal grosso por dentro e por fora.',
+      'Coze as batatas com pele em água com sal durante 10 minutos. Escorre e dá-lhes um leve "murro" para abrirem.',
+      'Num tabuleiro de forno, faz uma cama com as rodelas de cebola, o pimento em tiras, os alhos e o louro.',
+      'Coloca a dourada no centro e as batatas à volta. Rega tudo generosamente com azeite e o vinho branco.',
+      'Leva ao forno pré-aquecido a 200 °C durante 25 a 30 minutos, regando a meio com o molho do tabuleiro.',
+      'Serve de imediato com salsa fresca picada.'
+    ]
+  },
+  // ---------- MAIS ENTRADAS & VEGETARIANOS ----------
+  {
+    name: 'Tortilha de Batata e Cebola', wiki: 'Tortilha_de_batata', category: 'entradas',
+    description: 'Tortilha alta, dourada e macia feita com batatas cozinhadas lentamente em azeite e ovos batidos.',
+    difficulty: 'Fácil', prep_time: '25 min',
+    ingredients: [
+      { name: 'Ovos grandes', quantity: '5' },
+      { name: 'Batatas médias fatiadas finas', quantity: '4' },
+      { name: 'Cebola cortada em meias-luas finas', quantity: '1 grande' },
+      { name: 'Azeite virgem extra e sal', quantity: '100 ml azeite + sal q.b.' }
+    ],
+    steps: [
+      'Numa frigideira funda antiaderente, aquece o azeite e cozinha as batatas e a cebola em lume brando com uma pitada de sal, sem fritar em demasia, até ficarem bem macias (cerca de 15 minutos). Escorre o excesso de azeite.',
+      'Numa tigela grande, bate os ovos com uma pitada de sal. Junta as batatas e a cebola quentes aos ovos e deixa repousar 2 minutos para absorverem o ovo.',
+      'Leva a mesma frigideira com uma colher de azeite ao lume médio. Verte a mistura de ovos e batatas e alisa a superfície.',
+      'Cozinha durante 3 a 4 minutos até as bordas firmarem e o fundo dourar.',
+      'Com a ajuda de um prato raso grande, vira a tortilha com um movimento rápido e desliza-a de volta para a frigideira para cozinhar o outro lado mais 2 a 3 minutos (mantendo o centro húmido).',
+      'Transfere para um prato e serve morna ou fria em fatias ou quadrados.'
+    ]
+  },
+  {
+    name: 'Salada Russa com Atum e Ovos', wiki: 'Salada_russa', category: 'entradas',
+    description: 'Salada fresca de cubos de batata, cenoura e ervilhas com atum, ovos cozidos e maionese.',
+    difficulty: 'Fácil', prep_time: '25 min',
+    ingredients: [
+      { name: 'Batatas médias em cubos', quantity: '3' },
+      { name: 'Cenouras em cubos', quantity: '2' },
+      { name: 'Ervilhas', quantity: '100 g' },
+      { name: 'Atum em lata escorrido', quantity: '2 latas' },
+      { name: 'Ovos cozidos', quantity: '2' },
+      { name: 'Maionese de boa qualidade', quantity: '4 a 5 colheres sopa' },
+      { name: 'Azeitonas, salsa picada e sal', quantity: 'q.b.' }
+    ],
+    steps: [
+      'Coze os cubos de batata, cenoura e as ervilhas em água temperada com sal até ficarem macios mas firmes (cerca de 10 a 12 minutos). Escorre e deixa arrefecer.',
+      'Coze os ovos durante 10 minutos, passa por água fria, descasca e pica um deles em pedaços.',
+      'Numa saladeira, junta os legumes cozidos arrefecidos, o atum desfiado e o ovo picado.',
+      'Adiciona a maionese e envolve delicadamente até todos os ingredientes estarem bem integrados.',
+      'Decora com o segundo ovo cortado em rodelas, azeitonas e salsa picada. Leva ao frigorífico 30 minutos antes de servir bem fresca.'
+    ]
+  },
+  // ---------- MAIS SOBREMESAS POPULARES ----------
+  {
+    name: 'Mousse de Chocolate Caseira', wiki: 'Mousse_de_chocolate', category: 'sobremesas',
+    description: 'Mousse de chocolate preto tradicional, intensa, aveludada e aerada com claras em castelo.',
+    difficulty: 'Fácil', prep_time: '20 min',
+    ingredients: [
+      { name: 'Chocolate preto (mínimo 70% cacau)', quantity: '200 g' },
+      { name: 'Ovos (gemas e claras separadas)', quantity: '6' },
+      { name: 'Manteiga', quantity: '50 g' },
+      { name: 'Açúcar', quantity: '4 colheres de sopa' },
+      { name: 'Pitada de sal', quantity: '1 pitada' }
+    ],
+    steps: [
+      'Parte o chocolate em pedaços e derrete em banho-maria ou no micro-ondas juntamente com a manteiga, mexendo até ficar liso e brilhante. Deixa amornar.',
+      'Bate as gemas com o açúcar até obteres um creme esbranquiçado e volumoso.',
+      'Junta o chocolate derretido morno ao creme de gemas e envolve bem.',
+      'Noutra tigela limpa, bate as claras em castelo bem firme com uma pitada de sal.',
+      'Envolve as claras em castelo na mistura de chocolate, em 3 vezes, com movimentos suaves e envolventes de baixo para cima com uma espátula (para manter o ar).',
+      'Distribui por tacinhas ou coloca numa taça grande e leva ao frigorífico durante pelo menos 4 horas antes de servir.'
+    ]
+  },
+  {
+    name: 'Salame de Chocolate', wiki: 'Salame_de_chocolate', category: 'sobremesas',
+    description: 'O clássico salame com chocolate em pó, manteiga e pedaços crocantes de bolacha Maria.',
+    difficulty: 'Fácil', prep_time: '15 min',
+    ingredients: [
+      { name: 'Bolacha Maria partida aos pedaços', quantity: '200 g' },
+      { name: 'Chocolate em pó de culinária', quantity: '100 g' },
+      { name: 'Manteiga sem sal amolecida', quantity: '100 g' },
+      { name: 'Açúcar', quantity: '100 g' },
+      { name: 'Gema de ovo', quantity: '1' },
+      { name: 'Açúcar em pó (para decorar)', quantity: 'q.b.' }
+    ],
+    steps: [
+      'Parte as bolachas Maria com as mãos em pedaços pequenos e médios (sem transformar em pó).',
+      'Numa tigela, bate a manteiga amolecida com o açúcar e a gema de ovo até formar uma pasta homogénea.',
+      'Adiciona o chocolate em pó e mexe até estar completamente integrado.',
+      'Junta os pedaços de bolacha e envolve com as mãos ou uma colher até toda a bolacha estar coberta com o preparado de chocolate.',
+      'Coloca o preparado sobre uma folha de papel vegetal ou película aderente e molda com as mãos em forma de rolo de salame bem apertado.',
+      'Fecha as pontas como se fosse um rebuçado e leva ao frigorífico durante pelo menos 3 horas até endurecer.',
+      'Antes de servir, passa por açúcar em pó e corta em fatias com uma faca afiada.'
+    ]
+  },
+  {
+    name: 'Panquecas Fofas Caseiras', wiki: 'Panquecas', category: 'sobremesas',
+    description: 'Panquecas americanas altas, macias e douradas perfeitas para lanches ou sobremesa.',
+    difficulty: 'Fácil', prep_time: '15 min',
+    ingredients: [
+      { name: 'Farinha de trigo', quantity: '200 g' },
+      { name: 'Leite', quantity: '250 ml' },
+      { name: 'Ovo', quantity: '1 grande' },
+      { name: 'Manteiga derretida', quantity: '30 g' },
+      { name: 'Açúcar', quantity: '2 colheres de sopa' },
+      { name: 'Fermento em pó', quantity: '1 colher de sopa' },
+      { name: 'Pitada de sal e mel ou frutos vermelhos', quantity: 'q.b.' }
+    ],
+    steps: [
+      'Numa tigela, mistura os ingredientes secos: farinha, açúcar, fermento e uma pitada de sal.',
+      'Noutra tigela, bate o ovo com o leite e a manteiga derretida.',
+      'Junta os líquidos aos secos e mistura com uma vara de arames apenas até homogeneizar (não batas em excesso para ficarem bem fofas).',
+      'Aquece uma frigideira antiaderente em lume brando-médio e unta levemente com manteiga.',
+      'Deita uma concha pequena de massa. Quando começarem a surgir bolhas na superfície (cerca de 2 minutos), vira com uma espátula e cozinha mais 1 a 2 minutos do outro lado até dourar.',
+      'Empilha as panquecas e serve quentes com mel, compota, fruta fresca ou chocolate.'
+    ]
   }
 ];
 
 export const CATEGORIES = [
   { id: 'todas', label: 'Todas' },
-  { id: 'entradas', label: 'Entradas' },
+  { id: 'massas', label: 'Massas' },
   { id: 'carne', label: 'Carne' },
   { id: 'peixe', label: 'Peixe' },
-  { id: 'sobremesas', label: 'Sobremesas' },
   { id: 'sopas', label: 'Sopas' },
-  { id: 'street food', label: 'Street Food' }
+  { id: 'entradas', label: 'Entradas' },
+  { id: 'street food', label: 'Street Food' },
+  { id: 'sobremesas', label: 'Sobremesas' }
 ];
