@@ -1,0 +1,70 @@
+// Real dish images from Wikimedia Commons/Wikipedia, pre-resolved so no runtime fetch is needed.
+// Keyed by the recipe `wiki` title. Recipes without a corresponding image fall back
+// to the gradient + icon in the UI.
+
+export const RECIPE_IMAGES = {
+  // Peixe
+  'Bacalhau_à_Brás': 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Bacalhau_a_Bras.jpg/500px-Bacalhau_a_Bras.jpg',
+  'Polvo_à_lagareiro': 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Polvo_%C3%A0_Lagareiro.jpg/500px-Polvo_%C3%A0_Lagareiro.jpg',
+  'Bacalhau_à_Gomes_de_Sá': 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Bacalhau_%C3%A0_Gomes_de_S%C3%A1.jpg/500px-Bacalhau_%C3%A0_Gomes_de_S%C3%A1.jpg',
+  'Bacalhau_espiritual': 'https://media.base44.com/images/public/6a61e689978721b24dac5542/8bdebfd12_generated_image.png',
+  'Bacalhau_com_natas': 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Bacalhau_com_natas.jpg/500px-Bacalhau_com_natas.jpg',
+  'Arroz_de_marisco': 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Arroz_de_marisco_-_Tavira_2.jpg/500px-Arroz_de_marisco_-_Tavira_2.jpg',
+  'Cataplana_de_marisco': 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Cataplana1.jpg/500px-Cataplana1.jpg',
+  'Sardinha': 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Sardinhas_assadas.jpg/500px-Sardinhas_assadas.jpg',
+  'Carapau': 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/MaAji.jpg/500px-MaAji.jpg',
+  'Açorda_de_marisco': 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/A_orda_de_Marisco_%28cropped%29.jpg/500px-A_orda_de_Marisco_%28cropped%29.jpg',
+  'Caldeirada': 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Caldeirada.jpg/500px-Caldeirada.jpg',
+  'Bacalhau_à_Lagareiro': 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Bacalhau_assado_com_batatas_a_murro.jpg/500px-Bacalhau_assado_com_batatas_a_murro.jpg',
+  'Pescada': 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/ChicoRasta_PescadaAmarelaFrita_LuisCorreia_PI_%2840155776384%29.jpg/500px-ChicoRasta_PescadaAmarelaFrita_LuisCorreia_PI_%2840155776384%29.jpg',
+  // Carne
+  'Cozido_à_portuguesa': 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Cozido_a_portuguesa_1.JPG/500px-Cozido_a_portuguesa_1.JPG',
+  'Feijoada_à_transmontana': 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Feijoada_%C3%A0_transmontada.jpg/500px-Feijoada_%C3%A0_transmontada.jpg',
+  'Carne_de_porco_à_alentejana': 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Carne_de_porco_%C3%A0_Alentejana.jpg/500px-Carne_de_porco_%C3%A0_Alentejana.jpg',
+  'Cabidela': 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/PortoExterior_PatoDeCabidela.JPG/500px-PortoExterior_PatoDeCabidela.JPG',
+  'Rojões': 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Roj%C3%B5es_%C3%A0_moda_do_minho_com_arroz_de_sarrabulho.jpg/500px-Roj%C3%B5es_%C3%A0_moda_do_minho_com_arroz_de_sarrabulho.jpg',
+  'Chanfana': 'https://media.base44.com/images/public/6a61e689978721b24dac5542/c720ec0be_generated_image.png',
+  'Rancho': 'https://media.base44.com/images/public/6a61e689978721b24dac5542/2664ea3b0_generated_image.png',
+  'Tripas_à_moda_do_Porto': 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Tripas_%C3%A0_moda_do_Porto.JPG/500px-Tripas_%C3%A0_moda_do_Porto.JPG',
+  'Favas_à_portuguesa': 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Favas_%C3%A0_Portuguesa_.png/500px-Favas_%C3%A0_Portuguesa_.png',
+  'Arroz_de_pato': 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Arroz_de_Pato_%284948416093%29.jpg/500px-Arroz_de_Pato_%284948416093%29.jpg',
+  'Ensopado': 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Ensopado_de_borrego%2C_%C3%93bidos.jpg/500px-Ensopado_de_borrego%2C_%C3%93bidos.jpg',
+  // Entradas
+  'Ameijoas_à_Bulhão_Pato': 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/LittleNeck_clams_USDA96c1862.jpg/500px-LittleNeck_clams_USDA96c1862.jpg',
+  'Camarão': 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Woda-6_ubt.jpeg/500px-Woda-6_ubt.jpeg',
+  'Pataniscas': 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Pataniscas_de_Bacalhau.jpg/500px-Pataniscas_de_Bacalhau.jpg',
+  'Pastel_de_bacalhau': 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Bolinhos_de_bacalhau.jpg/500px-Bolinhos_de_bacalhau.jpg',
+  'Orelheira': 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Pig%27s_ear_%28food%29.jpg/500px-Pig%27s_ear_%28food%29.jpg',
+  'Melão_com_presunto': 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Prosciutto_with_melon.jpg/500px-Prosciutto_with_melon.jpg',
+  'Polvo': 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Octopus_salad_%284497641966%29.jpg/500px-Octopus_salad_%284497641966%29.jpg',
+  'Queijo_Azeitão': 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Queijo_de_Azeit%C3%A3o.jpg/500px-Queijo_de_Azeit%C3%A3o.jpg',
+  // Sobremesas
+  'Pastel_de_nata': 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Pastel_de_nata_%2818616473070%29.jpg/500px-Pastel_de_nata_%2818616473070%29.jpg',
+  'Toucinho_do_céu': 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Toucinhoceu.jpg/500px-Toucinhoceu.jpg',
+  'Arroz_doce': 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Arroz_doce%2C_Paran%C3%A1.jpg/500px-Arroz_doce%2C_Paran%C3%A1.jpg',
+  'Aletria': 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Aletria.jpg/500px-Aletria.jpg',
+  'Pudim_Abade_de_Priscos': 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Pudim_Abade_de_Priscos.png/500px-Pudim_Abade_de_Priscos.png',
+  'Bolo_de_bolacha': 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Bolo_de_bolacha.jpg/500px-Bolo_de_bolacha.jpg',
+  'Sericaia': 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Sericaia3.jpg/500px-Sericaia3.jpg',
+  'Farófias': 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Far%C3%B3fias_2020.jpg/500px-Far%C3%B3fias_2020.jpg',
+  'Filhós': 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Filh%C3%B3s.jpg/500px-Filh%C3%B3s.jpg',
+  'Rabanadas': 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Rabanadas%2C_Christmas_cakes_%282135990222%29.jpg/500px-Rabanadas%2C_Christmas_cakes_%282135990222%29.jpg',
+  'Ovos_moles_de_Aveiro': 'https://upload.wikimedia.org/wikipedia/commons/d/d1/Ovos_moles.jpg',
+  'Pão_de_ló': 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/P%C3%A3o-de-l%C3%B3.jpg/500px-P%C3%A3o-de-l%C3%B3.jpg',
+  // Sopas
+  'Caldo_verde': 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Caldo_verde_-_Jul_2008.jpg/500px-Caldo_verde_-_Jul_2008.jpg',
+  'Sopa_da_pedra': 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Sopa_da_pedra_em_Almeirim.JPG/500px-Sopa_da_pedra_em_Almeirim.JPG',
+  'Sopa_de_cação': 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Sopa_de_ca%C3%A7%C3%A3o.jpg/500px-Sopa_de_ca%C3%A7%C3%A3o.jpg',
+  'Canja_de_galinha': 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Canja_de_galinha.jpg/500px-Canja_de_galinha.jpg',
+  'Sopa_de_legumes': 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Vegetable_soup_8.jpg/500px-Vegetable_soup_8.jpg',
+  'Sopa_de_peixe': 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Fish_soup%2C_Ibiza.jpg/500px-Fish_soup%2C_Ibiza.jpg',
+  'Açorda': 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/A%C3%A7orda_%C3%A0_Alentejana.jpg/500px-A%C3%A7orda_%C3%A0_Alentejana.jpg',
+  // Street food
+  'Francesinha': 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/A_Francesinha_%285401346513%29.jpg/500px-A_Francesinha_%285401346513%29.jpg',
+  'Bifana': 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Bifana_on_a_plate.jpg/500px-Bifana_on_a_plate.jpg',
+  'Prego_no_pão': 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Prego_%2850644636392%29.jpg/500px-Prego_%2850644636392%29.jpg',
+  'Alheira': 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Alheira_Feira_2010.jpg/500px-Alheira_Feira_2010.jpg',
+  'Rissol': 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Risole1.JPG/500px-Risole1.JPG',
+  'Pão_de_chouriço': 'https://media.base44.com/images/public/6a61e689978721b24dac5542/1b111e4ff_generated_image.png',
+  'Tosta_mista': 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Grilled_ham_and_cheese_sandwich.jpg/500px-Grilled_ham_and_cheese_sandwich.jpg'
+};
