@@ -1400,6 +1400,336 @@ export const RECIPES = [
       'Deita uma concha pequena de massa. Quando começarem a surgir bolhas na superfície (cerca de 2 minutos), vira com uma espátula e cozinha mais 1 a 2 minutos do outro lado até dourar.',
       'Empilha as panquecas e serve quentes com mel, compota, fruta fresca ou chocolate.'
     ]
+  },
+  {
+    name: 'Baba de Camelo', wiki: 'Baba_de_camelo', category: 'sobremesas',
+    description: 'Sobremesa clássica e aveludada de leite condensado cozido, gemas e claras em castelo, com amêndoas torradas.',
+    difficulty: 'Fácil', prep_time: '15 min',
+    ingredients: [
+      { name: 'Leite condensado cozido', quantity: '1 lata (397 g)' },
+      { name: 'Ovos (gemas e claras separadas)', quantity: '5' },
+      { name: 'Amêndoa laminada torrada', quantity: '50 g' },
+      { name: 'Pitada de sal', quantity: '1 pitada' }
+    ],
+    steps: [
+      'Separa as gemas das claras.',
+      'Numa tigela grande, bate o leite condensado cozido com as gemas até obteres um creme uniforme, liso e brilhante.',
+      'Noutra taça limpa, bate as claras em castelo bem firme com uma pitada de sal.',
+      'Envolve as claras em castelo suavemente no preparado de leite condensado, em 3 vezes, com movimentos circulares de baixo para cima com uma espátula, sem bater, para manter a textura fofa e aerada.',
+      'Distribui por tacinhas de sobremesa individuais ou coloca numa taça grande de vidro.',
+      'Leva ao frigorífico durante pelo menos 3 horas para ganhar consistência.',
+      'Antes de servir, tosta a amêndoa laminada numa frigideira seca até dourar e espalha por cima da mousse.'
+    ]
+  },
+  {
+    name: 'Leite Creme Queimado', wiki: 'Leite-creme', category: 'sobremesas',
+    description: 'Creme aveludado e perfumado com casca de limão e canela, finalizado com uma crosta crocante de açúcar queimado.',
+    difficulty: 'Fácil', prep_time: '25 min',
+    ingredients: [
+      { name: 'Leite gordo ou meio-gordo', quantity: '1 litro' },
+      { name: 'Gemas de ovo', quantity: '6' },
+      { name: 'Açúcar', quantity: '150 g (+ extra para queimar)' },
+      { name: 'Amido de milho (maizena)', quantity: '50 g' },
+      { name: 'Casca de limão', quantity: '1 tira' },
+      { name: 'Pau de canela', quantity: '1' }
+    ],
+    steps: [
+      'Num tacho, aquece 800 ml de leite com a casca de limão e o pau de canela em lume brando até começar a ferver. Retira do lume e deixa em infusão durante 5 minutos.',
+      'Numa tigela, mistura as gemas com o açúcar até formar um creme claro.',
+      'Dissolve o amido de milho nos restantes 200 ml de leite frio e junta ao creme de gemas, mexendo bem com uma vara de arames.',
+      'Retira a casca de limão e o pau de canela do leite morno e verte o leite em fio sobre o preparado de gemas, mexendo sempre para não cozer os ovos.',
+      'Devolve toda a mistura ao tacho em lume brando, mexendo continuamente sem parar com a vara de arames até engrossar e atingir o ponto de estrada (cerca de 5 a 8 minutos).',
+      'Deita o creme numa travessa funda ou pratos de sobremesa individuais e deixa arrefecer completamente.',
+      'No momento de servir, polvilha generosamente a superfície com açúcar e queima com um maçarico de cozinha ou ferro de queimar até formar uma crosta dourada e crocante.'
+    ]
+  },
+  {
+    name: 'Natas do Céu', wiki: 'Natas_do_céu', category: 'sobremesas',
+    description: 'Sobremesa de colher em camadas de bolacha Maria triturada, creme fofo de natas e doce de ovos tradicional.',
+    difficulty: 'Média', prep_time: '30 min',
+    ingredients: [
+      { name: 'Natas para bater bem frias', quantity: '400 ml' },
+      { name: 'Bolacha Maria', quantity: '200 g' },
+      { name: 'Ovos (gemas e claras separadas)', quantity: '4' },
+      { name: 'Açúcar para as natas', quantity: '4 colheres de sopa' },
+      { name: 'Açúcar para o doce de ovos', quantity: '120 g' },
+      { name: 'Água', quantity: '80 ml' }
+    ],
+    steps: [
+      'Tritura a bolacha Maria num processador ou com as mãos num saco até obteres uma textura granulada tipo areia grossa. Reserva.',
+      'Bate as natas bem frias com as 4 colheres de sopa de açúcar até ficarem firmes.',
+      'Bate as claras em castelo bem firme e envolve-as delicadamente nas natas batidas com uma espátula, até obteres um creme volumoso e fofo.',
+      'Para o doce de ovos: num tachinho, leva ao lume a água com os 120 g de açúcar e deixa ferver cerca de 3 a 4 minutos até formar uma calda leve. Retira e deixa amornar.',
+      'Numa tigela, passa as 4 gemas por um passador de rede. Verte a calda morna em fio sobre as gemas, mexendo continuamente com a vara de arames. Leva a lume brando, mexendo sempre, até engrossar ligeiramente sem ferver. Retira e deixa arrefecer por completo.',
+      'Monta as tacinhas: coloca no fundo uma camada generosa de bolacha picada, cobre com o creme de natas e claras e finaliza vertendo o doce de ovos por cima.',
+      'Leva ao frigorífico durante pelo menos 4 horas antes de servir bem fresco.'
+    ]
+  },
+  {
+    name: 'Serradura', wiki: 'Serradura', category: 'sobremesas',
+    description: 'Sobremesa rápida e irresistível de Macau e Portugal, com camadas alternadas de natas aveludadas e bolacha Maria.',
+    difficulty: 'Fácil', prep_time: '15 min',
+    ingredients: [
+      { name: 'Natas frescas bem frias', quantity: '400 ml' },
+      { name: 'Leite condensado', quantity: '1 lata (397 g)' },
+      { name: 'Bolacha Maria', quantity: '200 g' },
+      { name: 'Essência de baunilha (opcional)', quantity: '1 colher de chá' }
+    ],
+    steps: [
+      'Coloca as bolachas Maria num processador e tritura até ficarem em pó fino, semelhante a serradura.',
+      'Numa taça grande, bate as natas bem frias com a batedeira elétrica até ficarem bem firmes em ponto de chantilly.',
+      'Junta o leite condensado (e a baunilha) em fio, envolvendo suavemente com uma espátula com movimentos circulares para as natas não perderem o volume.',
+      'Em taças individuais transparentes ou num pirex, coloca uma camada de creme de natas e cobre com uma camada de pó de bolacha.',
+      'Repete as camadas sucessivamente, terminando obrigatoriamente com uma camada uniforme de bolacha triturada por cima.',
+      'Leva ao frigorífico durante um mínimo de 3 a 4 horas para ficar bem consistente e fresca.'
+    ]
+  },
+  {
+    name: 'Mousse de Maracujá', wiki: 'Mousse_de_maracujá', category: 'sobremesas',
+    description: 'Sobremesa refrescante e cremosa de 3 ingredientes, com o contraste doce e azedinho perfeito do maracujá.',
+    difficulty: 'Fácil', prep_time: '10 min',
+    ingredients: [
+      { name: 'Polpa de maracujá', quantity: '250 ml' },
+      { name: 'Leite condensado', quantity: '1 lata (397 g)' },
+      { name: 'Natas frescas', quantity: '200 ml' },
+      { name: 'Maracujás frescos para decoração', quantity: '2 unidades' }
+    ],
+    steps: [
+      'No liquidificador ou numa tigela com a batedeira, junta o leite condensado e as natas.',
+      'Adiciona a polpa de maracujá e bate na velocidade média-alta durante 3 a 5 minutos, até o preparado ganhar corpo e ficar espesso e aveludado.',
+      'Verte a mousse para uma taça grande de servir ou para tacinhas individuais.',
+      'Leva ao frigorífico durante pelo menos 3 horas para ganhar a consistência firme ideal.',
+      'Antes de servir, abre os maracujás frescos e espalha a polpa com as sementes crocantes por cima para decorar e dar um toque ácido irresistível.'
+    ]
+  },
+  {
+    name: 'Mousse de Manga', wiki: 'Mousse_de_manga', category: 'sobremesas',
+    description: 'Mousse tropical aveludada, vibrante e suave feita com polpa de manga madura, leite condensado e natas.',
+    difficulty: 'Fácil', prep_time: '10 min',
+    ingredients: [
+      { name: 'Polpa de manga madura (ou frescas)', quantity: '400 g' },
+      { name: 'Leite condensado', quantity: '1 lata (397 g)' },
+      { name: 'Natas frescas bem frias', quantity: '200 ml' },
+      { name: 'Sumo de limão', quantity: '1 colher de sopa' },
+      { name: 'Hortelã fresca para decorar', quantity: 'q.b.' }
+    ],
+    steps: [
+      'Se usares mangas frescas, corta a polpa em pedaços e tritura no liquidificador com o sumo de limão até obteres um puré liso.',
+      'Adiciona o leite condensado e as natas ao puré de manga.',
+      'Bate tudo durante cerca de 3 a 4 minutos até que a mistura fique homogénea, densa e com textura cremosa.',
+      'Deita a mousse em taças individuais ou numa taça de servir.',
+      'Leva ao frigorífico durante pelo menos 3 a 4 horas para refrescar e assentar.',
+      'Decora com pedacinhos de manga fresca e folhinhas de hortelã antes de servir.'
+    ]
+  },
+  {
+    name: 'Pudim de Ovos Caseiro', wiki: 'Pudim_flan', category: 'sobremesas',
+    description: 'O clássico pudim familiar de ovos com calda de caramelo dourada, cozido em banho-maria com textura lisa e sedosa.',
+    difficulty: 'Média', prep_time: '60 min',
+    ingredients: [
+      { name: 'Ovos inteiros', quantity: '6' },
+      { name: 'Leite gordo', quantity: '500 ml' },
+      { name: 'Açúcar para o pudim', quantity: '200 g' },
+      { name: 'Açúcar para o caramelo', quantity: '150 g (+ 3 colheres de água)' },
+      { name: 'Casca de limão', quantity: '1 tira' },
+      { name: 'Cálice de vinho do Porto (opcional)', quantity: '1 colher de sopa' }
+    ],
+    steps: [
+      'Faz o caramelo: num tachinho, coloca os 150 g de açúcar com a água e leva a lume brando sem mexer até atingir uma cor âmbar dourada. Verte imediatamente para uma forma de pudim com buraco e espalha pelo fundo e paredes.',
+      'Ferve o leite com a casca de limão e deixa amornar. Retira a casca.',
+      'Numa tigela, bate os ovos com o açúcar com uma vara de arames até ligar (sem bater em demasia para não criar espuma excessiva).',
+      'Junta o vinho do Porto e adiciona o leite morno em fio, mexendo sempre suavemente.',
+      'Passa o preparado por um passador de rede fino para dentro da forma caramelizada.',
+      'Tapa a forma com a tampa e coze em banho-maria no forno pré-aquecido a 180°C durante cerca de 50 minutos até espetar um palito e sair limpo.',
+      'Deixa arrefecer completamente e coloca no frigorífico durante pelo menos 4 horas. Desenforma frio sobre um prato com rebordo.'
+    ]
+  },
+  {
+    name: 'Torta de Laranja de Azeitão', wiki: 'Torta_de_laranja', category: 'sobremesas',
+    description: 'Torta húmida e caramelizada enrolada, com sabor cítrico intenso e textura sumarenta que derrete na boca.',
+    difficulty: 'Média', prep_time: '35 min',
+    ingredients: [
+      { name: 'Ovos inteiros', quantity: '6' },
+      { name: 'Açúcar', quantity: '250 g' },
+      { name: 'Sumo e raspa de laranjas médias', quantity: '2 laranjas' },
+      { name: 'Farinha de trigo', quantity: '1 colher de sopa' },
+      { name: 'Manteiga derretida', quantity: '30 g' },
+      { name: 'Açúcar para polvilhar', quantity: 'q.b.' }
+    ],
+    steps: [
+      'Pré-aquece o forno a 180°C. Forra um tabuleiro retangular com papel vegetal e unta-o generosamente com manteiga.',
+      'Numa tigela, mistura o açúcar com a raspa das laranjas, o sumo espremido e a colher de farinha.',
+      'Noutra tigela, bate os ovos ligeiramente e junta a manteiga derretida morna.',
+      'Mistura os ovos com a calda de laranja até ficar homogéneo (fica uma massa bastante líquida).',
+      'Verte a massa para o tabuleiro forrado e leva ao forno durante cerca de 20 a 25 minutos até estar firme ao toque e dourada à superfície.',
+      'Estende um pano de cozinha limpo sobre a bancada e polvilha-o generosamente com açúcar.',
+      'Desenforma a torta ainda quente sobre o pano açucarado e retira com cuidado a folha de papel vegetal.',
+      'Com a ajuda do pano, enrola a torta pelo lado mais largo enquanto está quente, formando um rolo apertado.',
+      'Deixa arrefecer enrolada no pano, apara as pontas e passa para um prato de servir.'
+    ]
+  },
+  {
+    name: 'Bolo de Cenoura com Cobertura de Chocolate', wiki: 'Bolo_de_cenoura', category: 'sobremesas',
+    description: 'Bolo de cenoura ultra fofo e dourado coberto com uma generosa calda de chocolate cremosa e brilhante.',
+    difficulty: 'Fácil', prep_time: '45 min',
+    ingredients: [
+      { name: 'Cenouras cruas descascadas e em rodelas', quantity: '3 médias (300 g)' },
+      { name: 'Ovos', quantity: '4' },
+      { name: 'Óleo vegetal', quantity: '120 ml' },
+      { name: 'Açúcar', quantity: '200 g' },
+      { name: 'Farinha de trigo sem fermento', quantity: '250 g' },
+      { name: 'Fermento em pó', quantity: '1 colher de sopa' },
+      { name: 'Cacau ou chocolate em pó (para a calda)', quantity: '4 colheres de sopa' },
+      { name: 'Manteiga e leite (para a calda)', quantity: '2 colheres de sopa de cada' }
+    ],
+    steps: [
+      'Pré-aquece o forno a 180°C e unta uma forma com manteiga e farinha.',
+      'No liquidificador, junta as cenouras cruas em rodelas, os ovos, o óleo e o açúcar. Bate durante cerca de 3 a 4 minutos até obteres um líquido alaranjado completamente liso.',
+      'Numa tigela grande, peneira a farinha e o fermento.',
+      'Deita a mistura do liquidificador sobre a farinha e envolve delicadamente com uma espátula até a massa ficar uniforme.',
+      'Verte para a forma e leva ao forno durante cerca de 35 a 40 minutos (faz o teste do palito no centro).',
+      'Prepara a calda: num tachinho, mistura o chocolate em pó, 4 colheres de açúcar, a manteiga e o leite. Leva ao lume brando mexendo até ferver e engrossar ligeiramente.',
+      'Desenforma o bolo morno e verte a cobertura de chocolate quente por cima.'
+    ]
+  },
+  {
+    name: 'Tarte de Maçã Caseira', wiki: 'Tarte_de_maçã', category: 'sobremesas',
+    description: 'Base folhada estaladiça com fatias finas de maçã laminada, canela aromática e geleia dourada brilhante.',
+    difficulty: 'Fácil', prep_time: '40 min',
+    ingredients: [
+      { name: 'Massa folhada fresca redonda', quantity: '1 rolo' },
+      { name: 'Maçãs reineta ou golden', quantity: '4 grandes' },
+      { name: 'Açúcar amarelo ou mascavado', quantity: '3 colheres de sopa' },
+      { name: 'Canela em pó', quantity: '1 colher de chá' },
+      { name: 'Manteiga em cubinhos', quantity: '25 g' },
+      { name: 'Geleia de pêssego ou damasco', quantity: '2 colheres de sopa' }
+    ],
+    steps: [
+      'Pré-aquece o forno a 190°C. Forra uma tarteira com a massa folhada, picando o fundo com um garfo.',
+      'Descasca 2 maçãs e corta-as em cubos pequeninos. Cozinha-os numa frigideira com 1 colher de açúcar e um fio de água até formarem uma compota macia (cerca de 8 minutos). Espalha este puré no fundo da tarteira.',
+      'Descasca as outras 2 maçãs e corta em fatias muito finas em meia-lua.',
+      'Dispõe as fatias de maçã em círculos concêntricos sobre a tarteira, sobrepondo ligeiramente para criar um efeito espiral clássico.',
+      'Polvilha com 2 colheres de açúcar amarelo, canela e espalha os pedacinhos de manteiga por cima.',
+      'Leve ao forno durante 30 a 35 minutos até dourar e folhar.',
+      'Aquece a geleia com uma colher de água e pincela a tarte ainda quente para dar brilho de pastelaria.'
+    ]
+  },
+  {
+    name: 'Cheesecake de Frutos Vermelhos', wiki: 'Cheesecake', category: 'sobremesas',
+    description: 'Cheesecake frio sem forno, com base crocante de bolacha, creme suave de queijo e cobertura de frutos do bosque.',
+    difficulty: 'Fácil', prep_time: '25 min',
+    ingredients: [
+      { name: 'Bolacha digestiva ou Maria', quantity: '200 g' },
+      { name: 'Manteiga sem sal derretida', quantity: '80 g' },
+      { name: 'Queijo creme tipo Philadelphia', quantity: '400 g' },
+      { name: 'Natas frescas para bater', quantity: '200 ml' },
+      { name: 'Açúcar em pó', quantity: '80 g' },
+      { name: 'Gelatina neutra em folhas', quantity: '4 folhas' },
+      { name: 'Doce ou compota de frutos vermelhos', quantity: '250 g' }
+    ],
+    steps: [
+      'Tritura as bolachas num processador até virarem farelo. Junta a manteiga derretida e mistura bem.',
+      'Forra o fundo de uma forma redonda de aro amovível (20-22 cm) com a mistura de bolacha, pressionando firmemente com uma colher. Guarda no frigorífico.',
+      'Hidrata as folhas de gelatina em água fria durante 5 minutos.',
+      'Numa tigela, bate o queijo creme com o açúcar em pó até ficar aveludado.',
+      'Noutra tigela, bate as natas firmes. Envolve as natas batidas no creme de queijo.',
+      'Escorre a gelatina e derrete-a com 2 colheres de água quente no micro-ondas por 10 segundos. Envolve rapidamente no creme de queijo.',
+      'Verte o creme sobre a base de bolacha, alisa e leva ao frigorífico durante pelo menos 5 horas.',
+      'Antes de servir, retira o aro da forma e espalha a compota de frutos vermelhos por cima.'
+    ]
+  },
+  {
+    name: 'Queijadas de Sintra', wiki: 'Queijadas_de_Sintra', category: 'sobremesas',
+    description: 'Queijadinhas tradicionais centenárias com recheio cremoso de requeijão fresco, canela e açúcar em crosta fina.',
+    difficulty: 'Média', prep_time: '45 min',
+    ingredients: [
+      { name: 'Requeijão fresco escorrido', quantity: '400 g' },
+      { name: 'Açúcar', quantity: '300 g' },
+      { name: 'Gemas de ovo', quantity: '4' },
+      { name: 'Farinha de trigo', quantity: '50 g' },
+      { name: 'Canela em pó', quantity: '1 colher de chá rasa' },
+      { name: 'Massa fina para forrar forminhas', quantity: '1 rolo' }
+    ],
+    steps: [
+      'Pré-aquece o forno a 200°C.',
+      'Forra forminhas metálicas de queijada com círculos de massa fina, aparando o excesso.',
+      'Numa tigela, esmaga o requeijão com um garfo até ficar bem cremoso e sem grumos.',
+      'Junta o açúcar e a canela ao requeijão e mistura energicamente.',
+      'Adiciona as gemas uma a uma e por fim a farinha peneirada, envolvendo bem até obteres um creme liso.',
+      'Enche as formas forradas com o preparado quase até ao rebordo.',
+      'Leva ao forno quente durante cerca de 25 a 30 minutos, até as queijadas dourarem com manchas tostadas características.',
+      'Deixa arrefecer ligeiramente antes de desenformar.'
+    ]
+  },
+  {
+    name: 'Travesseiros de Sintra', wiki: 'Travesseiros_de_Sintra', category: 'sobremesas',
+    description: 'Almofadas de massa folhada estaladiça dourada, recheadas com doce de ovos e amêndoa, polvilhadas com açúcar.',
+    difficulty: 'Média', prep_time: '35 min',
+    ingredients: [
+      { name: 'Massa folhada retangular', quantity: '1 placa' },
+      { name: 'Amêndoa moída sem pele', quantity: '100 g' },
+      { name: 'Gemas de ovo', quantity: '4' },
+      { name: 'Açúcar', quantity: '150 g' },
+      { name: 'Água', quantity: '80 ml' },
+      { name: 'Açúcar granulado para polvilhar', quantity: 'q.b.' }
+    ],
+    steps: [
+      'Faz o recheio de amêndoa: leva ao lume a água e o açúcar até ferver 3 minutos. Retira e deixa amornar.',
+      'Numa tigela, mistura as gemas com a amêndoa moída. Verte a calda morna em fio mexendo sempre. Leva de volta a lume brando, mexendo até engrossar e soltar do fundo. Deixa arrefecer.',
+      'Pré-aquece o forno a 200°C.',
+      'Corta a massa folhada em retângulos de cerca de 10x12 cm.',
+      'Coloca uma colher generosa de recheio no centro de cada retângulo e dobra em três partes (como uma almofadinha/envelope).',
+      'Coloca os travesseiros com a dobra para baixo num tabuleiro com papel vegetal.',
+      'Leva ao forno durante 20 a 25 minutos até dourarem e folharem bem.',
+      'Passa-os imediatamente por açúcar granulado enquanto estão quentes.'
+    ]
+  },
+  {
+    name: 'Tiramisù Caseiro', wiki: 'Tiramisù', category: 'sobremesas',
+    description: 'A clássica sobremesa de colher com biscoitos embebidos em café expresso e creme aveludado de mascarpone.',
+    difficulty: 'Fácil', prep_time: '20 min',
+    ingredients: [
+      { name: 'Queijo mascarpone', quantity: '500 g' },
+      { name: 'Ovos frescos (gemas e claras separadas)', quantity: '3 grandes' },
+      { name: 'Açúcar', quantity: '100 g' },
+      { name: 'Café expresso forte morno', quantity: '250 ml' },
+      { name: 'Palitos La Reine / biscoitos savoiardi', quantity: '200 g' },
+      { name: 'Cacau em pó 100% para polvilhar', quantity: 'q.b.' }
+    ],
+    steps: [
+      'Numa tigela, bate as gemas com o açúcar até formar um creme espesso e esbranquiçado.',
+      'Junta o mascarpone e bate em velocidade baixa apenas até incorporar e ficar perfeitamente liso.',
+      'Noutra tigela limpa, bate as claras em castelo firme. Envolve-as suavemente no creme de mascarpone com movimentos de baixo para cima.',
+      'Passa os biscoitos rapidamente pelo café (1 segundo de cada lado, sem ensopar em demasia).',
+      'Num pirex ou em taças, faz uma camada de biscoitos embebidos e cobre com metade do creme.',
+      'Repete com outra camada de biscoitos e finaliza com o restante creme, alisando a superfície.',
+      'Leva ao frigorífico durante pelo menos 5 horas (idealmente durante a noite).',
+      'Antes de servir, polvilha generosamente com cacau em pó através de um passador fino.'
+    ]
+  },
+  {
+    name: 'Brownie de Chocolate com Nozes', wiki: 'Brownie', category: 'sobremesas',
+    description: 'Brownie denso, húmido e com casquinha craquelada crocante, recheado com pedaços de nozes.',
+    difficulty: 'Fácil', prep_time: '30 min',
+    ingredients: [
+      { name: 'Chocolate preto de culinária', quantity: '200 g' },
+      { name: 'Manteiga sem sal', quantity: '150 g' },
+      { name: 'Ovos inteiros', quantity: '3' },
+      { name: 'Açúcar', quantity: '150 g' },
+      { name: 'Farinha de trigo sem fermento', quantity: '80 g' },
+      { name: 'Nozes picadas grosseiramente', quantity: '80 g' },
+      { name: 'Pitada de sal', quantity: '1 pitada' }
+    ],
+    steps: [
+      'Pré-aquece o forno a 180°C. Forra uma forma quadrada (20x20 cm) com papel vegetal untado com manteiga.',
+      'Derrete o chocolate com a manteiga em banho-maria ou no micro-ondas, mexendo até ficar brilhante. Deixa amornar.',
+      'Numa tigela grande, bate os ovos com o açúcar com um batedor de arames durante cerca de 2 minutos.',
+      'Adiciona o chocolate derretido morno e mistura bem.',
+      'Peneira a farinha com a pitada de sal sobre a mistura e envolve delicadamente com uma espátula até integrar.',
+      'Junta as nozes picadas e verte a massa para a forma.',
+      'Leva ao forno durante cerca de 20 a 22 minutos. O centro deve estar ainda ligeiramente húmido ao espetar o palito.',
+      'Deixa arrefecer na forma antes de cortar em quadrados. Serve morno ou frio.'
+    ]
   }
 ];
 
