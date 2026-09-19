@@ -23,6 +23,15 @@ export const AuthProvider = ({ children }) => {
       setIsLoadingPublicSettings(true);
       setAuthError(null);
       
+      // If no Base44 App ID is configured (standalone GitHub Pages deployment),
+      // bypass remote base44 settings check immediately
+      if (!appParams.appId) {
+        setIsLoadingPublicSettings(false);
+        setIsLoadingAuth(false);
+        setAuthChecked(true);
+        return;
+      }
+      
       // First, check app public settings (with token if available)
       // This will tell us if auth is required, user not registered, etc.
       const appClient = createAxiosClient({
