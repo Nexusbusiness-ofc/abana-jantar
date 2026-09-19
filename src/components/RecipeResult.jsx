@@ -61,7 +61,14 @@ export default function RecipeResult({ recipe, image }) {
     <div className="space-y-5">
       {image && (
         <div className="relative w-full h-44 sm:h-52 rounded-3xl overflow-hidden bg-muted shadow-md">
-          <UIImage src={image} alt={recipe.recipe_name} fittingType="fill" className="w-full h-full" />
+          <img
+            src={image}
+            alt={recipe.recipe_name}
+            className="w-full h-full object-cover"
+            onError={(e) => {
+              e.currentTarget.parentElement.style.display = 'none';
+            }}
+          />
         </div>
       )}
       <div className="flex items-start gap-3.5">

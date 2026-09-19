@@ -140,7 +140,7 @@ export default function Home() {
           {[
             { id: 'shake', label: 'Abanar', icon: Smartphone },
             { id: 'dish', label: 'Prato', icon: UtensilsCrossed },
-            { id: 'portuguese', label: 'Receitas PT', icon: ChefHat },
+            { id: 'portuguese', label: 'Receitas', icon: ChefHat },
             { id: 'favorites', label: 'Favoritas', icon: Heart, count: favorites.length },
           ].map((t) => {
             const active = tab === t.id;

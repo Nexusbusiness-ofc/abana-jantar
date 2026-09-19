@@ -18,13 +18,16 @@ const CATEGORY_STYLES = {
 const CATEGORY_LABELS = Object.fromEntries(CATEGORIES.map((c) => [c.id, c.label]));
 
 function CardImage({ recipe, image }) {
-  if (image) {
+  const [hasError, setHasError] = useState(false);
+
+  if (image && !hasError) {
     return (
-      <UIImage
+      <img
         src={image}
         alt={recipe.name}
-        fittingType="fill"
-        className="w-full h-full group-hover:scale-105 transition duration-500"
+        loading="lazy"
+        onError={() => setHasError(true)}
+        className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
       />
     );
   }
@@ -51,7 +54,7 @@ export default function PortugueseRecipes() {
           <ChefHat className="w-3.5 h-3.5 text-orange-500" />
           <span className="text-xs font-medium text-foreground/70">Cozinha tradicional</span>
         </div>
-        <h2 className="font-heading text-2xl font-bold">Receitas Portuguesas</h2>
+        <h2 className="font-heading text-2xl font-bold">Receitas</h2>
         <p className="text-sm text-muted-foreground mt-1">{RECIPES.length} receitas clássicas, com imagem e passo a passo.</p>
       </div>
 
