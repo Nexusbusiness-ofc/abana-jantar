@@ -4,6 +4,15 @@ import ranchoImg from '@/assets/recipes/rancho.jpg';
 import pregoImg from '@/assets/recipes/prego.jpg';
 import alheiraImg from '@/assets/recipes/alheira.jpg';
 import paoDeChouricoImg from '@/assets/recipes/pao_de_chourico.jpg';
+import strogonoffImg from '@/assets/recipes/strogonoff_frango.jpg';
+import carilFrangoImg from '@/assets/recipes/caril_frango.jpg';
+import bifeCogumelosImg from '@/assets/recipes/bife_cogumelos.jpg';
+import empadaoCarneImg from '@/assets/recipes/empadao_carne.jpg';
+import febrasGrelhadasImg from '@/assets/recipes/febras_grelhadas.jpg';
+import tortilhaBatataImg from '@/assets/recipes/tortilha_batata.jpg';
+import saladaRussaImg from '@/assets/recipes/salada_russa.jpg';
+import mousseChocolateImg from '@/assets/recipes/mousse_chocolate.jpg';
+import salameChocolateImg from '@/assets/recipes/salame_chocolate.jpg';
 
 // Real dish images from Wikimedia Commons and high-resolution culinary photography.
 // Keyed by the recipe `wiki` title. Recipes without a corresponding image fall back
@@ -41,12 +50,12 @@ export const RECIPE_IMAGES = {
   'Ensopado': 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Ensopado_de_borrego%2C_%C3%93bidos.jpg/500px-Ensopado_de_borrego%2C_%C3%93bidos.jpg',
   'Frango_assado_com_batatas': 'https://images.unsplash.com/photo-1598103442097-8b74394b95c6?auto=format&fit=crop&w=600&q=80',
   'Panados_de_frango': 'https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=600&q=80',
-  'Strogonoff_de_frango': 'https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=600&q=80',
-  'Caril_de_frango': 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=600&q=80',
-  'Bife_com_cogumelos': 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80',
+  'Strogonoff_de_frango': strogonoffImg,
+  'Caril_de_frango': carilFrangoImg,
+  'Bife_com_cogumelos': bifeCogumelosImg,
   'Hambúrguer_no_prato': 'https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80',
-  'Empadão_de_carne': 'https://images.unsplash.com/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&w=600&q=80',
-  'Febras_grelhadas': 'https://images.unsplash.com/photo-1529042410759-befb1204b468?auto=format&fit=crop&w=600&q=80',
+  'Empadão_de_carne': empadaoCarneImg,
+  'Febras_grelhadas': febrasGrelhadasImg,
 
   // Massas & Rápidos
   'Esparguete_à_bolonhesa': 'https://images.unsplash.com/photo-1622973536968-3ead9e780960?auto=format&fit=crop&w=600&q=80',
@@ -64,8 +73,8 @@ export const RECIPE_IMAGES = {
   'Melão_com_presunto': 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Prosciutto_with_melon.jpg/500px-Prosciutto_with_melon.jpg',
   'Polvo': 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Octopus_salad_%284497641966%29.jpg/500px-Octopus_salad_%284497641966%29.jpg',
   'Queijo_Azeitão': 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Queijo_de_Azeit%C3%A3o.jpg/500px-Queijo_de_Azeit%C3%A3o.jpg',
-  'Tortilha_de_batata': 'https://images.unsplash.com/photo-1584776296944-ab6fb57b0bdd?auto=format&fit=crop&w=600&q=80',
-  'Salada_russa': 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=600&q=80',
+  'Tortilha_de_batata': tortilhaBatataImg,
+  'Salada_russa': saladaRussaImg,
 
   // Sobremesas
   'Pastel_de_nata': 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Pastel_de_nata_%2818616473070%29.jpg/500px-Pastel_de_nata_%2818616473070%29.jpg',
@@ -80,8 +89,8 @@ export const RECIPE_IMAGES = {
   'Rabanadas': 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Rabanadas%2C_Christmas_cakes_%282135990222%29.jpg/500px-Rabanadas%2C_Christmas_cakes_%282135990222%29.jpg',
   'Ovos_moles_de_Aveiro': 'https://upload.wikimedia.org/wikipedia/commons/d/d1/Ovos_moles.jpg',
   'Pão_de_ló': 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/P%C3%A3o-de-l%C3%B3.jpg/500px-P%C3%A3o-de-l%C3%B3.jpg',
-  'Mousse_de_chocolate': 'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=600&q=80',
-  'Salame_de_chocolate': 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80',
+  'Mousse_de_chocolate': mousseChocolateImg,
+  'Salame_de_chocolate': salameChocolateImg,
   'Panquecas': 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=600&q=80',
   'Baba_de_camelo': 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80',
   'Leite-creme': 'https://images.unsplash.com/photo-1470124182917-cc6e71b22ecc?auto=format&fit=crop&w=600&q=80',
