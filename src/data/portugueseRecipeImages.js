@@ -13,6 +13,20 @@ import tortilhaBatataImg from '@/assets/recipes/tortilha_batata.jpg';
 import saladaRussaImg from '@/assets/recipes/salada_russa.jpg';
 import mousseChocolateImg from '@/assets/recipes/mousse_chocolate.jpg';
 import salameChocolateImg from '@/assets/recipes/salame_chocolate.jpg';
+import babaCameloImg from '@/assets/recipes/baba_camelo.jpg';
+import leiteCremeImg from '@/assets/recipes/leite_creme.jpg';
+import natasCeuImg from '@/assets/recipes/natas_ceu.jpg';
+import serraduraImg from '@/assets/recipes/serradura.jpg';
+import mousseMaracujaImg from '@/assets/recipes/mousse_maracuja.jpg';
+import mousseMangaImg from '@/assets/recipes/mousse_manga.jpg';
+import pudimOvosImg from '@/assets/recipes/pudim_ovos.jpg';
+import tortaLaranjaImg from '@/assets/recipes/torta_laranja.jpg';
+import boloCenouraImg from '@/assets/recipes/bolo_cenoura.jpg';
+import tarteMacaImg from '@/assets/recipes/tarte_maca.jpg';
+import queijadasSintraImg from '@/assets/recipes/queijadas_sintra.jpg';
+import travesseirosSintraImg from '@/assets/recipes/travesseiros_sintra.jpg';
+import tiramisuImg from '@/assets/recipes/tiramisu.jpg';
+import brownieImg from '@/assets/recipes/brownie.jpg';
 
 // Real dish images from Wikimedia Commons and high-resolution culinary photography.
 // Keyed by the recipe `wiki` title. Recipes without a corresponding image fall back
@@ -92,21 +106,21 @@ export const RECIPE_IMAGES = {
   'Mousse_de_chocolate': mousseChocolateImg,
   'Salame_de_chocolate': salameChocolateImg,
   'Panquecas': 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=600&q=80',
-  'Baba_de_camelo': 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80',
-  'Leite-creme': 'https://images.unsplash.com/photo-1470124182917-cc6e71b22ecc?auto=format&fit=crop&w=600&q=80',
-  'Natas_do_céu': 'https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=600&q=80',
-  'Serradura': 'https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=600&q=80',
-  'Mousse_de_maracujá': 'https://images.unsplash.com/photo-1579954115545-a95591f28bfc?auto=format&fit=crop&w=600&q=80',
-  'Mousse_de_manga': 'https://images.unsplash.com/photo-1546039907-7fa05f864c02?auto=format&fit=crop&w=600&q=80',
-  'Pudim_flan': 'https://images.unsplash.com/photo-1528975604071-b4dc52a2d18c?auto=format&fit=crop&w=600&q=80',
-  'Torta_de_laranja': 'https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=600&q=80',
-  'Bolo_de_cenoura': 'https://images.unsplash.com/photo-1621303837174-89787a7d4729?auto=format&fit=crop&w=600&q=80',
-  'Tarte_de_maçã': 'https://images.unsplash.com/photo-1568571780765-9276ac8b75a2?auto=format&fit=crop&w=600&q=80',
+  'Baba_de_camelo': babaCameloImg,
+  'Leite-creme': leiteCremeImg,
+  'Natas_do_céu': natasCeuImg,
+  'Serradura': serraduraImg,
+  'Mousse_de_maracujá': mousseMaracujaImg,
+  'Mousse_de_manga': mousseMangaImg,
+  'Pudim_flan': pudimOvosImg,
+  'Torta_de_laranja': tortaLaranjaImg,
+  'Bolo_de_cenoura': boloCenouraImg,
+  'Tarte_de_maçã': tarteMacaImg,
   'Cheesecake': 'https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=600&q=80',
-  'Queijadas_de_Sintra': 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80',
-  'Travesseiros_de_Sintra': 'https://images.unsplash.com/photo-1509365465985-25d11c17e812?auto=format&fit=crop&w=600&q=80',
-  'Tiramisù': 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=600&q=80',
-  'Brownie': 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=600&q=80',
+  'Queijadas_de_Sintra': queijadasSintraImg,
+  'Travesseiros_de_Sintra': travesseirosSintraImg,
+  'Tiramisù': tiramisuImg,
+  'Brownie': brownieImg,
 
   // Sopas
   'Caldo_verde': 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Caldo_verde_-_Jul_2008.jpg/500px-Caldo_verde_-_Jul_2008.jpg',
