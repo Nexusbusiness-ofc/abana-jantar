@@ -21,12 +21,6 @@ export const DRINK_CATEGORIES = [
     "desc": "Explora o cardápio completo com 110 opções"
   },
   {
-    "id": "cafes",
-    "label": "Cafés & Barista ☕",
-    "icon": "Coffee",
-    "desc": "Cappuccinos, Lattes em camadas, Cold Brews, Mochas e Espressos"
-  },
-  {
     "id": "fumo",
     "label": "Fumo Aromático 💨",
     "icon": "Wind",
@@ -85,6 +79,12 @@ export const DRINK_CATEGORIES = [
     "label": "Tradição Portuguesa 🇵🇹",
     "icon": "Wine",
     "desc": "Ponchas da Madeira, licores tradicionais e sangrias"
+  },
+  {
+    "id": "cafes",
+    "label": "Cafés & Barista ☕",
+    "icon": "Coffee",
+    "desc": "Cappuccinos, Lattes em camadas, Cold Brews, Mochas e Espressos"
   }
 ];
 

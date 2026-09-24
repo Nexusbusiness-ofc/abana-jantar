@@ -36,7 +36,6 @@ import { useToast } from '@/components/ui/use-toast';
 
 // Master sommelier sequence for displaying all categories on the page
 const CATEGORY_ORDER = [
-  'cafes',
   'fumo',
   'cocktails',
   'short',
@@ -46,7 +45,8 @@ const CATEGORY_ORDER = [
   'hot',
   'mocktails',
   'soft',
-  'portuguesas'
+  'portuguesas',
+  'cafes'
 ];
 
 // Helper to get category icon with refined luxury styling
