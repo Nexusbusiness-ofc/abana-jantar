@@ -12,7 +12,8 @@ import {
   UtensilsCrossed,
   Heart,
   Smartphone,
-  ChevronRight
+  ChevronRight,
+  Martini
 } from 'lucide-react';
 import { useShake, requestMotionPermission } from '@/hooks/useShake';
 import { useShoppingList } from '@/hooks/useShoppingList';
@@ -21,6 +22,7 @@ import FridgeMode from '@/components/FridgeMode';
 import RestaurantMode from '@/components/RestaurantMode';
 import DishMode from '@/components/DishMode';
 import PortugueseRecipes from '@/components/PortugueseRecipes';
+import DrinksMode from '@/components/DrinksMode';
 import FavoritesView from '@/components/FavoritesView';
 import ShoppingList from '@/components/ShoppingList';
 
@@ -136,11 +138,12 @@ export default function Home() {
         </div>
 
         {/* tabs / segmented control */}
-        <div className="w-full max-w-md mx-auto mb-6 p-1.5 rounded-2xl bg-black/[0.04] backdrop-blur-xl border border-white/60 shadow-inner flex gap-1">
+        <div className="w-full max-w-lg mx-auto mb-6 p-1 sm:p-1.5 rounded-2xl bg-black/[0.04] backdrop-blur-xl border border-white/60 shadow-inner flex gap-1">
           {[
             { id: 'shake', label: 'Abanar', icon: Smartphone },
             { id: 'dish', label: 'Prato', icon: UtensilsCrossed },
             { id: 'portuguese', label: 'Receitas', icon: ChefHat },
+            { id: 'drinks', label: 'Bebidas', icon: Martini },
             { id: 'favorites', label: 'Favoritas', icon: Heart, count: favorites.length },
           ].map((t) => {
             const active = tab === t.id;
@@ -149,9 +152,11 @@ export default function Home() {
               <button
                 key={t.id}
                 onClick={() => setTab(t.id)}
-                className={`flex-1 flex items-center justify-center gap-1.5 py-2 px-1 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 select-none relative ${
+                className={`flex-1 flex items-center justify-center gap-1 sm:gap-1.5 py-1.5 sm:py-2 px-1 rounded-xl text-[11px] sm:text-xs md:text-sm font-semibold transition-all duration-200 select-none relative ${
                   active
-                    ? 'bg-white text-orange-600 shadow-sm shadow-orange-950/10 ring-1 ring-black/5 scale-[1.02]'
+                    ? t.id === 'drinks'
+                      ? 'bg-white text-purple-600 shadow-sm shadow-purple-950/10 ring-1 ring-black/5 scale-[1.02]'
+                      : 'bg-white text-orange-600 shadow-sm shadow-orange-950/10 ring-1 ring-black/5 scale-[1.02]'
                     : 'text-muted-foreground hover:text-foreground hover:bg-white/40'
                 }`}
               >
@@ -160,6 +165,8 @@ export default function Home() {
                     active
                       ? t.id === 'favorites'
                         ? 'text-rose-500 fill-rose-500'
+                        : t.id === 'drinks'
+                        ? 'text-purple-600 stroke-[2.2]'
                         : 'text-orange-500 stroke-[2.2]'
                       : ''
                   }`}
@@ -186,6 +193,10 @@ export default function Home() {
         ) : tab === 'portuguese' ? (
           <div className="flex-1 flex flex-col justify-center w-full py-4">
             <PortugueseRecipes />
+          </div>
+        ) : tab === 'drinks' ? (
+          <div className="flex-1 flex flex-col justify-center w-full py-4">
+            <DrinksMode />
           </div>
         ) : tab === 'favorites' ? (
           <div className="flex-1 flex flex-col justify-center w-full py-4">
