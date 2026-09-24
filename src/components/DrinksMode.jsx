@@ -12,11 +12,16 @@ import {
   ShoppingCart,
   Heart,
   Shuffle,
-  Info
+  Info,
+  Zap,
+  Wind,
+  Layers,
+  Wrench,
+  Percent,
+  PlusCircle
 } from 'lucide-react';
 import { DRINKS, DRINK_CATEGORIES, ALCOHOL_FILTERS } from '@/data/drinksData';
 import { DRINK_IMAGES } from '@/data/drinksImages';
-import RecipeResult from '@/components/RecipeResult';
 import ShareButton from '@/components/ShareButton';
 import StepTimer from '@/components/StepTimer';
 import { useShoppingList } from '@/hooks/useShoppingList';
@@ -38,11 +43,11 @@ function DrinkCardImage({ drink, image }) {
     );
   }
   return (
-    <div className={`w-full h-full bg-gradient-to-br ${drink.alcoholic ? 'from-rose-500 to-amber-600' : 'from-emerald-500 to-teal-600'} flex flex-col items-center justify-center gap-2`}>
-      <span className="w-12 h-12 rounded-full bg-white/20 backdrop-blur flex items-center justify-center">
+    <div className={`w-full h-full bg-gradient-to-br ${drink.alcoholic ? 'from-rose-500 to-amber-600' : 'from-emerald-500 to-teal-600'} flex flex-col items-center justify-center gap-2 p-3 text-center`}>
+      <span className="w-12 h-12 rounded-full bg-white/20 backdrop-blur flex items-center justify-center shadow-inner">
         {drink.alcoholic ? <Wine className="w-6 h-6 text-white" /> : <GlassWater className="w-6 h-6 text-white" />}
       </span>
-      <span className="font-heading font-bold text-sm text-white px-2 text-center line-clamp-1">{drink.name}</span>
+      <span className="font-heading font-bold text-xs text-white leading-tight line-clamp-2">{drink.name}</span>
     </div>
   );
 }
@@ -70,8 +75,9 @@ export default function DrinksMode() {
         const query = search.toLowerCase();
         const matchesName = drink.name.toLowerCase().includes(query);
         const matchesDesc = drink.description.toLowerCase().includes(query);
+        const matchesTech = (drink.technique || '').toLowerCase().includes(query);
         const matchesIng = drink.ingredients.some((ing) => ing.name.toLowerCase().includes(query));
-        if (!matchesName && !matchesDesc && !matchesIng) return false;
+        if (!matchesName && !matchesDesc && !matchesTech && !matchesIng) return false;
       }
 
       return true;
@@ -84,7 +90,7 @@ export default function DrinksMode() {
     setSelected(random);
     toast({
       title: `🎲 Bebida Sorteada: ${random.name}!`,
-      description: random.alcoholic ? 'Bebida Alcoólica' : 'Bebida Sem Álcool',
+      description: random.alcoholic ? `${random.categoryLabel} • Com Álcool` : `${random.categoryLabel} • Sem Álcool`,
       duration: 3000
     });
   };
@@ -94,23 +100,33 @@ export default function DrinksMode() {
     toast({ title: `${item.name} adicionado à lista de compras!` });
   };
 
+  const handleAddAllIngredients = (ingredients) => {
+    ingredients.forEach((item) => {
+      add(item.name, item.quantity || '');
+    });
+    toast({
+      title: 'Todos os ingredientes adicionados!',
+      description: `${ingredients.length} itens adicionados à tua lista de compras.`
+    });
+  };
+
   return (
     <div className="flex-1 flex flex-col w-full py-2">
       {/* Header */}
       <div className="text-center mb-5">
         <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-white/80 backdrop-blur-md border border-white shadow-sm mb-3 ring-1 ring-purple-500/10">
           <Wine className="w-3.5 h-3.5 text-purple-600" />
-          <span className="text-xs font-semibold text-foreground/80">Bar & Refrescos</span>
+          <span className="text-xs font-semibold text-foreground/80">Mixologia & Bar Profissional</span>
         </div>
         <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-foreground tracking-tight">
-          Bebidas & Cocktails
+          Bebidas & Cocktails de Bar
         </h2>
-        <p className="text-xs sm:text-sm text-muted-foreground mt-1.5 max-w-md mx-auto leading-relaxed">
-          {DRINKS.length} receitas com passo a passo, segredos de barman e opções com ou sem álcool.
+        <p className="text-xs sm:text-sm text-muted-foreground mt-1.5 max-w-lg mx-auto leading-relaxed">
+          {DRINKS.length} receitas completas com técnicas de barman: fumo aromático, misturas energéticas, clássicos, shots e refrescos.
         </p>
 
-        {/* Quick Random Sorter Button */}
-        <div className="mt-3 flex justify-center">
+        {/* Quick Actions */}
+        <div className="mt-3 flex justify-center gap-2">
           <button
             onClick={pickRandomDrink}
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-purple-500 to-indigo-600 text-white text-xs font-bold shadow-md shadow-purple-500/25 hover:shadow-lg active:scale-95 transition-all"
@@ -122,13 +138,13 @@ export default function DrinksMode() {
       </div>
 
       {/* Search Input */}
-      <div className="relative w-full max-w-md mx-auto mb-4">
+      <div className="relative w-full max-w-md mx-auto mb-3">
         <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-muted-foreground" />
         <input
           type="text"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          placeholder="Pesquisar por nome, rum, gin, fruta, café..."
+          placeholder="Pesquisar fumo, energético, vodka, gin, shot..."
           className="w-full pl-10 pr-9 py-2 rounded-2xl bg-white/80 backdrop-blur-md border border-white/80 text-xs sm:text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500/30 text-foreground placeholder:text-muted-foreground/70"
         />
         {search && (
@@ -165,18 +181,18 @@ export default function DrinksMode() {
         })}
       </div>
 
-      {/* Secondary Categories Pills */}
-      <div className="flex flex-wrap gap-1.5 justify-center mb-5">
+      {/* Bar Styles & Categories Pills */}
+      <div className="flex flex-wrap gap-1.5 justify-center mb-4 max-w-4xl mx-auto px-1">
         {DRINK_CATEGORIES.map((c) => {
           const active = categoryFilter === c.id;
           return (
             <button
               key={c.id}
               onClick={() => setCategoryFilter(c.id)}
-              className={`px-3 py-1 rounded-full text-xs font-semibold transition border ${
+              className={`px-3 py-1 rounded-full text-xs font-semibold transition border whitespace-nowrap ${
                 active
-                  ? 'bg-purple-600 text-white border-purple-600 shadow-sm'
-                  : 'bg-white/70 border-white text-foreground hover:bg-white'
+                  ? 'bg-purple-600 text-white border-purple-600 shadow-sm shadow-purple-500/20'
+                  : 'bg-white/70 border-white text-foreground/80 hover:bg-white'
               }`}
             >
               {c.label}
@@ -203,13 +219,13 @@ export default function DrinksMode() {
           <p className="text-xs text-muted-foreground mt-1">Tenta alterar os filtros ou pesquisar por outro ingrediente.</p>
         </div>
       ) : (
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
           {filteredDrinks.map((drink, i) => (
             <motion.button
               key={drink.id}
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: Math.min(i * 0.025, 0.25) }}
+              transition={{ delay: Math.min(i * 0.02, 0.25) }}
               whileHover={{ y: -3 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => setSelected(drink)}
@@ -217,7 +233,7 @@ export default function DrinksMode() {
             >
               <div className="relative aspect-[4/3] overflow-hidden bg-muted">
                 <DrinkCardImage drink={drink} image={DRINK_IMAGES[drink.id]} />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
 
                 {/* Top Badges */}
                 <div className="absolute top-2 inset-x-2 flex items-center justify-between gap-1 pointer-events-none">
@@ -232,11 +248,23 @@ export default function DrinksMode() {
                   </span>
 
                   {drink.badge && (
-                    <span className="text-[9px] sm:text-[10px] px-2 py-0.5 rounded-full bg-white/90 text-foreground font-bold backdrop-blur-md shadow-sm">
+                    <span className="text-[9px] sm:text-[10px] px-2 py-0.5 rounded-full bg-white/95 text-foreground font-bold backdrop-blur-md shadow-sm truncate max-w-[120px]">
                       {drink.badge}
                     </span>
                   )}
                 </div>
+
+                {/* Special Category Icon if smoke or energy */}
+                {drink.category === 'fumo' && (
+                  <div className="absolute top-8 left-2 px-2 py-0.5 rounded-full bg-slate-900/90 text-amber-300 text-[9px] font-bold flex items-center gap-1 backdrop-blur-md border border-amber-400/30">
+                    <Wind className="w-2.5 h-2.5" /> Fumo Aromático
+                  </div>
+                )}
+                {drink.category === 'energy' && (
+                  <div className="absolute top-8 left-2 px-2 py-0.5 rounded-full bg-amber-500/90 text-black text-[9px] font-extrabold flex items-center gap-1 backdrop-blur-md">
+                    <Zap className="w-2.5 h-2.5" /> Energético
+                  </div>
+                )}
 
                 {/* Title */}
                 <h3 className="absolute bottom-2 left-2.5 right-2.5 font-heading font-bold text-xs sm:text-sm text-white leading-tight drop-shadow-md line-clamp-2">
@@ -245,28 +273,37 @@ export default function DrinksMode() {
               </div>
 
               {/* Card Footer Info */}
-              <div className="p-2 sm:p-2.5 flex items-center justify-between text-[10px] text-muted-foreground mt-auto">
-                <span className="font-semibold text-purple-700 bg-purple-50 px-2 py-0.5 rounded-lg truncate max-w-[110px]">
-                  {drink.categoryLabel}
-                </span>
-                <span className="flex items-center gap-1 font-medium">
-                  <Clock className="w-2.5 h-2.5 text-blue-500" />
-                  {drink.prep_time}
-                </span>
+              <div className="p-2 sm:p-2.5 flex flex-col gap-1.5 text-[10px] text-muted-foreground mt-auto bg-card">
+                <div className="flex items-center justify-between">
+                  <span className="font-semibold text-purple-700 bg-purple-50 px-2 py-0.5 rounded-md truncate max-w-[110px]">
+                    {drink.categoryLabel}
+                  </span>
+                  <span className="flex items-center gap-1 font-medium text-foreground/70">
+                    <Clock className="w-2.5 h-2.5 text-blue-500" />
+                    {drink.prep_time}
+                  </span>
+                </div>
+
+                {drink.abv && (
+                  <div className="flex items-center justify-between text-[9px] text-muted-foreground border-t border-border/40 pt-1">
+                    <span className="truncate max-w-[120px] font-medium">{drink.glass}</span>
+                    <span className="font-bold text-foreground/80">{drink.abv.split(' ')[0]}</span>
+                  </div>
+                )}
               </div>
             </motion.button>
           ))}
         </div>
       )}
 
-      {/* Drink Detail Modal */}
+      {/* Drink Detail Modal (Barman Masterclass View) */}
       <AnimatePresence>
         {selected && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-6"
+            className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4"
             onClick={() => setSelected(null)}
           >
             <motion.div
@@ -274,39 +311,40 @@ export default function DrinksMode() {
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: '100%', opacity: 0 }}
               transition={{ type: 'spring', damping: 28, stiffness: 280 }}
-              className="bg-background w-full sm:max-w-lg rounded-t-3xl sm:rounded-3xl shadow-2xl max-h-[92vh] overflow-y-auto"
+              className="bg-background w-full sm:max-w-xl rounded-t-3xl sm:rounded-3xl shadow-2xl max-h-[92vh] overflow-y-auto flex flex-col"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Modal Sticky Header */}
-              <div className="sticky top-0 bg-background/95 backdrop-blur-md flex items-center justify-between px-6 py-4 border-b border-border z-10">
+              <div className="sticky top-0 bg-background/95 backdrop-blur-md flex items-center justify-between px-5 sm:px-6 py-3.5 border-b border-border z-10">
                 <div className="flex items-center gap-2.5">
                   <div className={`w-8 h-8 rounded-xl flex items-center justify-center text-white ${selected.alcoholic ? 'bg-gradient-to-tr from-rose-500 to-amber-500' : 'bg-gradient-to-tr from-emerald-500 to-teal-500'}`}>
                     {selected.alcoholic ? <Wine className="w-4 h-4" /> : <GlassWater className="w-4 h-4" />}
                   </div>
                   <div>
-                    <h2 className="font-heading text-base sm:text-lg font-bold leading-tight">{selected.name}</h2>
+                    <h2 className="font-heading text-sm sm:text-base font-bold leading-tight">{selected.name}</h2>
                     <span className="text-[11px] font-semibold text-muted-foreground">{selected.categoryLabel}</span>
                   </div>
                 </div>
                 <button
                   onClick={() => setSelected(null)}
-                  className="p-2 rounded-full hover:bg-muted transition text-muted-foreground hover:text-foreground"
+                  className="p-1.5 rounded-full hover:bg-muted transition text-muted-foreground hover:text-foreground"
                 >
                   <X className="w-5 h-5" />
                 </button>
               </div>
 
               {/* Modal Body */}
-              <div className="p-6 space-y-6">
+              <div className="p-5 sm:p-6 space-y-5">
                 {/* Hero Drink Image */}
                 {DRINK_IMAGES[selected.id] && (
-                  <div className="relative w-full h-52 sm:h-60 rounded-3xl overflow-hidden bg-muted shadow-md">
+                  <div className="relative w-full h-56 sm:h-64 rounded-3xl overflow-hidden bg-muted shadow-md">
                     <img
                       src={DRINK_IMAGES[selected.id]}
                       alt={selected.name}
                       className="w-full h-full object-cover"
                     />
-                    <div className="absolute top-3 left-3 flex gap-2">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                    <div className="absolute top-3 left-3 flex flex-wrap gap-1.5">
                       <span
                         className={`text-xs px-3 py-1 rounded-full font-bold shadow-md ${
                           selected.alcoholic
@@ -325,37 +363,93 @@ export default function DrinksMode() {
                   </div>
                 )}
 
-                {/* Description & Badges */}
+                {/* Description & Technical Specs Barman */}
                 <div>
-                  <p className="text-sm text-foreground/80 leading-relaxed font-medium">
+                  <p className="text-xs sm:text-sm text-foreground/80 leading-relaxed font-medium">
                     {selected.description}
                   </p>
 
-                  <div className="flex flex-wrap items-center gap-2 mt-3.5">
-                    <span className="text-xs px-3 py-1.5 rounded-xl bg-purple-500/10 text-purple-700 font-semibold border border-purple-500/20 flex items-center gap-1.5 shadow-sm">
-                      <Sparkles className="w-3.5 h-3.5 text-purple-600" /> {selected.glass}
-                    </span>
-                    {selected.prep_time && (
-                      <span className="text-xs px-3 py-1.5 rounded-xl bg-blue-500/10 text-blue-700 font-semibold border border-blue-500/20 flex items-center gap-1.5 shadow-sm">
-                        <Clock className="w-3.5 h-3.5 text-blue-600" /> {selected.prep_time}
-                      </span>
-                    )}
-                    {selected.difficulty && (
-                      <span className="text-xs px-3 py-1.5 rounded-xl bg-orange-500/10 text-orange-700 font-semibold border border-orange-500/20 flex items-center gap-1.5 shadow-sm">
-                        <Flame className="w-3.5 h-3.5 text-orange-600" /> {selected.difficulty}
-                      </span>
-                    )}
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-4 text-[11px]">
+                    <div className="p-2.5 rounded-xl bg-purple-50 border border-purple-200/60 flex flex-col">
+                      <span className="text-purple-600 font-bold uppercase tracking-wider text-[9px]">Copo / Taça</span>
+                      <span className="font-semibold text-foreground mt-0.5 truncate">{selected.glass}</span>
+                    </div>
+
+                    <div className="p-2.5 rounded-xl bg-blue-50 border border-blue-200/60 flex flex-col">
+                      <span className="text-blue-600 font-bold uppercase tracking-wider text-[9px]">Gelo Indicado</span>
+                      <span className="font-semibold text-foreground mt-0.5 truncate">{selected.ice}</span>
+                    </div>
+
+                    <div className="p-2.5 rounded-xl bg-amber-50 border border-amber-200/60 flex flex-col">
+                      <span className="text-amber-600 font-bold uppercase tracking-wider text-[9px]">Teor Alcoólico</span>
+                      <span className="font-semibold text-foreground mt-0.5">{selected.abv}</span>
+                    </div>
+
+                    <div className="p-2.5 rounded-xl bg-emerald-50 border border-emerald-200/60 flex flex-col">
+                      <span className="text-emerald-600 font-bold uppercase tracking-wider text-[9px]">Dificuldade</span>
+                      <span className="font-semibold text-foreground mt-0.5">{selected.difficulty} • {selected.prep_time}</span>
+                    </div>
                   </div>
+
+                  {/* Technique Tag */}
+                  {selected.technique && (
+                    <div className="mt-2.5 flex items-center gap-2 p-2 rounded-xl bg-muted/60 text-xs text-foreground/90">
+                      <Sparkles className="w-3.5 h-3.5 text-purple-600 shrink-0" />
+                      <span className="font-bold text-purple-950">Técnica de Barman:</span>
+                      <span className="font-medium text-muted-foreground">{selected.technique}</span>
+                    </div>
+                  )}
                 </div>
+
+                {/* Smoky Drinks Special Masterclass Section */}
+                {selected.smoking_technique && (
+                  <div className="rounded-2xl bg-gradient-to-br from-slate-900 via-purple-950 to-slate-900 text-white p-4.5 border border-purple-500/30 shadow-lg">
+                    <div className="flex items-center gap-2 text-amber-300 font-bold text-xs sm:text-sm mb-2">
+                      <Wind className="w-4 h-4 text-amber-300 animate-pulse" />
+                      <span>💨 Técnica de Fumo Aromático (Masterclass do Barman)</span>
+                    </div>
+                    <p className="text-xs leading-relaxed text-slate-200 font-medium">
+                      {selected.smoking_technique}
+                    </p>
+                  </div>
+                )}
+
+                {/* Bar Tools (Utensílios do Barman) */}
+                {selected.bar_tools && selected.bar_tools.length > 0 && (
+                  <div className="rounded-2xl bg-black/[0.02] border border-border/70 p-4">
+                    <div className="flex items-center gap-2 mb-2.5">
+                      <Wrench className="w-3.5 h-3.5 text-purple-600" />
+                      <h4 className="font-heading text-xs font-bold uppercase tracking-wider text-foreground">
+                        Material de Barman Necessário
+                      </h4>
+                    </div>
+                    <div className="flex flex-wrap gap-1.5">
+                      {selected.bar_tools.map((tool, idx) => (
+                        <span
+                          key={idx}
+                          className="px-2.5 py-1 rounded-lg bg-white border border-border/60 text-foreground font-semibold text-xs shadow-xs"
+                        >
+                          {tool}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
 
                 {/* Ingredients Section */}
                 <div className="rounded-3xl bg-black/[0.02] border border-border/70 p-5">
                   <div className="flex items-center justify-between mb-3.5">
                     <h4 className="font-heading text-sm font-bold tracking-tight text-foreground flex items-center gap-2">
                       <span className="w-2 h-2 rounded-full bg-purple-500" />
-                      Ingredientes Necessários ({selected.ingredients.length})
+                      Ingredientes Rigorosos ({selected.ingredients.length})
                     </h4>
-                    <span className="text-[11px] text-muted-foreground">Toca em + para a lista de compras</span>
+                    <button
+                      onClick={() => handleAddAllIngredients(selected.ingredients)}
+                      className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-purple-100 hover:bg-purple-200 text-purple-800 text-xs font-bold transition active:scale-95"
+                    >
+                      <PlusCircle className="w-3.5 h-3.5" />
+                      <span>Adicionar Todos</span>
+                    </button>
                   </div>
 
                   <ul className="space-y-2">
@@ -366,7 +460,7 @@ export default function DrinksMode() {
                       >
                         <span className="font-medium text-foreground">{ing.name}</span>
                         <div className="flex items-center gap-2 shrink-0">
-                          <span className="font-bold text-purple-700 text-xs">{ing.quantity}</span>
+                          <span className="font-bold text-purple-700 text-xs bg-purple-50 px-2 py-0.5 rounded-md">{ing.quantity}</span>
                           <button
                             onClick={() => handleAddIngredient(ing)}
                             title="Adicionar à lista de compras"
@@ -384,7 +478,7 @@ export default function DrinksMode() {
                 <div>
                   <h4 className="font-heading text-sm font-bold tracking-tight text-foreground mb-3 flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-orange-500" />
-                    Como Preparar (Passo a Passo)
+                    Passo a Passo de Preparação
                   </h4>
 
                   <ol className="space-y-3">
@@ -407,11 +501,11 @@ export default function DrinksMode() {
 
                 {/* Bartender Tip */}
                 {selected.bartender_tip && (
-                  <div className="rounded-2xl bg-gradient-to-r from-amber-500/10 via-orange-500/10 to-purple-500/10 border border-amber-500/20 p-4 flex gap-3 text-xs text-foreground/90">
+                  <div className="rounded-2xl bg-gradient-to-r from-amber-500/15 via-orange-500/10 to-purple-500/10 border border-amber-500/30 p-4 flex gap-3 text-xs text-foreground/90">
                     <Sparkles className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
                     <div>
-                      <span className="font-bold text-amber-800 block mb-0.5">Segredo do Barman:</span>
-                      <p className="leading-relaxed text-muted-foreground">{selected.bartender_tip}</p>
+                      <span className="font-bold text-amber-900 block mb-0.5">Segredo do Barman (Dica Pro):</span>
+                      <p className="leading-relaxed text-muted-foreground font-medium">{selected.bartender_tip}</p>
                     </div>
                   </div>
                 )}
@@ -439,7 +533,7 @@ export default function DrinksMode() {
 
                   <ShareButton
                     title={selected.name}
-                    text={`Vê esta receita de ${selected.name} no Abana Jantar!`}
+                    text={`Aprende a fazer ${selected.name} no Abana Jantar!`}
                   />
                 </div>
               </div>
