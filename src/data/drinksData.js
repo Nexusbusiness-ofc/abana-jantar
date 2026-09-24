@@ -18,7 +18,7 @@ export const DRINK_CATEGORIES = [
     "id": "todas",
     "label": "Todas as Bebidas 🍹",
     "icon": "Sparkles",
-    "desc": "Explora o cardápio completo com 130 opções"
+    "desc": "Explora o cardápio completo com 131 opções"
   },
   {
     "id": "fumo",
@@ -6541,6 +6541,65 @@ export const DRINKS = [
           "Espeta a azeitona gordal no palito de inox e pousa no fundo da taça."
       ],
       "bartender_tip": "Nunca batas um Dry Martini no shaker com gelo: o shaker introduz microbolhas de ar que turvam o líquido e partem o gelo, aguando o cocktail. O mixing glass garante uma textura límpida como vidro fundido e aveludada."
+  },
+  {
+      "id": "pink_lady",
+      "name": "Pink Lady Clássico (London Dry, Calvados & Espuma de Romã)",
+      "alcoholic": true,
+      "category": "gins",
+      "categoryLabel": "Gins de Autor & Botânicos 🍸",
+      "technique": "Dry Shake & Double Strain (Espuma Sedosa)",
+      "description": "Um dos mais venerados cocktails da Era do Jazz e da Lei Seca. A elegância botânica do London Dry harmonizada com a profundidade da maçã do Calvados francês, sumo de limão fresco e a doçura aveludada do xarope de romã artesanal, coroada por uma densa e macia espuma branca.",
+      "difficulty": "Média",
+      "prep_time": "3 min",
+      "glass": "Taça Coupe / Cocktail de Cristal",
+      "ice": "Gelo para Shaker (Duplo Batimento)",
+      "abv": "19% ABV (Equilibrado & Sedoso)",
+      "badge": "Ícone Vintage ✨",
+      "bar_tools": [
+          "Shaker Boston / Cobbler de Inox",
+          "Jigger (Doser)",
+          "Hawthorne Strainer",
+          "Passador Fino (Fine Mesh Strainer)",
+          "Espeto de Cocktail Dourado"
+      ],
+      "ingredients": [
+          {
+              "name": "London Dry Gin Premium",
+              "quantity": "45 ml"
+          },
+          {
+              "name": "Calvados Francês ou Brandy de Maçã",
+              "quantity": "15 ml"
+          },
+          {
+              "name": "Sumo de Limão Fresco Espremido",
+              "quantity": "15 ml"
+          },
+          {
+              "name": "Xarope de Romã Artesanal (Grenadine Real)",
+              "quantity": "10 ml"
+          },
+          {
+              "name": "Clara de Ovo Pasteurizada (ou Aquafaba vegan)",
+              "quantity": "15 ml"
+          },
+          {
+              "name": "Cereja Amarena Luxardo & Pétala de Rosa Comestível",
+              "quantity": "Para guarnição"
+          }
+      ],
+      "steps": [
+          "Arrefece previamente uma taça coupe enchendo-a com gelo picado ou colocando no congelador.",
+          "No shaker, combina o London Dry Gin, o Calvados, o sumo de limão fresco, a grenadine e a clara de ovo (sem adicionar gelo nesta fase).",
+          "Realiza o 'Dry Shake': bate vigorosamente a seco durante 15 segundos para emulsionar a clara de ovo e criar uma espuma rica e aveludada.",
+          "Abre o shaker, adiciona bastante gelo maciço e bate novamente com força ('Wet Shake') durante 12 segundos até gelar intensamente.",
+          "Descarta o gelo da taça coupe.",
+          "Faz coagem dupla (Hawthorne strainer + passador fino) vertendo o cocktail suavemente para a taça.",
+          "Observa a divisão perfeita entre o corpo rosa pastel e a camada de espuma branca sedosa.",
+          "Guarnece com uma cereja Amarena espetada num pick dourado e delicadas pétalas de rosa sobre a espuma."
+      ],
+      "bartender_tip": "O segredo da textura luxuosa da Pink Lady reside no Dry Shake inicial sem gelo: a temperatura ambiente permite que as proteínas da clara se expandam e criem uma microespuma incrivelmente aveludada. Usar grenadine real (feita com sumo de romã genuíno) confere a autêntica cor blush sem artificialismos."
   },
   {
     "id": "mazagran_portugues",

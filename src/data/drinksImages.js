@@ -130,6 +130,7 @@ import ginMalfyRosaImg from '@/assets/drinks/gin_malfy_rosa.jpg';
 import ginTropicalMaracujaImg from '@/assets/drinks/gin_tropical_maracuja.jpg';
 import ginFourPillarsShirazImg from '@/assets/drinks/gin_four_pillars_shiraz.jpg';
 import ginDryMartiniRoyalImg from '@/assets/drinks/gin_dry_martini_royal.jpg';
+import pinkLadyImg from '@/assets/drinks/pink_lady.jpg';
 
 export const DRINK_IMAGES = {
   cocktail_fumegante: cocktailFumeganteImg,
@@ -264,4 +265,5 @@ export const DRINK_IMAGES = {
   gin_tropical_maracuja: ginTropicalMaracujaImg,
   gin_four_pillars_shiraz: ginFourPillarsShirazImg,
   gin_dry_martini_royal: ginDryMartiniRoyalImg,
+  pink_lady: pinkLadyImg,
 };
