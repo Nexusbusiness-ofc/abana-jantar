@@ -109,6 +109,28 @@ import icedCaramelMacchiatoImg from '@/assets/drinks/iced_caramel_macchiato.jpg'
 import coldBrewArtesanalImg from '@/assets/drinks/cold_brew_artesanal.jpg';
 import cafeMochaImg from '@/assets/drinks/cafe_mocha.jpg';
 
+// 20 Gins de Autor & Botânicos
+import ginHendricksPepinoRosaImg from '@/assets/drinks/gin_hendricks_pepino_rosa.jpg';
+import ginMonkey47AmoraAlecrimImg from '@/assets/drinks/gin_monkey_47_amora_alecrim.jpg';
+import ginMareMediterraneoImg from '@/assets/drinks/gin_mare_mediterraneo.jpg';
+import ginTanquerayTenToranjaImg from '@/assets/drinks/gin_tanqueray_ten_toranja.jpg';
+import ginBombaySapphireZestImg from '@/assets/drinks/gin_bombay_sapphire_zest.jpg';
+import ginNordesGalegoImg from '@/assets/drinks/gin_nordes_galego.jpg';
+import ginRokuJaponesImg from '@/assets/drinks/gin_roku_japones.jpg';
+import ginSharishMacaBravoImg from '@/assets/drinks/gin_sharish_maca_bravo.jpg';
+import ginBlackPigCostaImg from '@/assets/drinks/gin_black_pig_costa.jpg';
+import ginBotanistIslayImg from '@/assets/drinks/gin_botanist_islay.jpg';
+import ginPinkMorangoHibiscoImg from '@/assets/drinks/gin_pink_morango_hibisco.jpg';
+import ginLondonDryClassicoImg from '@/assets/drinks/gin_london_dry_classico.jpg';
+import ginSipsmithSloeImg from '@/assets/drinks/gin_sipsmith_sloe.jpg';
+import ginCitadelleFrancesImg from '@/assets/drinks/gin_citadelle_frances.jpg';
+import ginGvineFloraisonImg from '@/assets/drinks/gin_gvine_floreaison.jpg';
+import ginMalfyLimoneImg from '@/assets/drinks/gin_malfy_limone.jpg';
+import ginMalfyRosaImg from '@/assets/drinks/gin_malfy_rosa.jpg';
+import ginTropicalMaracujaImg from '@/assets/drinks/gin_tropical_maracuja.jpg';
+import ginFourPillarsShirazImg from '@/assets/drinks/gin_four_pillars_shiraz.jpg';
+import ginDryMartiniRoyalImg from '@/assets/drinks/gin_dry_martini_royal.jpg';
+
 export const DRINK_IMAGES = {
   cocktail_fumegante: cocktailFumeganteImg,
   smoked_old_fashioned: smokedOldFashionedImg,
@@ -220,4 +242,26 @@ export const DRINK_IMAGES = {
   iced_caramel_macchiato: icedCaramelMacchiatoImg,
   cold_brew_artesanal: coldBrewArtesanalImg,
   cafe_mocha: cafeMochaImg,
+
+  // 20 Gins de Autor & Botânicos
+  gin_hendricks_pepino_rosa: ginHendricksPepinoRosaImg,
+  gin_monkey_47_amora_alecrim: ginMonkey47AmoraAlecrimImg,
+  gin_mare_mediterraneo: ginMareMediterraneoImg,
+  gin_tanqueray_ten_toranja: ginTanquerayTenToranjaImg,
+  gin_bombay_sapphire_zest: ginBombaySapphireZestImg,
+  gin_nordes_galego: ginNordesGalegoImg,
+  gin_roku_japones: ginRokuJaponesImg,
+  gin_sharish_maca_bravo: ginSharishMacaBravoImg,
+  gin_black_pig_costa: ginBlackPigCostaImg,
+  gin_botanist_islay: ginBotanistIslayImg,
+  gin_pink_morango_hibisco: ginPinkMorangoHibiscoImg,
+  gin_london_dry_classico: ginLondonDryClassicoImg,
+  gin_sipsmith_sloe: ginSipsmithSloeImg,
+  gin_citadelle_frances: ginCitadelleFrancesImg,
+  gin_gvine_floreaison: ginGvineFloraisonImg,
+  gin_malfy_limone: ginMalfyLimoneImg,
+  gin_malfy_rosa: ginMalfyRosaImg,
+  gin_tropical_maracuja: ginTropicalMaracujaImg,
+  gin_four_pillars_shiraz: ginFourPillarsShirazImg,
+  gin_dry_martini_royal: ginDryMartiniRoyalImg,
 };

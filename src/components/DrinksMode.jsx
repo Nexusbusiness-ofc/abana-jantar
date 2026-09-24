@@ -36,6 +36,7 @@ import { useToast } from '@/components/ui/use-toast';
 // Master sommelier sequence for displaying all categories on the page
 const CATEGORY_ORDER = [
   'fumo',
+  'gins',
   'cocktails',
   'short',
   'long',
@@ -51,6 +52,8 @@ const CATEGORY_ORDER = [
 // Helper to get category icon with refined luxury styling
 function getCategoryIcon(catId, className = 'w-4 h-4') {
   switch (catId) {
+    case 'gins':
+      return <Wine className={`${className} text-teal-300`} />;
     case 'cafes':
       return <Coffee className={`${className} text-amber-400`} />;
     case 'fumo':
@@ -565,6 +568,11 @@ export default function DrinksMode() {
                       </div>
 
                       {/* Special Category Badges */}
+                      {drink.category === 'gins' && (
+                        <div className="absolute top-8 left-2 px-2 py-0.5 rounded-full bg-teal-950/90 text-teal-200 text-[9px] font-sans font-bold flex items-center gap-1 backdrop-blur-md border border-teal-400/40 shadow-sm z-10">
+                          <Wine className="w-2.5 h-2.5 text-teal-300" /> Gin de Autor
+                        </div>
+                      )}
                       {drink.category === 'cafes' && (
                         <div className="absolute top-8 left-2 px-2 py-0.5 rounded-full bg-amber-950/90 text-amber-200 text-[9px] font-sans font-bold flex items-center gap-1 backdrop-blur-md border border-amber-400/30 shadow-sm z-10">
                           <Coffee className="w-2.5 h-2.5 text-amber-300" /> Barista Craft

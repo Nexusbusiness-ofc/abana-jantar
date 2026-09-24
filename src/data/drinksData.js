@@ -18,13 +18,19 @@ export const DRINK_CATEGORIES = [
     "id": "todas",
     "label": "Todas as Bebidas 🍹",
     "icon": "Sparkles",
-    "desc": "Explora o cardápio completo com 110 opções"
+    "desc": "Explora o cardápio completo com 130 opções"
   },
   {
     "id": "fumo",
     "label": "Fumo Aromático 💨",
     "icon": "Wind",
     "desc": "Cocktails defumados com campânula, maçarico e madeiras nobres"
+  },
+  {
+    "id": "gins",
+    "label": "Gins de Autor & Botânicos 🍸",
+    "icon": "Wine",
+    "desc": "Taças balão geladas, botânicos raros, infusões florais, cítricas e zimbro selvagem"
   },
   {
     "id": "energy",
@@ -5436,6 +5442,1105 @@ export const DRINKS = [
       "Dá uma suave volta com a colher e serve."
     ],
     "bartender_tip": "Para uma versão Long Drink extremamente popular nos festivais de verão (o \"Caipirão\"), prepara-o como uma caipirinha substituindo a cachaça e o açúcar apenas por Licor Beirão e lima!"
+  },
+  {
+      "id": "gin_hendricks_pepino_rosa",
+      "name": "Hendrick's Curiosities (Pepino & Pétalas de Rosa)",
+      "alcoholic": true,
+      "category": "gins",
+      "categoryLabel": "Gins de Autor & Botânicos 🍸",
+      "technique": "Montado na Taça Balão & Perfumado com Zest",
+      "description": "O pioneiro da revolução botânica: infusão destilada de pepino holandês e pétalas de rosa damascena búlgara. Servido numa taça balão gelada com fita de pepino crocante e pétalas perfumadas.",
+      "difficulty": "Fácil",
+      "prep_time": "3 min",
+      "glass": "Taça Balão Cristal (Copa)",
+      "ice": "Cubos Grandes Cristalinos",
+      "abv": "12% ABV (Leve a Moderado)",
+      "badge": "Floral & Refrescante 🥒",
+      "bar_tools": [
+          "Colher de Bar Bailarina",
+          "Jigger (Doser)",
+          "Descascador de Fitas",
+          "Pinça de Botânicos"
+      ],
+      "ingredients": [
+          {
+              "name": "Hendrick's Gin Escocês",
+              "quantity": "50 ml"
+          },
+          {
+              "name": "Água Tónica Premium Indian ou Elderflower",
+              "quantity": "150 ml"
+          },
+          {
+              "name": "Fita Longa de Pepino Holandês Fresco",
+              "quantity": "1 fita fina"
+          },
+          {
+              "name": "Pétalas de Rosa Desidratadas Comestíveis",
+              "quantity": "3 a 4 pétalas"
+          },
+          {
+              "name": "Cubos de Gelo Cristalino",
+              "quantity": "Abundante"
+          }
+      ],
+      "steps": [
+          "Enche a taça balão de gelo até ao topo e gira com a colher de bar para gelar o cristal.",
+          "Retira o excesso de água formada no fundo da taça com o coador de bar.",
+          "Com o descascador, retira uma fita longitudinal e fina de pepino e encosta-a ao interior da taça.",
+          "Mede 50 ml de Hendrick's Gin com o jigger e deita suavemente sobre o gelo.",
+          "Verte a água tónica premium muito devagar, deslizando pela espiral da colher bailarina.",
+          "Dá uma única volta suave para envolver os botânicos sem quebrar as bolhas de gás.",
+          "Decora o topo com as pétalas de rosa comestíveis e serve de imediato."
+      ],
+      "bartender_tip": "Não espremas o pepino nem mexas excessivamente: o aroma de rosa e pepino é volátil e liberta-se naturalmente à medida que o gelo mantém a bebida gelada."
+  },
+  {
+      "id": "gin_monkey_47_amora_alecrim",
+      "name": "Monkey 47 Schwarzwald (Amoras Silvestres & Alecrim Fumado)",
+      "alcoholic": true,
+      "category": "gins",
+      "categoryLabel": "Gins de Autor & Botânicos 🍸",
+      "technique": "Maceração Suave & Fumo Aromático de Alecrim",
+      "description": "Complexidade inigualável com 47 botânicos recolhidos na misteriosa Floresta Negra alemã. Coroado com amoras silvestres frescas e um raminho de alecrim levemente tostado com maçarico de bar.",
+      "difficulty": "Média",
+      "prep_time": "4 min",
+      "glass": "Taça Balão Cristal Lapidada",
+      "ice": "Cubos Grandes Cristalinos",
+      "abv": "15% ABV (Equilibrado & Nobre)",
+      "badge": "47 Botânicos 🌲",
+      "bar_tools": [
+          "Colher Bailarina",
+          "Jigger (Doser)",
+          "Maçarico de Bar",
+          "Pinça de Precisão"
+      ],
+      "ingredients": [
+          {
+              "name": "Monkey 47 Schwarzwald Dry Gin",
+              "quantity": "50 ml"
+          },
+          {
+              "name": "Água Tónica Aromatic ou Indian Seca",
+              "quantity": "150 ml"
+          },
+          {
+              "name": "Amoras Silvestres Frescas",
+              "quantity": "3 unidades"
+          },
+          {
+              "name": "Ramo Fresco de Alecrim",
+              "quantity": "1 ramo vigoroso"
+          },
+          {
+              "name": "Zest de Lima Fresca",
+              "quantity": "1 twist"
+          },
+          {
+              "name": "Gelo Maciço Cristalino",
+              "quantity": "Abundante"
+          }
+      ],
+      "steps": [
+          "Gela a taça de cristal lapidada enchendo-a com cubos maciços de gelo.",
+          "No fundo da taça, esmaga suavemente uma das amoras para libertar o seu sumo e cor carmim.",
+          "Adiciona 50 ml de Monkey 47 Gin e gira suavemente a taça para infusionar.",
+          "Verte a água tónica premium lentamente pela colher espiralada.",
+          "Coloca as restantes amoras inteiras à superfície do gelo.",
+          "Segura o ramo de alecrim com a pinça e passa a chama do maçarico durante 3 segundos na ponta, pousando-o de imediato sobre o cocktail enquanto liberta um fumo amadeirado.",
+          "Perfuma o bordo com um twist de lima e serve."
+      ],
+      "bartender_tip": "O alecrim tostado no maçarico ativa os óleos balsâmicos que contrastam na perfeição com o zimbro selvagem e os 47 botânicos da Floresta Negra."
+  },
+  {
+      "id": "gin_mare_mediterraneo",
+      "name": "Gin Mare Capri (Manjericão, Tomilho & Azeitona Arbequina)",
+      "alcoholic": true,
+      "category": "gins",
+      "categoryLabel": "Gins de Autor & Botânicos 🍸",
+      "technique": "Infusão Herbal no Balcão",
+      "description": "A essência ensolarada do Mediterrâneo destilada com azeitonas arbequinas espanholas, tomilho, alecrim e manjericão fresco. Uma viagem sensorial pela Riviera e Costa Brava.",
+      "difficulty": "Fácil",
+      "prep_time": "3 min",
+      "glass": "Taça Balão Ampla",
+      "ice": "Cubos Grandes Cristalinos",
+      "abv": "13% ABV (Herbal Refrescante)",
+      "badge": "Mediterrânico 🌿",
+      "bar_tools": [
+          "Colher de Bar Bailarina",
+          "Jigger (Doser)",
+          "Espeto de Cocktail em Inox",
+          "Pinça de Bar"
+      ],
+      "ingredients": [
+          {
+              "name": "Gin Mare Mediterrânico",
+              "quantity": "50 ml"
+          },
+          {
+              "name": "Água Tónica Mediterranean (Fever-Tree)",
+              "quantity": "150 ml"
+          },
+          {
+              "name": "Folha Fresca de Manjericão",
+              "quantity": "2 folhas"
+          },
+          {
+              "name": "Raminho Fresco de Tomilho",
+              "quantity": "1 raminho"
+          },
+          {
+              "name": "Azeitona Arbequina em Salmoura",
+              "quantity": "1 espetada"
+          },
+          {
+              "name": "Twist de Laranja ou Limão",
+              "quantity": "1 tira"
+          },
+          {
+              "name": "Gelo Maciço",
+              "quantity": "Abundante"
+          }
+      ],
+      "steps": [
+          "Arrefece a taça balão com gelo abundante e descarta a água residual.",
+          "Dá uma leve palmada nas folhas de manjericão na palma da mão ('clapping') para despertar as vesículas aromáticas e coloca na taça.",
+          "Adiciona 50 ml de Gin Mare medidos no jigger.",
+          "Junta o raminho de tomilho fresco e a tira de casca de laranja.",
+          "Completa com água tónica mediterrânica vertida muito devagar.",
+          "Finaliza com uma azeitona arbequina perfumada espetada num palito de inox apoiada na borda do copo."
+      ],
+      "bartender_tip": "A tónica Mediterranean com toques de alecrim e tomilho é a combinação canónica desenhada especificamente para harmonizar com a destilação deste gin."
+  },
+  {
+      "id": "gin_tanqueray_ten_toranja",
+      "name": "Tanqueray No. TEN Reserve (Toranja Rosa & Sabugueiro)",
+      "alcoholic": true,
+      "category": "gins",
+      "categoryLabel": "Gins de Autor & Botânicos 🍸",
+      "technique": "Cítrico Expressado & Tónica Floral",
+      "description": "Destilado no mítico alambique Tiny Ten com citrinos frescos colhidos à mão (toranjas, laranjas e limas inteiras). Servido com uma fatia generosa de toranja rosa rubi e flor de sabugueiro.",
+      "difficulty": "Fácil",
+      "prep_time": "3 min",
+      "glass": "Taça Balão Haute Coquetelaria",
+      "ice": "Cubos Grandes Cristalinos",
+      "abv": "14% ABV (Vibrante & Cítrico)",
+      "badge": "Cítrico Imperial 🍊",
+      "bar_tools": [
+          "Colher Bailarina",
+          "Jigger (Doser)",
+          "Faca de Guarnição Japonesa",
+          "Pinça de Bar"
+      ],
+      "ingredients": [
+          {
+              "name": "Tanqueray No. TEN Gin",
+              "quantity": "50 ml"
+          },
+          {
+              "name": "Água Tónica Elderflower (Flor de Sabugueiro)",
+              "quantity": "150 ml"
+          },
+          {
+              "name": "Fatia Fina Meia-Lua de Toranja Rosa Fresca",
+              "quantity": "1 fatia"
+          },
+          {
+              "name": "Raminho de Flores de Sabugueiro ou Menta",
+              "quantity": "1 raminho decorativo"
+          },
+          {
+              "name": "Gelo Cristalino Puro",
+              "quantity": "Abundante"
+          }
+      ],
+      "steps": [
+          "Enche a taça com cubos maciços de gelo e escorre a água com o passador.",
+          "Adiciona 50 ml de Tanqueray No. TEN, deixando o destilado correr pelo gelo.",
+          "Insere delicadamente a fatia de toranja rosa contra a parede interior da taça.",
+          "Verte a tónica de sabugueiro com delicadeza pela colher bailarina.",
+          "Faz um movimento ascendente com a colher de bar para integrar os sabores sem perder efervescência.",
+          "Perfuma o cimo da taça com flores de sabugueiro ou folhas de menta e serve."
+      ],
+      "bartender_tip": "A acidez nobre e ligeiramente amarga da toranja rosa corta na perfeição a doçura subtil da tónica de flor de sabugueiro."
+  },
+  {
+      "id": "gin_bombay_sapphire_zest",
+      "name": "Bombay Sapphire Sunset (Zest de Limão & Pimenta Rosa)",
+      "alcoholic": true,
+      "category": "gins",
+      "categoryLabel": "Gins de Autor & Botânicos 🍸",
+      "technique": "Infusão a Vapor & Especiarias",
+      "description": "Os 10 botânicos exóticos destilados a vapor ganham vida com zest espiral de limão siciliano fresco e grãos estaladiços de pimenta rosa brasileira.",
+      "difficulty": "Fácil",
+      "prep_time": "3 min",
+      "glass": "Taça Balão de Cristal",
+      "ice": "Cubos Grandes Cristalinos",
+      "abv": "12% ABV (Seco & Especiado)",
+      "badge": "Clássico Botânico 🍋",
+      "bar_tools": [
+          "Colher Bailarina",
+          "Jigger (Doser)",
+          "Canelador de Citrinos",
+          "Pinça de Precisão"
+      ],
+      "ingredients": [
+          {
+              "name": "Bombay Sapphire London Dry Gin",
+              "quantity": "50 ml"
+          },
+          {
+              "name": "Água Tónica Indian Clássica Premium",
+              "quantity": "150 ml"
+          },
+          {
+              "name": "Casca Espiralada de Limão Siciliano",
+              "quantity": "1 espiral longa"
+          },
+          {
+              "name": "Bagas de Pimenta Rosa",
+              "quantity": "5 a 6 bagas"
+          },
+          {
+              "name": "Gelo Cristalino",
+              "quantity": "Abundante"
+          }
+      ],
+      "steps": [
+          "Gela a taça balão com gelo abundante e descarta a água derretida.",
+          "Adiciona 50 ml de Bombay Sapphire sobre o gelo.",
+          "Esmaga apenas 1 grão de pimenta rosa entre os dedos e deita-o no copo; coloca os restantes grãos inteiros à superfície.",
+          "Verte a água tónica premium suavemente com a colher bailarina.",
+          "Com a espiral de limão siciliano, torce sobre a taça para libertar a névoa de óleos aromáticos e pousa sobre o gelo.",
+          "Envolve suavemente com um único toque de colher."
+      ],
+      "bartender_tip": "A pimenta rosa não é picante como a preta: é aromática, resinosa e confere uma doçura frutada que complementa a raiz de lírio e o alcaçuz do Bombay."
+  },
+  {
+      "id": "gin_nordes_galego",
+      "name": "Nordés Atlantic Galego (Uva Albariño & Folha de Louro)",
+      "alcoholic": true,
+      "category": "gins",
+      "categoryLabel": "Gins de Autor & Botânicos 🍸",
+      "technique": "Montagem Atlântica & Uvas Selecionadas",
+      "description": "O incomparável gin atlântico com base vínica de uvas Albariño da Galiza e botânicos marítimos como salva, louro e salicórnia. Servido com três uvas brancas no espeto e louro fresco.",
+      "difficulty": "Fácil",
+      "prep_time": "3 min",
+      "glass": "Taça Balão Ampla",
+      "ice": "Cubos Grandes Cristalinos",
+      "abv": "13% ABV (Frutado Atlântico)",
+      "badge": "Galego & Atlântico 🌊",
+      "bar_tools": [
+          "Colher Bailarina",
+          "Jigger (Doser)",
+          "Espeto de Bambu Gourmet",
+          "Pinça de Bar"
+      ],
+      "ingredients": [
+          {
+              "name": "Nordés Atlantic Galician Gin",
+              "quantity": "50 ml"
+          },
+          {
+              "name": "Água Tónica Neutra Premium (Light ou Indian)",
+              "quantity": "150 ml"
+          },
+          {
+              "name": "Uvas Brancas Albariño ou Thompson Frescas",
+              "quantity": "3 bagos"
+          },
+          {
+              "name": "Folha Fresca de Louro Verde",
+              "quantity": "1 folha"
+          },
+          {
+              "name": "Zest de Lima Suave",
+              "quantity": "1 tira fina"
+          },
+          {
+              "name": "Gelo Cristalino",
+              "quantity": "Abundante"
+          }
+      ],
+      "steps": [
+          "Gela bem a taça balão com cubos de gelo maciços.",
+          "Perfura ligeiramente 3 uvas brancas frescas e coloca-as num espeto de bambu.",
+          "Mede 50 ml de Nordés Gin e verte sobre o gelo.",
+          "Adiciona a folha fresca de louro, esfregando-a ligeiramente no bordo superior da taça.",
+          "Completa com água tónica neutra muito fresca vertida em fio contínuo.",
+          "Coloca o espeto de uvas a repousar sobre o gelo e serve."
+      ],
+      "bartender_tip": "Usa sempre água tónica neutra e com baixo teor de açúcar para não encobrir as notas aromáticas de pêssego, louro e mosto de uva características do Nordés."
+  },
+  {
+      "id": "gin_roku_japones",
+      "name": "Roku Gin Japonês (Flor de Sakura & Gengibre em Julienne)",
+      "alcoholic": true,
+      "category": "gins",
+      "categoryLabel": "Gins de Autor & Botânicos 🍸",
+      "technique": "Ritual Japonês 'Shun' das Quatro Estações",
+      "description": "Arte japonesa de destilação com 6 botânicos sazonais: sakura (primavera), chás sencha e gyokuro (verão), pimenta sansho (outono) e yuzu (inverno). Servido com finas tiras de gengibre fresco.",
+      "difficulty": "Média",
+      "prep_time": "4 min",
+      "glass": "Taça Balão Minimalista ou Copo Rocks Lapidado",
+      "ice": "Gelo Hand-Carved ou Cubos Grandes",
+      "abv": "14% ABV (Sofisticado Zen)",
+      "badge": "Japonês Artesanal 🌸",
+      "bar_tools": [
+          "Colher Bailarina Japonesa",
+          "Jigger (Doser)",
+          "Faca Yanagiba de Precisão",
+          "Pinça de Bambu"
+      ],
+      "ingredients": [
+          {
+              "name": "Roku Gin Japonês (Suntory)",
+              "quantity": "50 ml"
+          },
+          {
+              "name": "Água Tónica Premium Super Seca",
+              "quantity": "150 ml"
+          },
+          {
+              "name": "Gengibre Fresco Cortado em Julienne Finíssima",
+              "quantity": "6 tiras finas"
+          },
+          {
+              "name": "Pétalas de Sakura ou Flor Comestível Delicada",
+              "quantity": "Para guarnecer"
+          },
+          {
+              "name": "Gelo Puro Lapidado",
+              "quantity": "Abundante"
+          }
+      ],
+      "steps": [
+          "Prepara 6 tiras finas como cabelo de gengibre fresco com uma faca afiada.",
+          "Coloca os cubos de gelo na taça e gira com a colher de bar para refrigerar a taça.",
+          "Deita 50 ml de Roku Gin Japonês com precisão ritualística.",
+          "Distribui as 6 tiras de gengibre sobre o gelo (cada uma homenageando um botânico do gin).",
+          "Despeja a tónica japonesa ou tónica seca premium com máxima serenidade.",
+          "Dá uma única rotação com a colher bailarina de baixo para cima.",
+          "Pousa pétalas delicadas sobre a espuma do cocktail."
+      ],
+      "bartender_tip": "O gengibre em tiras finas harmoniza magistralmente com as notas cítricas de yuzu e o calor aromático da pimenta sansho destilada no gin."
+  },
+  {
+      "id": "gin_sharish_maca_bravo",
+      "name": "Sharish Alentejano (Maçã Bravo de Esmolfe & Canela)",
+      "alcoholic": true,
+      "category": "gins",
+      "categoryLabel": "Gins de Autor & Botânicos 🍸",
+      "technique": "Infusão Frutada Alentejana",
+      "description": "O orgulho alentejano destilado em alambiques de cobre tradicionais em Reguengos de Monsaraz. Infundido com a perfumada Maçã Bravo de Esmolfe DOP e pau de canela tostado.",
+      "difficulty": "Fácil",
+      "prep_time": "3 min",
+      "glass": "Taça Balão Alentejo",
+      "ice": "Cubos Grandes Cristalinos",
+      "abv": "13% ABV (Doce & Especiado)",
+      "badge": "100% Português 🇵🇹",
+      "bar_tools": [
+          "Colher de Bar Bailarina",
+          "Jigger (Doser)",
+          "Mandolina ou Faca Afiada",
+          "Maçarico de Cozinha"
+      ],
+      "ingredients": [
+          {
+              "name": "Sharish Gin Alentejano Original",
+              "quantity": "50 ml"
+          },
+          {
+              "name": "Água Tónica Premium Neutra",
+              "quantity": "150 ml"
+          },
+          {
+              "name": "Maçã Bravo de Esmolfe DOP Fresca",
+              "quantity": "3 lâminas finas em leque"
+          },
+          {
+              "name": "Pau de Canela do Ceilão",
+              "quantity": "1 pau inteiro"
+          },
+          {
+              "name": "Zest de Limão Galego",
+              "quantity": "1 twist"
+          },
+          {
+              "name": "Gelo Maciço",
+              "quantity": "Abundante"
+          }
+      ],
+      "steps": [
+          "Arrefece a taça balão com gelo abundante e retira a água acumulada.",
+          "Corta 3 fatias muito finas de maçã Bravo de Esmolfe e dispõe-nas em leque.",
+          "Mede 50 ml de Sharish Gin e verte sobre os cubos de gelo.",
+          "Acende o maçarico e tosta a ponta do pau de canela durante 2 segundos até crepitar, introduzindo-o na taça como agitador.",
+          "Verte a água tónica premium suavemente encostada ao pau de canela.",
+          "Finaliza colocando o leque de maçã a flutuar no cimo do gelo com um twist de limão."
+      ],
+      "bartender_tip": "A maçã Bravo de Esmolfe confere um perfume adocicado inconfundível que torna supérfluo qualquer xarope de açúcar."
+  },
+  {
+      "id": "gin_black_pig_costa",
+      "name": "Black Pig Costa Alentejana (Laranja do Algarve & Alecrim)",
+      "alcoholic": true,
+      "category": "gins",
+      "categoryLabel": "Gins de Autor & Botânicos 🍸",
+      "technique": "Montado com Botânicos da Costa Vicentina",
+      "description": "Multi-premiado internacionalmente, este gin alentejano destila os aromas bravios das dunas de Santiago do Cacém e da Costa Vicentina. Guarnecido com laranja do Algarve e alecrim fresco.",
+      "difficulty": "Fácil",
+      "prep_time": "3 min",
+      "glass": "Taça Balão Rústica Chique",
+      "ice": "Cubos Grandes Cristalinos",
+      "abv": "14% ABV (Costeiro & Solar)",
+      "badge": "Costa Vicentina 🇵🇹",
+      "bar_tools": [
+          "Colher Bailarina",
+          "Jigger (Doser)",
+          "Descascador de Citrinos",
+          "Pinça de Bar"
+      ],
+      "ingredients": [
+          {
+              "name": "Black Pig Costa Alentejana Gin",
+              "quantity": "50 ml"
+          },
+          {
+              "name": "Água Tónica Mediterranean ou Indian Premium",
+              "quantity": "150 ml"
+          },
+          {
+              "name": "Casca Larga de Laranja Doce do Algarve",
+              "quantity": "1 tira sem polpa branca"
+          },
+          {
+              "name": "Raminho Fresco de Alecrim Alentejano",
+              "quantity": "1 unidade"
+          },
+          {
+              "name": "Bagas de Zimbro Silvestre Esmagadas",
+              "quantity": "2 unidades"
+          },
+          {
+              "name": "Gelo de Rocha Maciço",
+              "quantity": "Abundante"
+          }
+      ],
+      "steps": [
+          "Enche a taça balão de gelo e mexe para gelar as paredes do vidro.",
+          "Esmaga as 2 bagas de zimbro na palma da mão e deita no fundo da taça.",
+          "Adiciona 50 ml de Black Pig Costa Alentejana Gin.",
+          "Torce a casca de laranja sobre o copo para borrifar os óleos cítricos sobre o gin.",
+          "Insere o ramo de alecrim fresco verticalmente entre os cubos de gelo.",
+          "Verte a água tónica muito lentamente pela colher de bar.",
+          "Serve e desfruta da brisa do Atlântico e dos montados alentejanos."
+      ],
+      "bartender_tip": "Bater com o ramo de alecrim nas costas da mão antes de o colocar ativa os seus óleos aromáticos sem queimar as folhas."
+  },
+  {
+      "id": "gin_botanist_islay",
+      "name": "The Botanist Islay 22 (Zimbro Selvagem, Cardamomo & Camomila)",
+      "alcoholic": true,
+      "category": "gins",
+      "categoryLabel": "Gins de Autor & Botânicos 🍸",
+      "technique": "Destilação Lenta & Botânicos Forrageados",
+      "description": "Obra-prima forrageada na lendária ilha escocesa de Islay com 22 ervas e flores selvagens colhidas à mão nas falésias e turfeiras. Perfumado com sementes de cardamomo e flores de camomila.",
+      "difficulty": "Média",
+      "prep_time": "4 min",
+      "glass": "Taça Balão Escocesa de Cristal",
+      "ice": "Cubos Grandes Cristalinos",
+      "abv": "15% ABV (Herbáceo Complexo)",
+      "badge": "Islay Foraged 🌿",
+      "bar_tools": [
+          "Colher Bailarina",
+          "Jigger (Doser)",
+          "Muddler Pequeno",
+          "Pinça de Botânicos"
+      ],
+      "ingredients": [
+          {
+              "name": "The Botanist Islay Dry Gin (Bruichladdich)",
+              "quantity": "50 ml"
+          },
+          {
+              "name": "Água Tónica Premium Indian Seca",
+              "quantity": "150 ml"
+          },
+          {
+              "name": "Vagens Verdes de Cardamomo",
+              "quantity": "2 vagens levemente abertas"
+          },
+          {
+              "name": "Flores de Camomila Desidratadas",
+              "quantity": "Pequena pitada"
+          },
+          {
+              "name": "Ramo Fresco de Hortelã Selvagem",
+              "quantity": "1 ponta"
+          },
+          {
+              "name": "Zest de Toranja ou Limão",
+              "quantity": "1 twist"
+          },
+          {
+              "name": "Gelo Maciço Puro",
+              "quantity": "Abundante"
+          }
+      ],
+      "steps": [
+          "Gela a taça de cristal com bastante gelo e descarta a água residual.",
+          "Com a ponta da colher de bar, abre ligeiramente as 2 vagens de cardamomo e deita na taça.",
+          "Adiciona 50 ml de The Botanist Gin e deixa repousar 30 segundos para libertar as notas forrageadas.",
+          "Adiciona a tónica premium vertendo com delicadeza pela colher bailarina.",
+          "Polvilha com as flores de camomila e decora com a ponta de hortelã selvagem e o twist cítrico.",
+          "Serve a copo cheio para uma experiência campestre escocesa sublime."
+      ],
+      "bartender_tip": "O cardamomo verde desperta os 22 botânicos de Islay (artemísia, menta aquática, tojo, urze e tília) num bouquet inesquecível."
+  },
+  {
+      "id": "gin_pink_morango_hibisco",
+      "name": "Pink Gin Blush (Morangos Silvestres & Flor de Hibisco)",
+      "alcoholic": true,
+      "category": "gins",
+      "categoryLabel": "Gins de Autor & Botânicos 🍸",
+      "technique": "Infusão Vermelha & Flor Desidratada",
+      "description": "Visual glamoroso com tonalidade rubi translúcida sedutora. Morangos silvestres fatiados e flores secas de hibisco que tingem a tónica com elegantes tons carmim aromáticos.",
+      "difficulty": "Fácil",
+      "prep_time": "3 min",
+      "glass": "Taça Balão Glamour",
+      "ice": "Cubos Grandes Cristalinos",
+      "abv": "11% ABV (Doce & Floral)",
+      "badge": "Pink Velvet 🍓",
+      "bar_tools": [
+          "Colher Bailarina",
+          "Jigger (Doser)",
+          "Pinça de Botânicos",
+          "Faca de Cozinha"
+      ],
+      "ingredients": [
+          {
+              "name": "Pink Gin de Frutos Vermelhos ou London Dry",
+              "quantity": "50 ml"
+          },
+          {
+              "name": "Água Tónica Premium Aromatic ou Hibiscus",
+              "quantity": "150 ml"
+          },
+          {
+              "name": "Morangos Silvestres Frescos Laminados",
+              "quantity": "2 morangos"
+          },
+          {
+              "name": "Flor de Hibisco Desidratada",
+              "quantity": "1 flor inteira"
+          },
+          {
+              "name": "Raminho de Hortelã Fresca",
+              "quantity": "1 raminho"
+          },
+          {
+              "name": "Gelo Cristalino",
+              "quantity": "Abundante"
+          }
+      ],
+      "steps": [
+          "Gela a taça balão com cubos de gelo limpos.",
+          "Coloca a flor de hibisco seca no fundo da taça.",
+          "Adiciona os 50 ml de gin por cima da flor e aguarda 45 segundos: a flor começará a libertar um tom rosado natural.",
+          "Adiciona as lâminas de morango fresco encostadas ao gelo.",
+          "Verte a água tónica suavemente pela colher de bar.",
+          "Decora com o raminho de hortelã fresca e observa o hipnotizante degradé de cor carmim."
+      ],
+      "bartender_tip": "A flor de hibisco além de colorir naturalmente sem corantes químicos, empresta uma acidez balsâmica que equilibra a doçura dos morangos."
+  },
+  {
+      "id": "gin_london_dry_classico",
+      "name": "London Dry Purista (Zimbro & Duplo Twist de Lima)",
+      "alcoholic": true,
+      "category": "gins",
+      "categoryLabel": "Gins de Autor & Botânicos 🍸",
+      "technique": "Clássico Perfeito em Proporção de Ouro",
+      "description": "A matriz fundadora de toda a coquetelaria de gin. London Dry com forte espinha dorsal de zimbro, sementes de coentro e angélica, servido com duplo twist de lima fresca e tónica super seca.",
+      "difficulty": "Fácil",
+      "prep_time": "2 min",
+      "glass": "Copo Balloon / Highball Pesado",
+      "ice": "Cubos Grandes Cristalinos",
+      "abv": "14% ABV (Seco & Fresco)",
+      "badge": "Purista Britânico 🇬🇧",
+      "bar_tools": [
+          "Colher Bailarina",
+          "Jigger (Doser)",
+          "Descascador de Citrinos",
+          "Passador de Bar"
+      ],
+      "ingredients": [
+          {
+              "name": "London Dry Gin Clássico (Tanqueray / Beefeater)",
+              "quantity": "50 ml"
+          },
+          {
+              "name": "Água Tónica Indian Clássica de Alta Gaseificação",
+              "quantity": "150 ml"
+          },
+          {
+              "name": "Casca de Lima Fresca (Twist Duplo)",
+              "quantity": "2 tiras sem polpa branca"
+          },
+          {
+              "name": "Bagas de Zimbro Inteiras",
+              "quantity": "4 unidades"
+          },
+          {
+              "name": "Gelo Maciço Muito Frio",
+              "quantity": "Copo cheio"
+          }
+      ],
+      "steps": [
+          "Enche o copo com gelo de rocha até transbordar e gira até embaciar o vidro por fora.",
+          "Retira qualquer gota de água derretida.",
+          "Verte 50 ml de London Dry Gin.",
+          "Torce uma das tiras de lima sobre o copo e esfrega todo o bordo para perfumar os lábios a cada gole.",
+          "Adiciona as 4 bagas de zimbro inteiras.",
+          "Verte a água tónica encostada à colher bailarina sem quebrar as borbulhas.",
+          "Finaliza com o segundo twist de lima pousado no topo."
+      ],
+      "bartender_tip": "Nunca espremas sumo de lima num London Dry clássico: o ácido cítrico líquido mata o gás da tónica; usa exclusivamente os óleos essenciais da casca."
+  },
+  {
+      "id": "gin_sipsmith_sloe",
+      "name": "Sipsmith Sloe Gin (Frutos Silvestres & Laranja Sanguínea)",
+      "alcoholic": true,
+      "category": "gins",
+      "categoryLabel": "Gins de Autor & Botânicos 🍸",
+      "technique": "Macerado com Abrunhos Silvestres",
+      "description": "Um tesouro inglês: London Dry artesanal macerado pacientemente com abrunhos silvestres (sloe berries) colhidos após as primeiras geadas de outono. Aveludado, cor de rubi rico e notas de marzipan.",
+      "difficulty": "Fácil",
+      "prep_time": "3 min",
+      "glass": "Taça Balão ou Copo On The Rocks",
+      "ice": "Cubos Grandes Cristalinos",
+      "abv": "12% ABV (Rico & Aveludado)",
+      "badge": "Sloe Vintage 🫐",
+      "bar_tools": [
+          "Colher Bailarina",
+          "Jigger (Doser)",
+          "Faca de Citrinos",
+          "Pinça de Bar"
+      ],
+      "ingredients": [
+          {
+              "name": "Sipsmith Sloe Gin Inglês",
+              "quantity": "50 ml"
+          },
+          {
+              "name": "Água Tónica Bitter Lemon ou Indian Clássica",
+              "quantity": "120 ml"
+          },
+          {
+              "name": "Rodela Fina de Laranja Sanguínea ou Tradicional",
+              "quantity": "1 rodela"
+          },
+          {
+              "name": "Amoras ou Mirtilos Silvestres",
+              "quantity": "3 a 4 unidades"
+          },
+          {
+              "name": "Raminho de Tomilho",
+              "quantity": "1 raminho decorativo"
+          },
+          {
+              "name": "Gelo Maciço",
+              "quantity": "Abundante"
+          }
+      ],
+      "steps": [
+          "Arrefece o copo com cubos de gelo maciços.",
+          "Deita 50 ml de Sipsmith Sloe Gin, admirando a sua cor carmesim profunda.",
+          "Insere a rodela de laranja sanguínea e as bagas silvestres entre os cubos de gelo.",
+          "Adiciona água tónica amarga ou clássica muito fresca para criar efervescência e leveza.",
+          "Dá uma volta suave com a colher de bar.",
+          "Guarnece com o raminho de tomilho e serve."
+      ],
+      "bartender_tip": "O Sloe Gin pode ser bebido puro sobre uma pedra de gelo como digestivo ou com água tónica como aperitivo requintado de início de serão."
+  },
+  {
+      "id": "gin_citadelle_frances",
+      "name": "Citadelle Réserve de Cognac (Yuzu & Sementes de Coentro)",
+      "alcoholic": true,
+      "category": "gins",
+      "categoryLabel": "Gins de Autor & Botânicos 🍸",
+      "technique": "Envelhecido em Cascos de Carvalho Francês",
+      "description": "O pioneiro dos gins artesanais franceses, destilado no Château de Bonbonnet em Cognac com 19 botânicos e envelhecido em cascos de carvalho. Notas florais, baunilha nobre e especiarias asiáticas.",
+      "difficulty": "Média",
+      "prep_time": "4 min",
+      "glass": "Taça Balão de Cristal Fino",
+      "ice": "Bloco de Gelo Cristalino",
+      "abv": "15% ABV (Amadeirado Nobre)",
+      "badge": "Artesanal Francês 🇫🇷",
+      "bar_tools": [
+          "Colher Bailarina",
+          "Jigger (Doser)",
+          "Pinça de Bar",
+          "Ralador Zester Fino"
+      ],
+      "ingredients": [
+          {
+              "name": "Citadelle Réserve Gin de França",
+              "quantity": "50 ml"
+          },
+          {
+              "name": "Água Tónica Super Seca Premium",
+              "quantity": "140 ml"
+          },
+          {
+              "name": "Zest Fresco de Yuzu ou Limão Francês",
+              "quantity": "1 fita longa"
+          },
+          {
+              "name": "Sementes Inteiras de Coentro",
+              "quantity": "3 a 4 sementes"
+          },
+          {
+              "name": "Flor Branca Comestível",
+              "quantity": "1 unidade decorativa"
+          },
+          {
+              "name": "Gelo Puro Artesanal",
+              "quantity": "Copo cheio"
+          }
+      ],
+      "steps": [
+          "Gela a taça de cristal fino com gelo maciço.",
+          "Mede 50 ml de Citadelle Réserve e verte sobre o gelo.",
+          "Ligeiramente aquece as sementes de coentro na mão para soltar o aroma e adiciona à taça.",
+          "Completa com água tónica super seca vertida muito lentamente.",
+          "Enrola a fita de yuzu ou limão e pousa-a sobre a superfície.",
+          "Finaliza com uma flor branca comestível para celebrar as origens em Cognac."
+      ],
+      "bartender_tip": "O breve estágio em madeira confere a este gin uma cor levemente dourada e notas aromáticas amanteigadas semelhantes aos grandes vinhos de Borgonha."
+  },
+  {
+      "id": "gin_gvine_floreaison",
+      "name": "G'Vine Floraison (Flor de Vinha & Framboesas Frescas)",
+      "alcoholic": true,
+      "category": "gins",
+      "categoryLabel": "Gins de Autor & Botânicos 🍸",
+      "technique": "Destilação de Flor de Videira Ugni Blanc",
+      "description": "Uma jóia enológica que destila a efémera flor da videira francesa que desabrocha durante escassos dias na primavera em Cognac. Suavidade inigualável, sedosa, floral e adornada com framboesas.",
+      "difficulty": "Fácil",
+      "prep_time": "3 min",
+      "glass": "Taça Balão Elegância Francesa",
+      "ice": "Cubos Grandes Cristalinos",
+      "abv": "13% ABV (Floral & Sedoso)",
+      "badge": "Flor de Videira 🍇",
+      "bar_tools": [
+          "Colher Bailarina",
+          "Jigger (Doser)",
+          "Pinça de Botânicos",
+          "Passador de Bar"
+      ],
+      "ingredients": [
+          {
+              "name": "G'Vine Floraison Gin",
+              "quantity": "50 ml"
+          },
+          {
+              "name": "Água Tónica Premium Floral ou Neutra",
+              "quantity": "150 ml"
+          },
+          {
+              "name": "Framboesas Frescas Selecionadas",
+              "quantity": "3 unidades"
+          },
+          {
+              "name": "Bagos de Uva Branca sem grainha",
+              "quantity": "2 unidades cortadas ao meio"
+          },
+          {
+              "name": "Pétalas de Flores Comestíveis",
+              "quantity": "Para finalizar"
+          },
+          {
+              "name": "Gelo Maciço",
+              "quantity": "Abundante"
+          }
+      ],
+      "steps": [
+          "Arrefece a taça com bastante gelo e drena o excesso de água.",
+          "Deita 50 ml de G'Vine Floraison e aprecia o seu perfume aéreo e floral.",
+          "Introduz as metades de uva e duas framboesas entre os blocos de gelo.",
+          "Completa com água tónica vertida com precisão pela colher bailarina.",
+          "Pousa a última framboesa intacta e as pétalas florais na superfície.",
+          "Serve e desfruta da máxima elegância francesa."
+      ],
+      "bartender_tip": "Por ter base 100% de aguardente de uva em vez de cereais, o G'Vine possui uma textura redonda na boca que agrada até a quem não costuma apreciar gins secos."
+  },
+  {
+      "id": "gin_malfy_limone",
+      "name": "Malfy Con Limone (Limões de Amalfi & Tomilho-Limão)",
+      "alcoholic": true,
+      "category": "gins",
+      "categoryLabel": "Gins de Autor & Botânicos 🍸",
+      "technique": "Maceração Costeira Italiana",
+      "description": "A essência solar da Costa Amalfitana e de Capri. Destilado em Moncalieri com limões cultivados à beira-mar, zimbro toscano e um toque herbal de tomilho-limão fresco.",
+      "difficulty": "Fácil",
+      "prep_time": "3 min",
+      "glass": "Taça Balão Italiana Capri",
+      "ice": "Cubos Grandes Cristalinos",
+      "abv": "12% ABV (Ultra Cítrico)",
+      "badge": "Costa Amalfitana 🍋",
+      "bar_tools": [
+          "Colher Bailarina",
+          "Jigger (Doser)",
+          "Faca de Citrinos",
+          "Pinça de Bar"
+      ],
+      "ingredients": [
+          {
+              "name": "Malfy Con Limone Gin Italiano",
+              "quantity": "50 ml"
+          },
+          {
+              "name": "Água Tónica Premium Mediterranean ou Indian",
+              "quantity": "150 ml"
+          },
+          {
+              "name": "Rodela Grossa de Limão Siciliano ou Amalfi",
+              "quantity": "1 rodela sumarenta"
+          },
+          {
+              "name": "Raminho Fresco de Tomilho-Limão",
+              "quantity": "1 raminho"
+          },
+          {
+              "name": "Gelo Maciço",
+              "quantity": "Copo cheio"
+          }
+      ],
+      "steps": [
+          "Passa a rodela de limão em todo o rebordo da taça para impregnar o óleo cítrico perfumado.",
+          "Enche a taça com cubos de gelo translúcidos até ao bordo.",
+          "Deita 50 ml de Malfy Con Limone sobre o gelo.",
+          "Coloca a rodela de limão encostada à parede do copo.",
+          "Verte a água tónica fresca deslizando pela colher espiralada.",
+          "Insere o ramo de tomilho-limão como mexedor aromático.",
+          "Serve imediatamente para uma frescura costeira italiana estonteante."
+      ],
+      "bartender_tip": "Os limões amalfitanos possuem uma casca duas vezes mais rica em óleos essenciais do que os limões vulgares, conferindo um perfume cítrico natural exuberante."
+  },
+  {
+      "id": "gin_malfy_rosa",
+      "name": "Malfy Rosa Siciliano (Toranja Rosa & Hortelã Doce)",
+      "alcoholic": true,
+      "category": "gins",
+      "categoryLabel": "Gins de Autor & Botânicos 🍸",
+      "technique": "Destilado de Toranja do Mediterrâneo",
+      "description": "Sabor vibrante e tonalidade rosa pálido infundida com sumarentas toranjas cultivadas no solo vulcânico da Sicília, zimbro selvagem e folhinhas frescas de hortelã doce.",
+      "difficulty": "Fácil",
+      "prep_time": "3 min",
+      "glass": "Taça Balão Rosa Cristal",
+      "ice": "Cubos Grandes Cristalinos",
+      "abv": "12% ABV (Agridoce Vibrante)",
+      "badge": "Sicília Solar ☀️",
+      "bar_tools": [
+          "Colher Bailarina",
+          "Jigger (Doser)",
+          "Faca de Bar",
+          "Pinça de Guarnição"
+      ],
+      "ingredients": [
+          {
+              "name": "Malfy Gin Rosa Siciliano",
+              "quantity": "50 ml"
+          },
+          {
+              "name": "Água Tónica Mediterranean ou Pink Grapefruit",
+              "quantity": "150 ml"
+          },
+          {
+              "name": "Fatia Farta Meia-Lua de Toranja Rosa",
+              "quantity": "1 fatia fresca"
+          },
+          {
+              "name": "Folhas Frescas de Hortelã",
+              "quantity": "3 a 4 folhas"
+          },
+          {
+              "name": "Gelo Maciço Puro",
+              "quantity": "Abundante"
+          }
+      ],
+      "steps": [
+          "Gela a taça de cristal balão com bastante gelo e descarta o excesso de líquido.",
+          "Verte 50 ml de Malfy Rosa, revelando a sua cor suave de blush de verão.",
+          "Acomoda a fatia de toranja rosa no meio dos cubos de gelo.",
+          "Bate nas folhas de hortelã na palma da mão e deita no copo.",
+          "Adiciona a água tónica bem gelada pela colher de bar.",
+          "Dá uma suave elevação com a colher bailarina e serve."
+      ],
+      "bartender_tip": "O casamento da toranja siciliana ligeiramente amarga com a hortelã doce cria um perfil aromático sumarento e altamente viciante em dias amenos."
+  },
+  {
+      "id": "gin_tropical_maracuja",
+      "name": "Gin Tropical Exótico (Polpa de Maracujá & Manjericão Roxo)",
+      "alcoholic": true,
+      "category": "gins",
+      "categoryLabel": "Gins de Autor & Botânicos 🍸",
+      "technique": "Montagem Tropical com Fruta Fresca",
+      "description": "Uma explosão tropical intensa e sensual com polpa fresca de maracujá e as suas sementes estaladiças, equilibrado pelo frescor herbal de folhas de manjericão roxo e lima.",
+      "difficulty": "Média",
+      "prep_time": "4 min",
+      "glass": "Taça Balão Tropical Ampla",
+      "ice": "Cubos Grandes Cristalinos",
+      "abv": "12% ABV (Exótico & Tropical)",
+      "badge": "Exótico Tropical 🌺",
+      "bar_tools": [
+          "Colher Bailarina",
+          "Jigger (Doser)",
+          "Colher de Fruta",
+          "Pinça de Bar"
+      ],
+      "ingredients": [
+          {
+              "name": "Gin Seco Artesanal ou Tanqueray Rangpur",
+              "quantity": "50 ml"
+          },
+          {
+              "name": "Polpa Fresca de Maracujá com Sementes",
+              "quantity": "Polpa de meio maracujá"
+          },
+          {
+              "name": "Água Tónica Premium Indian ou Ginger Beer Suave",
+              "quantity": "140 ml"
+          },
+          {
+              "name": "Folhas Frescas de Manjericão Roxo ou Tradicional",
+              "quantity": "3 folhas"
+          },
+          {
+              "name": "Rodela Fina de Lima Fresca",
+              "quantity": "1 rodela"
+          },
+          {
+              "name": "Gelo Cristalino Abundante",
+              "quantity": "Copo cheio"
+          }
+      ],
+      "steps": [
+          "Enche a taça balão com cubos de gelo e escorre a água.",
+          "Adiciona 50 ml de gin e a rodela de lima.",
+          "Com uma colher, retira a polpa dourada de meio maracujá fresco.",
+          "Verte a água tónica suavemente com a colher bailarina.",
+          "Espalha a polpa de maracujá pelo topo do cocktail para criar um efeito visual bicolor espetacular.",
+          "Finaliza com as folhas de manjericão roxo como contraste de cor e aroma."
+      ],
+      "bartender_tip": "Não batas o maracujá no shaker: o charme deste cocktail de autor é a polpa fresca a flutuar entre os cubos de gelo com as sementes aromáticas estaladiças."
+  },
+  {
+      "id": "gin_four_pillars_shiraz",
+      "name": "Four Pillars Bloody Shiraz (Uvas Shiraz & Tónica Seca)",
+      "alcoholic": true,
+      "category": "gins",
+      "categoryLabel": "Gins de Autor & Botânicos 🍸",
+      "technique": "Infusão com Uvas Tintas de Colheita Tardia",
+      "description": "A lendária criação australiana de Yarra Valley: uvas tintas Shiraz frescas mergulhadas em gin Rare Dry de alta graduação durante semanas. Cor de sangue de boi que se transforma em rosa néon com a tónica.",
+      "difficulty": "Fácil",
+      "prep_time": "3 min",
+      "glass": "Taça Balão Borgonha / Cristal",
+      "ice": "Cubos Grandes Cristalinos",
+      "abv": "16% ABV (Rico & Tânico)",
+      "badge": "Shiraz Australiano 🍷",
+      "bar_tools": [
+          "Colher Bailarina",
+          "Jigger (Doser)",
+          "Pinça de Bar",
+          "Faca de Citrinos"
+      ],
+      "ingredients": [
+          {
+              "name": "Four Pillars Bloody Shiraz Gin Australiano",
+              "quantity": "50 ml"
+          },
+          {
+              "name": "Água Tónica Seca Premium (Dry Tonic)",
+              "quantity": "150 ml"
+          },
+          {
+              "name": "Fatia Fina de Laranja Amarga ou Laranja Sanguínea",
+              "quantity": "1 fatia"
+          },
+          {
+              "name": "Uvas Tintas Firmes sem grainha",
+              "quantity": "2 bagos cortados ao meio"
+          },
+          {
+              "name": "Gelo Maciço Puro",
+              "quantity": "Abundante"
+          }
+      ],
+      "steps": [
+          "Gela a taça de cristal borgonha com gelo espesso.",
+          "Deita 50 ml de Four Pillars Bloody Shiraz Gin sobre o gelo e observa a sua cor púrpura profunda.",
+          "Acomoda a fatia de laranja e as metades de uvas tintas.",
+          "Verte a água tónica seca muito lentamente: assiste à reação mágica de opalescência em que o cocktail muda de púrpura escuro para um rosa brilhante luminoso.",
+          "Dá uma única volta suave com a colher bailarina e serve de imediato."
+      ],
+      "bartender_tip": "Sem adição de qualquer açúcar ou corante: toda a cor e taninos provem exclusivamente do contacto natural do gin com a casca das uvas tintas Shiraz."
+  },
+  {
+      "id": "gin_dry_martini_royal",
+      "name": "Dry Martini Royal (London Dry, Noilly Prat & Azeitona Gordal)",
+      "alcoholic": true,
+      "category": "gins",
+      "categoryLabel": "Gins de Autor & Botânicos 🍸",
+      "technique": "Stirred no Mixing Glass (Mexido, Não Batido)",
+      "description": "O aristocrata incontestado dos cocktails clássicos de bar de hotel de 5 estrelas. London Dry ultra gelado em mixing glass, um véu seco de vermute francês Noilly Prat e azeitona gordal recheada.",
+      "difficulty": "Avançada",
+      "prep_time": "4 min",
+      "glass": "Taça Clássica de Martini (V-Shape)",
+      "ice": "Gelo Abundante para o Mixing Glass",
+      "abv": "28% ABV (Forte & Elegante)",
+      "badge": "Rei dos Bares 👑",
+      "bar_tools": [
+          "Mixing Glass (Copo Misturador de Cristal)",
+          "Colher Bailarina Longa",
+          "Jigger (Doser)",
+          "Strainer Julep / Hawthorne",
+          "Espeto de Cocktail em Inox"
+      ],
+      "ingredients": [
+          {
+              "name": "London Dry Gin Super Premium (Tanqueray No. TEN ou Sipsmith)",
+              "quantity": "60 ml"
+          },
+          {
+              "name": "Vermute Seco Francês Noilly Prat",
+              "quantity": "10 ml"
+          },
+          {
+              "name": "Azeitona Gordal Sevillana de Grande Calibre",
+              "quantity": "1 ou 2 azeitonas"
+          },
+          {
+              "name": "Zest de Limão Siciliano para expressar óleos",
+              "quantity": "1 twist"
+          },
+          {
+              "name": "Gelo Maciço Cristalino para mexer",
+              "quantity": "Abundante"
+          }
+      ],
+      "steps": [
+          "Coloca a taça de martini no congelador durante 15 minutos para gelar totalmente o cristal.",
+          "No mixing glass, adiciona 10 ml de vermute seco francês e 60 ml de London Dry Gin.",
+          "Enche o mixing glass até cima com cubos de gelo maciços e muito secos.",
+          "Com a colher bailarina entre os dedos, mexe suave e ritmicamente durante 30 voltas completas até o copo misturador ficar completamente condensado e gelado.",
+          "Coa o líquido sedoso com o strainer para dentro da taça de martini gelada.",
+          "Torce a casca de limão sobre a taça para libertar a névoa de óleos aromáticos e descarta-a.",
+          "Espeta a azeitona gordal no palito de inox e pousa no fundo da taça."
+      ],
+      "bartender_tip": "Nunca batas um Dry Martini no shaker com gelo: o shaker introduz microbolhas de ar que turvam o líquido e partem o gelo, aguando o cocktail. O mixing glass garante uma textura límpida como vidro fundido e aveludada."
   },
   {
     "id": "mazagran_portugues",
