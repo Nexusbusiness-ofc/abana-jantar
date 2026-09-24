@@ -74,12 +74,12 @@ export default function Home() {
   }, [picking, shakeTarget]);
 
   const handleShake = useCallback(() => {
-    if (!activeMode) {
+    if (!activeMode && tab === 'shake' && !shoppingOpen) {
       pickMode();
     }
-  }, [activeMode, pickMode]);
+  }, [activeMode, tab, shoppingOpen, pickMode]);
 
-  useShake(handleShake);
+  useShake(handleShake, { enabled: !activeMode && tab === 'shake' && !shoppingOpen });
 
   const startShake = async () => {
     await requestMotionPermission();

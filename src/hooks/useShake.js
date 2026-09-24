@@ -9,6 +9,7 @@ import { useEffect, useRef } from 'react';
  * - Threshold tuned for natural one-handed shaking
  */
 export function useShake(onShake, opts = {}) {
+  const enabled = opts.enabled ?? true;
   const threshold = opts.threshold ?? 12; // m/s^2
   const intervalMin = opts.intervalMin ?? 700; // ms between triggers
   const requiredPeaks = opts.requiredPeaks ?? 2; // oscillations back and forth
@@ -21,7 +22,7 @@ export function useShake(onShake, opts = {}) {
   cbRef.current = onShake;
 
   useEffect(() => {
-    if (typeof window === 'undefined') return;
+    if (typeof window === 'undefined' || !enabled) return;
 
     const onMotion = (event) => {
       const now = Date.now();
@@ -78,7 +79,7 @@ export function useShake(onShake, opts = {}) {
     return () => {
       window.removeEventListener('devicemotion', onMotion);
     };
-  }, [threshold, intervalMin, requiredPeaks]);
+  }, [enabled, threshold, intervalMin, requiredPeaks]);
 }
 
 /**

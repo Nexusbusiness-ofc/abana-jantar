@@ -29,7 +29,6 @@ import {
 import { DRINKS, DRINK_CATEGORIES, ALCOHOL_FILTERS } from '@/data/drinksData';
 import { DRINK_IMAGES } from '@/data/drinksImages';
 import ShareButton from '@/components/ShareButton';
-import StepTimer from '@/components/StepTimer';
 import { useShoppingList } from '@/hooks/useShoppingList';
 import { useFavorites } from '@/hooks/useFavorites';
 import { useToast } from '@/components/ui/use-toast';
@@ -1065,9 +1064,8 @@ export default function DrinksMode() {
                         <span className="w-6 h-6 rounded-full bg-gradient-to-r from-amber-400 to-amber-500 text-stone-950 text-xs font-serif font-black flex items-center justify-center shrink-0 shadow-sm">
                           {idx + 1}
                         </span>
-                        <div className="flex-1 space-y-2 pt-0.5">
+                        <div className="flex-1 pt-0.5">
                           <p className="leading-relaxed font-sans">{step}</p>
-                          <StepTimer stepText={step} />
                         </div>
                       </li>
                     ))}
