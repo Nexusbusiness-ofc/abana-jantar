@@ -513,23 +513,55 @@ export default function DrinksMode() {
                       {/* Gradient Vignette */}
                       <div className="absolute inset-0 bg-gradient-to-t from-[#13121d] via-[#13121d]/40 to-transparent" />
 
-                      {/* Top Badges */}
-                      <div className="absolute top-2 inset-x-2 flex items-center justify-between gap-1 pointer-events-none z-10">
-                        <span
-                          className={`text-[9px] sm:text-[10px] px-2 py-0.5 rounded-full font-serif font-bold tracking-wide uppercase backdrop-blur-md shadow-md border ${
-                            drink.alcoholic
-                              ? 'bg-rose-950/80 text-rose-200 border-rose-500/30'
-                              : 'bg-emerald-950/80 text-emerald-200 border-emerald-500/30'
+                      {/* Top Badges & Favorite Heart */}
+                      <div className="absolute top-2 inset-x-2 flex items-start justify-between gap-1.5 z-20">
+                        <div className="flex flex-col gap-1 items-start max-w-[calc(100%-36px)] pointer-events-none">
+                          <span
+                            className={`text-[9px] sm:text-[10px] px-2 py-0.5 rounded-full font-serif font-bold tracking-wide uppercase backdrop-blur-md shadow-md border ${
+                              drink.alcoholic
+                                ? 'bg-rose-950/80 text-rose-200 border-rose-500/30'
+                                : 'bg-emerald-950/80 text-emerald-200 border-emerald-500/30'
+                            }`}
+                          >
+                            {drink.alcoholic ? 'Alcoólica' : 'Sem Álcool'}
+                          </span>
+
+                          {drink.badge && (
+                            <span className="text-[9px] px-2 py-0.5 rounded-full bg-black/80 text-amber-200 font-sans font-bold backdrop-blur-md shadow-md border border-amber-400/30 truncate max-w-[120px]">
+                              {drink.badge}
+                            </span>
+                          )}
+                        </div>
+
+                        {/* Favorite Heart Button */}
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            const fav = isFavorite(drink);
+                            toggleFavorite(drink, DRINK_IMAGES[drink.id]);
+                            toast({
+                              title: fav
+                                ? `${drink.name} removida das favoritas`
+                                : `${drink.name} guardada nas favoritas! ⭐`,
+                              duration: 3000
+                            });
+                          }}
+                          title={isFavorite(drink) ? "Remover dos favoritos" : "Guardar nos favoritos"}
+                          className={`w-7 h-7 sm:w-8 sm:h-8 shrink-0 rounded-full flex items-center justify-center backdrop-blur-md border shadow-md transition-all duration-200 active:scale-85 ${
+                            isFavorite(drink)
+                              ? 'bg-rose-950/90 border-rose-500 text-rose-400 shadow-[0_0_12px_rgba(244,63,94,0.35)] ring-1 ring-rose-500/40'
+                              : 'bg-black/60 hover:bg-black/85 border-white/25 text-stone-300 hover:text-rose-400 hover:border-rose-400/50'
                           }`}
                         >
-                          {drink.alcoholic ? 'Alcoólica' : 'Sem Álcool'}
-                        </span>
-
-                        {drink.badge && (
-                          <span className="text-[9px] sm:text-[10px] px-2 py-0.5 rounded-full bg-black/80 text-amber-200 font-sans font-bold backdrop-blur-md shadow-md border border-amber-400/30 truncate max-w-[120px]">
-                            {drink.badge}
-                          </span>
-                        )}
+                          <Heart
+                            className={`w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform duration-200 ${
+                              isFavorite(drink)
+                                ? 'fill-rose-500 text-rose-500 scale-110'
+                                : 'stroke-[2.2] group-hover:scale-105'
+                            }`}
+                          />
+                        </button>
                       </div>
 
                       {/* Special Category Badges */}
@@ -613,23 +645,55 @@ export default function DrinksMode() {
                   <DrinkCardImage drink={drink} image={DRINK_IMAGES[drink.id]} />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#13121d] via-[#13121d]/40 to-transparent" />
 
-                  {/* Top Badges */}
-                  <div className="absolute top-2 inset-x-2 flex items-center justify-between gap-1 pointer-events-none z-10">
-                    <span
-                      className={`text-[9px] sm:text-[10px] px-2 py-0.5 rounded-full font-serif font-bold tracking-wide uppercase backdrop-blur-md shadow-md border ${
-                        drink.alcoholic
-                          ? 'bg-rose-950/80 text-rose-200 border-rose-500/30'
-                          : 'bg-emerald-950/80 text-emerald-200 border-emerald-500/30'
+                  {/* Top Badges & Favorite Heart */}
+                  <div className="absolute top-2 inset-x-2 flex items-start justify-between gap-1.5 z-20">
+                    <div className="flex flex-col gap-1 items-start max-w-[calc(100%-36px)] pointer-events-none">
+                      <span
+                        className={`text-[9px] sm:text-[10px] px-2 py-0.5 rounded-full font-serif font-bold tracking-wide uppercase backdrop-blur-md shadow-md border ${
+                          drink.alcoholic
+                            ? 'bg-rose-950/80 text-rose-200 border-rose-500/30'
+                            : 'bg-emerald-950/80 text-emerald-200 border-emerald-500/30'
+                        }`}
+                      >
+                        {drink.alcoholic ? 'Alcoólica' : 'Sem Álcool'}
+                      </span>
+
+                      {drink.badge && (
+                        <span className="text-[9px] px-2 py-0.5 rounded-full bg-black/80 text-amber-200 font-sans font-bold backdrop-blur-md shadow-md border border-amber-400/30 truncate max-w-[120px]">
+                          {drink.badge}
+                        </span>
+                      )}
+                    </div>
+
+                    {/* Favorite Heart Button */}
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        const fav = isFavorite(drink);
+                        toggleFavorite(drink, DRINK_IMAGES[drink.id]);
+                        toast({
+                          title: fav
+                            ? `${drink.name} removida das favoritas`
+                            : `${drink.name} guardada nas favoritas! ⭐`,
+                          duration: 3000
+                        });
+                      }}
+                      title={isFavorite(drink) ? "Remover dos favoritos" : "Guardar nos favoritos"}
+                      className={`w-7 h-7 sm:w-8 sm:h-8 shrink-0 rounded-full flex items-center justify-center backdrop-blur-md border shadow-md transition-all duration-200 active:scale-85 ${
+                        isFavorite(drink)
+                          ? 'bg-rose-950/90 border-rose-500 text-rose-400 shadow-[0_0_12px_rgba(244,63,94,0.35)] ring-1 ring-rose-500/40'
+                          : 'bg-black/60 hover:bg-black/85 border-white/25 text-stone-300 hover:text-rose-400 hover:border-rose-400/50'
                       }`}
                     >
-                      {drink.alcoholic ? 'Alcoólica' : 'Sem Álcool'}
-                    </span>
-
-                    {drink.badge && (
-                      <span className="text-[9px] sm:text-[10px] px-2 py-0.5 rounded-full bg-black/80 text-amber-200 font-sans font-bold backdrop-blur-md shadow-md border border-amber-400/30 truncate max-w-[120px]">
-                        {drink.badge}
-                      </span>
-                    )}
+                      <Heart
+                        className={`w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform duration-200 ${
+                          isFavorite(drink)
+                            ? 'fill-rose-500 text-rose-500 scale-110'
+                            : 'stroke-[2.2] group-hover:scale-105'
+                        }`}
+                      />
+                    </button>
                   </div>
 
                   {/* Title */}
@@ -1093,23 +1157,22 @@ export default function DrinksMode() {
                 <div className="pt-2 flex items-center justify-between border-t border-amber-500/20">
                   <button
                     onClick={() => {
-                      const recipeLike = {
-                        recipe_name: selected.name,
-                        description: selected.description,
-                        ingredients: selected.ingredients,
-                        steps: selected.steps
-                      };
-                      toggleFavorite(recipeLike, DRINK_IMAGES[selected.id]);
+                      const fav = isFavorite(selected);
+                      toggleFavorite(selected, DRINK_IMAGES[selected.id]);
                       toast({
-                        title: isFavorite(recipeLike)
-                          ? 'Removida da garrafeira privada'
-                          : 'Guardada na Garrafeira Privada! ⭐'
+                        title: fav
+                          ? `${selected.name} removida das favoritas`
+                          : `${selected.name} guardada nas favoritas! ⭐`
                       });
                     }}
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-amber-500/30 bg-black/40 hover:bg-white/5 text-xs font-serif font-bold text-amber-200 shadow-sm active:scale-95 transition"
+                    className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl border text-xs font-serif font-bold shadow-sm active:scale-95 transition ${
+                      isFavorite(selected)
+                        ? 'border-rose-500/60 bg-rose-950/50 text-rose-300 ring-1 ring-rose-500/30'
+                        : 'border-amber-500/30 bg-black/40 hover:bg-white/5 text-amber-200'
+                    }`}
                   >
-                    <Heart className="w-4 h-4 text-rose-500 fill-rose-500/20" />
-                    <span>Garrafeira Privada</span>
+                    <Heart className={`w-4 h-4 text-rose-500 ${isFavorite(selected) ? 'fill-rose-500' : 'fill-rose-500/20'}`} />
+                    <span>{isFavorite(selected) ? 'Guardada nas Favoritas' : 'Garrafeira Privada'}</span>
                   </button>
 
                   <ShareButton

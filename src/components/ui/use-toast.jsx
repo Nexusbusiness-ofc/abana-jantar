@@ -1,8 +1,8 @@
-// Inspired by react-hot-toast library
+// Toast notification system with automatic auto-dismiss
 import { useState, useEffect } from "react";
 
-const TOAST_LIMIT = 20;
-const TOAST_REMOVE_DELAY = 1000000;
+const TOAST_LIMIT = 3;
+const TOAST_REMOVE_DELAY = 300; // ms for exit animation before unmounting
 
 const actionTypes = {
   ADD_TOAST: "ADD_TOAST",
@@ -21,27 +21,19 @@ function genId() {
 const toastTimeouts = new Map();
 
 const addToRemoveQueue = (toastId) => {
-  if (toastTimeouts.has(toastId)) {
+  if (toastTimeouts.has(`remove_${toastId}`)) {
     return;
   }
 
   const timeout = setTimeout(() => {
-    toastTimeouts.delete(toastId);
+    toastTimeouts.delete(`remove_${toastId}`);
     dispatch({
       type: actionTypes.REMOVE_TOAST,
       toastId,
     });
   }, TOAST_REMOVE_DELAY);
 
-  toastTimeouts.set(toastId, timeout);
-};
-
-const _clearFromRemoveQueue = (toastId) => {
-  const timeout = toastTimeouts.get(toastId);
-  if (timeout) {
-    clearTimeout(timeout);
-    toastTimeouts.delete(toastId);
-  }
+  toastTimeouts.set(`remove_${toastId}`, timeout);
 };
 
 export const reducer = (state, action) => {
@@ -63,8 +55,6 @@ export const reducer = (state, action) => {
     case actionTypes.DISMISS_TOAST: {
       const { toastId } = action;
 
-      // ! Side effects ! - This could be extracted into a dismissToast() action,
-      // but I'll keep it here for simplicity
       if (toastId) {
         addToRemoveQueue(toastId);
       } else {
@@ -112,15 +102,30 @@ function dispatch(action) {
 
 function toast({ ...props }) {
   const id = genId();
+  const duration = props.duration ?? 3000; // 3 seconds default auto-dismiss
 
-  const update = (props) =>
+  const dismiss = () => {
+    const autoTimer = toastTimeouts.get(`auto_${id}`);
+    if (autoTimer) {
+      clearTimeout(autoTimer);
+      toastTimeouts.delete(`auto_${id}`);
+    }
+    dispatch({ type: actionTypes.DISMISS_TOAST, toastId: id });
+  };
+
+  const update = (newProps) =>
     dispatch({
       type: actionTypes.UPDATE_TOAST,
-      toast: { ...props, id },
+      toast: { ...newProps, id },
     });
 
-  const dismiss = () =>
-    dispatch({ type: actionTypes.DISMISS_TOAST, toastId: id });
+  // Automatically dismiss after duration
+  if (duration !== Infinity && duration > 0) {
+    const timer = setTimeout(() => {
+      dismiss();
+    }, duration);
+    toastTimeouts.set(`auto_${id}`, timer);
+  }
 
   dispatch({
     type: actionTypes.ADD_TOAST,
@@ -157,8 +162,15 @@ function useToast() {
   return {
     ...state,
     toast,
-    dismiss: (toastId) => dispatch({ type: actionTypes.DISMISS_TOAST, toastId }),
+    dismiss: (toastId) => {
+      const autoTimer = toastTimeouts.get(`auto_${toastId}`);
+      if (autoTimer) {
+        clearTimeout(autoTimer);
+        toastTimeouts.delete(`auto_${toastId}`);
+      }
+      dispatch({ type: actionTypes.DISMISS_TOAST, toastId });
+    },
   };
 }
 
-export { useToast, toast }; 
+export { useToast, toast };
