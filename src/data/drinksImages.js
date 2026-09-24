@@ -100,6 +100,14 @@ import horchataMexicanaImg from '@/assets/drinks/horchata_mexicana.jpg';
 import amarguinhaComLimaoImg from '@/assets/drinks/amarguinha_com_limao.jpg';
 import licorBeiraoHonraImg from '@/assets/drinks/licor_beirao_honra.jpg';
 import mazagranPortuguesImg from '@/assets/drinks/mazagran_portugues.jpg';
+import cappuccinoItalianoImg from '@/assets/drinks/cappuccino_italiano.jpg';
+import latteMacchiatoImg from '@/assets/drinks/latte_macchiato.jpg';
+import flatWhiteImg from '@/assets/drinks/flat_white.jpg';
+import espressoConPannaImg from '@/assets/drinks/espresso_con_panna.jpg';
+import cafeBombonImg from '@/assets/drinks/cafe_bombon.jpg';
+import icedCaramelMacchiatoImg from '@/assets/drinks/iced_caramel_macchiato.jpg';
+import coldBrewArtesanalImg from '@/assets/drinks/cold_brew_artesanal.jpg';
+import cafeMochaImg from '@/assets/drinks/cafe_mocha.jpg';
 
 export const DRINK_IMAGES = {
   cocktail_fumegante: cocktailFumeganteImg,
@@ -204,4 +212,12 @@ export const DRINK_IMAGES = {
   amarguinha_com_limao: amarguinhaComLimaoImg,
   licor_beirao_honra: licorBeiraoHonraImg,
   mazagran_portugues: mazagranPortuguesImg,
+  cappuccino_italiano: cappuccinoItalianoImg,
+  latte_macchiato: latteMacchiatoImg,
+  flat_white: flatWhiteImg,
+  espresso_con_panna: espressoConPannaImg,
+  cafe_bombon: cafeBombonImg,
+  iced_caramel_macchiato: icedCaramelMacchiatoImg,
+  cold_brew_artesanal: coldBrewArtesanalImg,
+  cafe_mocha: cafeMochaImg,
 };
