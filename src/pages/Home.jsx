@@ -89,24 +89,44 @@ export default function Home() {
   const closeMode = () => setActiveMode(null);
 
   return (
-    <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-orange-50/90 via-amber-50/70 to-rose-50/80">
+    <div className={`min-h-screen relative overflow-hidden transition-colors duration-700 ${
+      tab === 'drinks'
+        ? 'bg-[#08070d] text-slate-100'
+        : 'bg-gradient-to-br from-orange-50/90 via-amber-50/70 to-rose-50/80'
+    }`}>
       {/* decorative ambient blurs */}
-      <div className="pointer-events-none absolute -top-28 -right-24 w-80 h-80 bg-orange-300/35 rounded-full blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-36 -left-20 w-96 h-96 bg-rose-300/30 rounded-full blur-3xl" />
+      <div className={`pointer-events-none absolute -top-28 -right-24 w-80 h-80 rounded-full blur-3xl transition-all duration-700 ${
+        tab === 'drinks' ? 'bg-amber-600/15' : 'bg-orange-300/35'
+      }`} />
+      <div className={`pointer-events-none absolute -bottom-36 -left-20 w-96 h-96 rounded-full blur-3xl transition-all duration-700 ${
+        tab === 'drinks' ? 'bg-purple-900/20' : 'bg-rose-300/30'
+      }`} />
 
-      <div className="relative z-10 flex flex-col items-center min-h-screen px-4 sm:px-6 py-6 sm:py-12 max-w-xl mx-auto">
+      <div className={`relative z-10 flex flex-col items-center min-h-screen px-3 sm:px-6 py-4 sm:py-8 transition-all duration-500 ${
+        tab === 'drinks' ? 'max-w-6xl' : 'max-w-xl'
+      } mx-auto`}>
         {/* top bar */}
         <div className="w-full flex justify-end gap-2 mb-3">
           <button
             onClick={() => setShoppingOpen(true)}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-2xl bg-white/80 backdrop-blur-xl border border-white/80 shadow-[0_2px_10px_rgba(0,0,0,0.04)] text-xs sm:text-sm font-semibold hover:shadow-md active:scale-95 transition-all text-foreground"
+            className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-2xl backdrop-blur-xl border text-xs sm:text-sm font-semibold hover:shadow-md active:scale-95 transition-all ${
+              tab === 'drinks'
+                ? 'bg-white/10 border-amber-500/30 text-amber-100 hover:bg-white/15'
+                : 'bg-white/80 border-white/80 text-foreground shadow-[0_2px_10px_rgba(0,0,0,0.04)]'
+            }`}
           >
-            <span className="w-6 h-6 rounded-lg bg-gradient-to-tr from-amber-400 to-orange-500 flex items-center justify-center text-white shadow-sm shadow-orange-500/25">
+            <span className={`w-6 h-6 rounded-lg flex items-center justify-center text-white shadow-sm ${
+              tab === 'drinks'
+                ? 'bg-gradient-to-tr from-amber-500 to-amber-600 shadow-amber-500/25'
+                : 'bg-gradient-to-tr from-amber-400 to-orange-500 shadow-orange-500/25'
+            }`}>
               <ShoppingCart className="w-3.5 h-3.5 stroke-[2.2]" />
             </span>
             <span>Compras</span>
             {shoppingCount > 0 && (
-              <span className="px-1.5 py-0.5 rounded-full bg-orange-500 text-white text-[10px] font-extrabold leading-none shadow-sm">
+              <span className={`px-1.5 py-0.5 rounded-full text-white text-[10px] font-extrabold leading-none shadow-sm ${
+                tab === 'drinks' ? 'bg-amber-500 text-black' : 'bg-orange-500'
+              }`}>
                 {shoppingCount}
               </span>
             )}
@@ -114,31 +134,45 @@ export default function Home() {
 
           <Link
             to="/perfil"
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-2xl bg-white/80 backdrop-blur-xl border border-white/80 shadow-[0_2px_10px_rgba(0,0,0,0.04)] text-xs sm:text-sm font-semibold hover:shadow-md active:scale-95 transition-all text-foreground"
+            className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-2xl backdrop-blur-xl border text-xs sm:text-sm font-semibold hover:shadow-md active:scale-95 transition-all ${
+              tab === 'drinks'
+                ? 'bg-white/10 border-amber-500/30 text-amber-100 hover:bg-white/15'
+                : 'bg-white/80 border-white/80 text-foreground shadow-[0_2px_10px_rgba(0,0,0,0.04)]'
+            }`}
           >
-            <span className="w-6 h-6 rounded-lg bg-gradient-to-tr from-orange-500 to-rose-500 flex items-center justify-center text-white shadow-sm shadow-rose-500/25">
+            <span className={`w-6 h-6 rounded-lg flex items-center justify-center text-white shadow-sm ${
+              tab === 'drinks'
+                ? 'bg-gradient-to-tr from-amber-600 to-amber-700 shadow-amber-600/25'
+                : 'bg-gradient-to-tr from-orange-500 to-rose-500 shadow-rose-500/25'
+            }`}>
               <User className="w-3.5 h-3.5 stroke-[2.2]" />
             </span>
             <span>Preferências</span>
           </Link>
         </div>
 
-        {/* header */}
-        <div className="text-center mb-4">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-white/85 backdrop-blur-md border border-white/90 shadow-sm mb-4 ring-1 ring-orange-500/10">
-            <Sparkles className="w-3.5 h-3.5 text-orange-500 fill-orange-400" />
-            <span className="text-xs font-semibold text-foreground/80 tracking-tight">Decisões de jantar, sem stress</span>
+        {/* header (shown on food tabs, hidden on drinks which has its own luxury lounge facade) */}
+        {tab !== 'drinks' && (
+          <div className="text-center mb-4">
+            <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-white/85 backdrop-blur-md border border-white/90 shadow-sm mb-4 ring-1 ring-orange-500/10">
+              <Sparkles className="w-3.5 h-3.5 text-orange-500 fill-orange-400" />
+              <span className="text-xs font-semibold text-foreground/80 tracking-tight">Decisões de jantar, sem stress</span>
+            </div>
+            <h1 className="font-heading text-3xl sm:text-5xl font-extrabold tracking-tight text-foreground leading-[1.08]">
+              Sem ideias para<br />o jantar?
+            </h1>
+            <p className="text-muted-foreground text-xs sm:text-sm mt-2.5 max-w-sm mx-auto leading-relaxed">
+              Abana o telemóvel e eu decido por ti — uma receita com o que tens no frigorífico ou o restaurante mais próximo.
+            </p>
           </div>
-          <h1 className="font-heading text-3xl sm:text-5xl font-extrabold tracking-tight text-foreground leading-[1.08]">
-            Sem ideias para<br />o jantar?
-          </h1>
-          <p className="text-muted-foreground text-xs sm:text-sm mt-2.5 max-w-sm mx-auto leading-relaxed">
-            Abana o telemóvel e eu decido por ti — uma receita com o que tens no frigorífico ou o restaurante mais próximo.
-          </p>
-        </div>
+        )}
 
         {/* tabs / segmented control */}
-        <div className="w-full max-w-lg mx-auto mb-6 p-1 sm:p-1.5 rounded-2xl bg-black/[0.04] backdrop-blur-xl border border-white/60 shadow-inner flex gap-1">
+        <div className={`w-full max-w-lg mx-auto mb-6 p-1 sm:p-1.5 rounded-2xl backdrop-blur-xl border shadow-inner flex gap-1 transition-all duration-500 ${
+          tab === 'drinks'
+            ? 'bg-black/60 border-amber-500/25 shadow-black/60'
+            : 'bg-black/[0.04] border-white/60'
+        }`}>
           {[
             { id: 'shake', label: 'Abanar', icon: Smartphone },
             { id: 'dish', label: 'Prato', icon: UtensilsCrossed },
@@ -155,8 +189,10 @@ export default function Home() {
                 className={`flex-1 flex items-center justify-center gap-1 sm:gap-1.5 py-1.5 sm:py-2 px-1 rounded-xl text-[11px] sm:text-xs md:text-sm font-semibold transition-all duration-200 select-none relative ${
                   active
                     ? t.id === 'drinks'
-                      ? 'bg-white text-purple-600 shadow-sm shadow-purple-950/10 ring-1 ring-black/5 scale-[1.02]'
+                      ? 'bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 text-stone-950 font-black shadow-md shadow-amber-500/25 ring-1 ring-amber-300 scale-[1.02]'
                       : 'bg-white text-orange-600 shadow-sm shadow-orange-950/10 ring-1 ring-black/5 scale-[1.02]'
+                    : tab === 'drinks'
+                    ? 'text-stone-400 hover:text-amber-200 hover:bg-white/10'
                     : 'text-muted-foreground hover:text-foreground hover:bg-white/40'
                 }`}
               >
@@ -166,7 +202,7 @@ export default function Home() {
                       ? t.id === 'favorites'
                         ? 'text-rose-500 fill-rose-500'
                         : t.id === 'drinks'
-                        ? 'text-purple-600 stroke-[2.2]'
+                        ? 'text-stone-950 stroke-[2.5]'
                         : 'text-orange-500 stroke-[2.2]'
                       : ''
                   }`}
