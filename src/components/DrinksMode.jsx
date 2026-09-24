@@ -20,9 +20,9 @@ import {
   Percent,
   PlusCircle,
   Coffee,
-  ArrowLeft,
-  ChevronRight,
-  Filter
+  Filter,
+  ArrowUpDown,
+  RotateCcw
 } from 'lucide-react';
 import { DRINKS, DRINK_CATEGORIES, ALCOHOL_FILTERS } from '@/data/drinksData';
 import { DRINK_IMAGES } from '@/data/drinksImages';
@@ -32,33 +32,48 @@ import { useShoppingList } from '@/hooks/useShoppingList';
 import { useFavorites } from '@/hooks/useFavorites';
 import { useToast } from '@/components/ui/use-toast';
 
-// Helper icon selector for categories
-function getCategoryIcon(catId) {
+// Master mixologist sequence for displaying all categories on the page
+const CATEGORY_ORDER = [
+  'cafes',
+  'fumo',
+  'cocktails',
+  'short',
+  'long',
+  'energy',
+  'shots',
+  'hot',
+  'mocktails',
+  'soft',
+  'portuguesas'
+];
+
+// Helper to get category icon
+function getCategoryIcon(catId, className = 'w-5 h-5') {
   switch (catId) {
     case 'cafes':
-      return <Coffee className="w-5 h-5 text-amber-700" />;
+      return <Coffee className={`${className} text-amber-700`} />;
     case 'fumo':
-      return <Wind className="w-5 h-5 text-amber-400" />;
+      return <Wind className={`${className} text-amber-500`} />;
     case 'energy':
-      return <Zap className="w-5 h-5 text-amber-500" />;
+      return <Zap className={`${className} text-amber-500`} />;
     case 'cocktails':
-      return <Wine className="w-5 h-5 text-rose-500" />;
+      return <Wine className={`${className} text-rose-500`} />;
     case 'short':
-      return <GlassWater className="w-5 h-5 text-amber-600" />;
+      return <GlassWater className={`${className} text-amber-600`} />;
     case 'long':
-      return <Sparkles className="w-5 h-5 text-blue-500" />;
+      return <Sparkles className={`${className} text-blue-500`} />;
     case 'shots':
-      return <Flame className="w-5 h-5 text-red-500" />;
+      return <Flame className={`${className} text-red-500`} />;
     case 'hot':
-      return <Flame className="w-5 h-5 text-orange-500" />;
+      return <Flame className={`${className} text-orange-500`} />;
     case 'mocktails':
-      return <GlassWater className="w-5 h-5 text-emerald-500" />;
+      return <GlassWater className={`${className} text-emerald-500`} />;
     case 'soft':
-      return <GlassWater className="w-5 h-5 text-teal-500" />;
+      return <GlassWater className={`${className} text-teal-500`} />;
     case 'portuguesas':
-      return <Wine className="w-5 h-5 text-red-600" />;
+      return <Wine className={`${className} text-red-600`} />;
     default:
-      return <Sparkles className="w-5 h-5 text-purple-600" />;
+      return <Sparkles className={`${className} text-purple-600`} />;
   }
 }
 
@@ -88,15 +103,28 @@ function DrinkCardImage({ drink, image }) {
 
 export default function DrinksMode() {
   const [selected, setSelected] = useState(null);
+  const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
+
+  // Filters State
   const [alcoholFilter, setAlcoholFilter] = useState('todos'); // 'todos' | 'alcoolicas' | 'nao_alcoolicas'
-  // When categoryFilter is null, user is in the "Filter Hub" mode. Clicking a category reveals its drinks!
-  const [categoryFilter, setCategoryFilter] = useState(null);
+  const [categoryFilter, setCategoryFilter] = useState('todas'); // 'todas' | specific category
+  const [sortBy, setSortBy] = useState('recomendada'); // 'recomendada' | 'nome' | 'tempo'
   const [search, setSearch] = useState('');
+
   const { add } = useShoppingList();
   const { isFavorite, toggleFavorite } = useFavorites();
   const { toast } = useToast();
 
-  // Calculate count of drinks per category for the filter buttons
+  // Count active filters (for badge on filter icon)
+  const activeFiltersCount = useMemo(() => {
+    let count = 0;
+    if (alcoholFilter !== 'todos') count++;
+    if (categoryFilter !== 'todas') count++;
+    if (sortBy !== 'recomendada') count++;
+    return count;
+  }, [alcoholFilter, categoryFilter, sortBy]);
+
+  // Total count per category for badges
   const categoryCounts = useMemo(() => {
     const counts = {};
     DRINKS.forEach(d => {
@@ -105,18 +133,15 @@ export default function DrinksMode() {
     return counts;
   }, []);
 
+  // Filtered Drinks List
   const filteredDrinks = useMemo(() => {
-    return DRINKS.filter((drink) => {
+    let list = DRINKS.filter((drink) => {
       // Alcohol filter
       if (alcoholFilter === 'alcoolicas' && !drink.alcoholic) return false;
       if (alcoholFilter === 'nao_alcoolicas' && drink.alcoholic) return false;
 
-      // Category filter (if search is empty and categoryFilter is set)
-      if (!search.trim()) {
-        if (categoryFilter && categoryFilter !== 'todas' && drink.category !== categoryFilter) {
-          return false;
-        }
-      }
+      // Category filter (if chosen in filter menu)
+      if (categoryFilter !== 'todas' && drink.category !== categoryFilter) return false;
 
       // Search filter
       if (search.trim()) {
@@ -131,12 +156,50 @@ export default function DrinksMode() {
 
       return true;
     });
-  }, [alcoholFilter, categoryFilter, search]);
 
-  const activeCategoryObj = useMemo(() => {
-    if (!categoryFilter || categoryFilter === 'todas') return null;
-    return DRINK_CATEGORIES.find(c => c.id === categoryFilter) || null;
-  }, [categoryFilter]);
+    // Sorting
+    if (sortBy === 'nome') {
+      list = [...list].sort((a, b) => a.name.localeCompare(b.name, 'pt'));
+    } else if (sortBy === 'tempo') {
+      const parseTime = (t) => {
+        const num = parseInt(t);
+        return isNaN(num) ? 999 : num;
+      };
+      list = [...list].sort((a, b) => parseTime(a.prep_time) - parseTime(b.prep_time));
+    }
+
+    return list;
+  }, [alcoholFilter, categoryFilter, sortBy, search]);
+
+  // Group drinks by category order when in recommended order
+  const groupedCategories = useMemo(() => {
+    if (sortBy !== 'recomendada' || search.trim() !== '') {
+      return null;
+    }
+
+    const orderToUse = categoryFilter !== 'todas'
+      ? [categoryFilter]
+      : CATEGORY_ORDER;
+
+    return orderToUse.map(catId => {
+      const catObj = DRINK_CATEGORIES.find(c => c.id === catId);
+      const drinksInCat = filteredDrinks.filter(d => d.category === catId);
+      return {
+        id: catId,
+        label: catObj ? catObj.label : catId,
+        desc: catObj ? catObj.desc : '',
+        drinks: drinksInCat
+      };
+    }).filter(group => group.drinks.length > 0);
+  }, [filteredDrinks, categoryFilter, sortBy, search]);
+
+  const resetFilters = () => {
+    setAlcoholFilter('todos');
+    setCategoryFilter('todas');
+    setSortBy('recomendada');
+    setSearch('');
+    toast({ title: 'Filtros restaurados!' });
+  };
 
   const pickRandomDrink = () => {
     const pool = filteredDrinks.length > 0 ? filteredDrinks : DRINKS;
@@ -164,6 +227,13 @@ export default function DrinksMode() {
     });
   };
 
+  const scrollToCategory = (catId) => {
+    const element = document.getElementById(`cat-${catId}`);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <div className="flex-1 flex flex-col w-full py-2">
       {/* Header */}
@@ -176,299 +246,493 @@ export default function DrinksMode() {
           Bebidas, Cocktails & Cafés
         </h2>
         <p className="text-xs sm:text-sm text-muted-foreground mt-1 max-w-lg mx-auto leading-relaxed">
-          {DRINKS.length} receitas com técnicas de barman e barista. Clica num filtro de categoria para ver as bebidas:
+          {DRINKS.length} receitas completas organizadas por categoria. Clica no símbolo de filtro para filtrar por teor alcoólico, estilo ou ordenação.
         </p>
+      </div>
 
-        {/* Quick Sorter */}
-        <div className="mt-3 flex justify-center gap-2">
+      {/* Control Bar: Search Input, Filter Button with Icon & Random Pick */}
+      <div className="w-full max-w-2xl mx-auto mb-4 flex items-center gap-2">
+        {/* Search Input */}
+        <div className="relative flex-1">
+          <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-muted-foreground" />
+          <input
+            type="text"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Pesquisar café, fumo, gin, shot, vodka..."
+            className="w-full pl-10 pr-9 py-2.5 rounded-2xl bg-white/90 backdrop-blur-md border border-white shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500/30 text-xs sm:text-sm text-foreground placeholder:text-muted-foreground/70"
+          />
+          {search && (
+            <button
+              onClick={() => setSearch('')}
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          )}
+        </div>
+
+        {/* Filter Trigger Button with Filter Icon */}
+        <button
+          onClick={() => setIsFilterModalOpen(true)}
+          className={`relative px-3.5 py-2.5 rounded-2xl font-bold text-xs flex items-center gap-1.5 shadow-sm transition active:scale-95 border ${
+            activeFiltersCount > 0
+              ? 'bg-purple-600 text-white border-purple-600 shadow-purple-500/25 ring-2 ring-purple-500/20'
+              : 'bg-white text-foreground/80 hover:bg-muted/80 border-border/80'
+          }`}
+          title="Abrir menu de filtros"
+        >
+          <Filter className={`w-4 h-4 ${activeFiltersCount > 0 ? 'text-white' : 'text-purple-600'}`} />
+          <span className="hidden sm:inline">Filtros</span>
+          {activeFiltersCount > 0 && (
+            <span className="w-5 h-5 rounded-full bg-white text-purple-700 text-[10px] font-black flex items-center justify-center shrink-0 shadow-xs">
+              {activeFiltersCount}
+            </span>
+          )}
+        </button>
+
+        {/* Quick Random Button */}
+        <button
+          onClick={pickRandomDrink}
+          className="p-2.5 rounded-2xl bg-white text-purple-600 hover:bg-purple-50 border border-border/80 shadow-sm active:scale-95 transition"
+          title="Sortear Bebida Aleatória"
+        >
+          <Shuffle className="w-4 h-4" />
+        </button>
+      </div>
+
+      {/* Active Filter Chips / Feedback Pill Row */}
+      {activeFiltersCount > 0 && (
+        <div className="w-full max-w-2xl mx-auto mb-4 flex flex-wrap items-center gap-1.5 px-1 text-xs">
+          <span className="text-[11px] font-bold text-muted-foreground mr-1">Filtros Ativos:</span>
+
+          {alcoholFilter !== 'todos' && (
+            <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-purple-100 text-purple-800 font-semibold text-[11px] border border-purple-200">
+              {alcoholFilter === 'alcoolicas' ? '🍸 Alcoólicas' : '🥤 Sem Álcool'}
+              <button onClick={() => setAlcoholFilter('todos')} className="hover:text-purple-950">
+                <X className="w-3 h-3" />
+              </button>
+            </span>
+          )}
+
+          {categoryFilter !== 'todas' && (
+            <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-purple-100 text-purple-800 font-semibold text-[11px] border border-purple-200">
+              {DRINK_CATEGORIES.find(c => c.id === categoryFilter)?.label || categoryFilter}
+              <button onClick={() => setCategoryFilter('todas')} className="hover:text-purple-950">
+                <X className="w-3 h-3" />
+              </button>
+            </span>
+          )}
+
+          {sortBy !== 'recomendada' && (
+            <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-purple-100 text-purple-800 font-semibold text-[11px] border border-purple-200">
+              {sortBy === 'nome' ? 'Nome A-Z' : 'Mais Rápidas'}
+              <button onClick={() => setSortBy('recomendada')} className="hover:text-purple-950">
+                <X className="w-3 h-3" />
+              </button>
+            </span>
+          )}
+
           <button
-            onClick={pickRandomDrink}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-purple-500 to-indigo-600 text-white text-xs font-bold shadow-md shadow-purple-500/25 hover:shadow-lg active:scale-95 transition-all"
+            onClick={resetFilters}
+            className="text-[11px] font-bold text-purple-700 hover:underline ml-auto flex items-center gap-1"
           >
-            <Shuffle className="w-3.5 h-3.5" />
-            <span>Sortear Bebida Aleatória</span>
+            <RotateCcw className="w-3 h-3" />
+            <span>Limpar tudo</span>
           </button>
         </div>
-      </div>
+      )}
 
-      {/* Search Input */}
-      <div className="relative w-full max-w-md mx-auto mb-3">
-        <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-muted-foreground" />
-        <input
-          type="text"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          placeholder="Pesquisar cappuccino, fumo, vodka, gin, shot..."
-          className="w-full pl-10 pr-9 py-2 rounded-2xl bg-white/80 backdrop-blur-md border border-white/80 text-xs sm:text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500/30 text-foreground placeholder:text-muted-foreground/70"
-        />
-        {search && (
-          <button
-            onClick={() => setSearch('')}
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
-          >
-            <X className="w-4 h-4" />
-          </button>
-        )}
-      </div>
+      {/* Quick Jump Anchor Pills Bar (when showing all categories) */}
+      {!search && sortBy === 'recomendada' && categoryFilter === 'todas' && (
+        <div className="w-full max-w-4xl mx-auto mb-5 overflow-x-auto pb-1 no-scrollbar flex items-center gap-1.5 px-1">
+          <span className="text-[11px] font-extrabold text-muted-foreground uppercase tracking-wider shrink-0 mr-1 flex items-center gap-1">
+            <Layers className="w-3 h-3 text-purple-600" /> Ir para:
+          </span>
+          {CATEGORY_ORDER.map(catId => {
+            const cat = DRINK_CATEGORIES.find(c => c.id === catId);
+            if (!cat) return null;
+            return (
+              <button
+                key={catId}
+                onClick={() => scrollToCategory(catId)}
+                className="px-2.5 py-1 rounded-full bg-white/80 hover:bg-white text-foreground/80 hover:text-purple-700 font-semibold text-xs border border-border/60 shadow-2xs whitespace-nowrap shrink-0 transition"
+              >
+                {cat.label}
+              </button>
+            );
+          })}
+        </div>
+      )}
 
-      {/* Primary Alcohol Filters (Alcoólicas vs Sem Álcool) */}
-      <div className="w-full max-w-sm mx-auto mb-4 p-1 rounded-2xl bg-black/[0.04] backdrop-blur-xl border border-white/60 shadow-inner flex gap-1">
-        {ALCOHOL_FILTERS.map((f) => {
-          const active = alcoholFilter === f.id;
-          return (
-            <button
-              key={f.id}
-              onClick={() => setAlcoholFilter(f.id)}
-              className={`flex-1 py-1.5 px-2 rounded-xl text-xs font-bold transition-all text-center ${
-                active
-                  ? f.id === 'alcoolicas'
-                    ? 'bg-rose-500 text-white shadow-sm shadow-rose-500/30 scale-[1.02]'
-                    : f.id === 'nao_alcoolicas'
-                    ? 'bg-emerald-600 text-white shadow-sm shadow-emerald-600/30 scale-[1.02]'
-                    : 'bg-white text-purple-600 shadow-sm shadow-purple-900/10 scale-[1.02]'
-                  : 'text-muted-foreground hover:text-foreground hover:bg-white/40'
-              }`}
-            >
-              {f.label}
-            </button>
-          );
-        })}
-      </div>
-
-      {/* CATEGORY FILTER SYSTEM:
-          When NO category is selected and NO search query:
-          Show the visual Category Hub where clicking on a category REVEALS its drinks!
+      {/* Main Drinks Content:
+          1. If grouped by categories (default view with all drinks ordered by category)
+          2. Or flat grid (if sorted by name/time or searched)
       */}
-      {!categoryFilter && !search ? (
-        <div className="w-full max-w-4xl mx-auto space-y-3 mb-6">
-          <div className="flex items-center justify-between px-2">
-            <h3 className="font-heading font-extrabold text-sm sm:text-base text-foreground flex items-center gap-2">
-              <Filter className="w-4 h-4 text-purple-600" />
-              <span>Seleciona um Tipo de Bebida:</span>
-            </h3>
-            <button
-              onClick={() => setCategoryFilter('todas')}
-              className="text-xs font-bold text-purple-600 hover:text-purple-700 hover:underline flex items-center gap-1"
-            >
-              <span>Ver Todas ({DRINKS.length})</span>
-              <ChevronRight className="w-3.5 h-3.5" />
-            </button>
-          </div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2.5 sm:gap-3">
-            {DRINK_CATEGORIES.filter(c => c.id !== 'todas').map((cat) => {
-              const count = categoryCounts[cat.id] || 0;
-              return (
-                <motion.button
-                  key={cat.id}
-                  whileHover={{ y: -3, scale: 1.01 }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={() => setCategoryFilter(cat.id)}
-                  className="p-3 sm:p-3.5 rounded-2xl bg-white/90 border border-border/70 hover:border-purple-400 shadow-xs hover:shadow-md transition-all text-left flex flex-col justify-between group"
-                >
-                  <div className="flex items-center justify-between w-full mb-2">
-                    <span className="p-2 rounded-xl bg-purple-50 group-hover:bg-purple-100 transition">
-                      {getCategoryIcon(cat.id)}
-                    </span>
-                    <span className="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-muted text-muted-foreground group-hover:bg-purple-600 group-hover:text-white transition">
-                      {count} {count === 1 ? 'bebida' : 'bebidas'}
-                    </span>
-                  </div>
-
-                  <div>
-                    <h4 className="font-heading font-bold text-xs sm:text-sm text-foreground group-hover:text-purple-700 transition leading-tight mb-1">
-                      {cat.label}
-                    </h4>
-                    <p className="text-[10px] text-muted-foreground line-clamp-2 leading-relaxed">
-                      {cat.desc}
-                    </p>
-                  </div>
-                </motion.button>
-              );
-            })}
-          </div>
+      {filteredDrinks.length === 0 ? (
+        <div className="text-center py-12 px-4 rounded-3xl bg-white/60 backdrop-blur-md border border-white max-w-lg mx-auto">
+          <GlassWater className="w-10 h-10 text-muted-foreground/40 mx-auto mb-2" />
+          <h3 className="font-heading font-bold text-base text-foreground">Nenhuma bebida encontrada</h3>
+          <p className="text-xs text-muted-foreground mt-1">Experimenta alterar as opções no menu de filtros.</p>
+          <button
+            onClick={resetFilters}
+            className="mt-3.5 inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-purple-600 text-white text-xs font-bold shadow-sm active:scale-95 transition"
+          >
+            <RotateCcw className="w-3.5 h-3.5" />
+            <span>Restaurar Todos os Filtros</span>
+          </button>
         </div>
-      ) : (
-        /* If a category is selected OR searching:
-           Show Active Filter Pill Header and Quick Category Bar
-        */
-        <div className="w-full max-w-4xl mx-auto mb-4 space-y-2.5">
-          {/* Quick Category Bar to change filter with 1 tap */}
-          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 px-1 no-scrollbar">
-            <button
-              onClick={() => setCategoryFilter(null)}
-              className={`px-3 py-1 rounded-full text-xs font-bold transition border shrink-0 flex items-center gap-1 ${
-                !categoryFilter
-                  ? 'bg-purple-600 text-white border-purple-600 shadow-sm'
-                  : 'bg-white/80 border-border text-foreground hover:bg-white'
-              }`}
+      ) : groupedCategories ? (
+        /* CATEGORY SECTIONS (ALL DRINKS SHOWN ORDERED BY CATEGORY) */
+        <div className="space-y-8 w-full max-w-6xl mx-auto">
+          {groupedCategories.map((group) => (
+            <section
+              key={group.id}
+              id={`cat-${group.id}`}
+              className="scroll-mt-20"
             >
-              <ArrowLeft className="w-3 h-3" />
-              <span>Categorias</span>
-            </button>
-
-            {DRINK_CATEGORIES.map((c) => {
-              const active = categoryFilter === c.id;
-              const count = c.id === 'todas' ? DRINKS.length : (categoryCounts[c.id] || 0);
-              return (
-                <button
-                  key={c.id}
-                  onClick={() => setCategoryFilter(c.id)}
-                  className={`px-3 py-1 rounded-full text-xs font-semibold transition border whitespace-nowrap shrink-0 flex items-center gap-1.5 ${
-                    active
-                      ? 'bg-purple-600 text-white border-purple-600 shadow-sm shadow-purple-500/25'
-                      : 'bg-white/70 border-white text-foreground/80 hover:bg-white'
-                  }`}
-                >
-                  <span>{c.label.split(' ')[0]}</span>
-                  <span className="font-medium text-[10px] opacity-80">({count})</span>
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Active Category Header Banner */}
-          {activeCategoryObj && !search && (
-            <div className="p-3.5 sm:p-4 rounded-2xl bg-gradient-to-r from-purple-500/10 via-indigo-500/10 to-pink-500/10 border border-purple-200/80 flex items-center justify-between gap-3">
-              <div className="flex items-center gap-3">
-                <span className="p-2.5 rounded-xl bg-white shadow-sm border border-purple-100">
-                  {getCategoryIcon(activeCategoryObj.id)}
-                </span>
-                <div>
-                  <h3 className="font-heading font-extrabold text-sm sm:text-base text-foreground flex items-center gap-2">
-                    {activeCategoryObj.label}
-                    <span className="text-xs font-bold text-purple-700 bg-purple-100 px-2 py-0.5 rounded-full">
-                      {filteredDrinks.length} opções
-                    </span>
-                  </h3>
-                  <p className="text-xs text-muted-foreground mt-0.5">
-                    {activeCategoryObj.desc}
-                  </p>
+              {/* Category Section Header */}
+              <div className="flex items-center justify-between gap-3 mb-3.5 pb-2 border-b border-border/60">
+                <div className="flex items-center gap-2.5">
+                  <span className="p-2 rounded-xl bg-white shadow-2xs border border-border/50">
+                    {getCategoryIcon(group.id, 'w-4 h-4 sm:w-5 sm:h-5')}
+                  </span>
+                  <div>
+                    <h3 className="font-heading font-extrabold text-sm sm:text-base text-foreground flex items-center gap-2 leading-tight">
+                      <span>{group.label}</span>
+                      <span className="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-purple-100 text-purple-800">
+                        {group.drinks.length} {group.drinks.length === 1 ? 'receita' : 'receitas'}
+                      </span>
+                    </h3>
+                    {group.desc && (
+                      <p className="text-[11px] text-muted-foreground mt-0.5">
+                        {group.desc}
+                      </p>
+                    )}
+                  </div>
                 </div>
               </div>
 
-              <button
-                onClick={() => setCategoryFilter(null)}
-                className="shrink-0 text-xs font-bold text-purple-700 hover:text-purple-900 bg-white/80 hover:bg-white px-2.5 py-1.5 rounded-xl border border-purple-200 transition shadow-xs flex items-center gap-1"
-              >
-                <span>Mudar filtro</span>
-                <X className="w-3 h-3" />
-              </button>
-            </div>
-          )}
+              {/* Grid of drinks inside this category */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+                {group.drinks.map((drink, i) => (
+                  <motion.button
+                    key={drink.id}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: Math.min(i * 0.015, 0.15) }}
+                    whileHover={{ y: -3 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => setSelected(drink)}
+                    className="group text-left rounded-2xl overflow-hidden bg-white border border-border/60 shadow-sm hover:shadow-lg transition-all flex flex-col"
+                  >
+                    <div className="relative aspect-[4/3] overflow-hidden bg-muted">
+                      <DrinkCardImage drink={drink} image={DRINK_IMAGES[drink.id]} />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
 
-          {/* Search Active Indicator */}
-          {search && (
-            <div className="flex items-center justify-between px-1 text-xs text-muted-foreground">
-              <span>{filteredDrinks.length} {filteredDrinks.length === 1 ? 'bebida encontrada' : 'bebidas encontradas'} para "{search}"</span>
+                      {/* Top Badges */}
+                      <div className="absolute top-2 inset-x-2 flex items-center justify-between gap-1 pointer-events-none">
+                        <span
+                          className={`text-[9px] sm:text-[10px] px-2 py-0.5 rounded-full font-extrabold backdrop-blur-md shadow-sm ${
+                            drink.alcoholic
+                              ? 'bg-rose-500/90 text-white'
+                              : 'bg-emerald-500/90 text-white'
+                          }`}
+                        >
+                          {drink.alcoholic ? 'Alcoólica' : 'Sem Álcool'}
+                        </span>
+
+                        {drink.badge && (
+                          <span className="text-[9px] sm:text-[10px] px-2 py-0.5 rounded-full bg-white/95 text-foreground font-bold backdrop-blur-md shadow-sm truncate max-w-[120px]">
+                            {drink.badge}
+                          </span>
+                        )}
+                      </div>
+
+                      {/* Category specific indicator badge */}
+                      {drink.category === 'cafes' && (
+                        <div className="absolute top-8 left-2 px-2 py-0.5 rounded-full bg-amber-900/90 text-amber-200 text-[9px] font-bold flex items-center gap-1 backdrop-blur-md border border-amber-400/20">
+                          <Coffee className="w-2.5 h-2.5" /> Barista & Café
+                        </div>
+                      )}
+                      {drink.category === 'fumo' && (
+                        <div className="absolute top-8 left-2 px-2 py-0.5 rounded-full bg-slate-900/90 text-amber-300 text-[9px] font-bold flex items-center gap-1 backdrop-blur-md border border-amber-400/30">
+                          <Wind className="w-2.5 h-2.5" /> Fumo Aromático
+                        </div>
+                      )}
+                      {drink.category === 'energy' && (
+                        <div className="absolute top-8 left-2 px-2 py-0.5 rounded-full bg-amber-500/90 text-black text-[9px] font-extrabold flex items-center gap-1 backdrop-blur-md">
+                          <Zap className="w-2.5 h-2.5" /> Energético
+                        </div>
+                      )}
+
+                      {/* Title */}
+                      <h4 className="absolute bottom-2 left-2.5 right-2.5 font-heading font-bold text-xs sm:text-sm text-white leading-tight drop-shadow-md line-clamp-2">
+                        {drink.name}
+                      </h4>
+                    </div>
+
+                    {/* Card Footer Info */}
+                    <div className="p-2 sm:p-2.5 flex flex-col gap-1 text-[10px] text-muted-foreground mt-auto bg-card">
+                      <div className="flex items-center justify-between">
+                        <span className="font-semibold text-purple-700 bg-purple-50 px-2 py-0.5 rounded-md truncate max-w-[110px]">
+                          {drink.glass}
+                        </span>
+                        <span className="flex items-center gap-1 font-medium text-foreground/70">
+                          <Clock className="w-2.5 h-2.5 text-blue-500" />
+                          {drink.prep_time}
+                        </span>
+                      </div>
+                      {drink.abv && (
+                        <div className="flex items-center justify-between text-[9px] text-muted-foreground border-t border-border/40 pt-1">
+                          <span className="truncate max-w-[120px] font-medium">{drink.difficulty}</span>
+                          <span className="font-bold text-foreground/80">{drink.abv.split(' ')[0]}</span>
+                        </div>
+                      )}
+                    </div>
+                  </motion.button>
+                ))}
+              </div>
+            </section>
+          ))}
+        </div>
+      ) : (
+        /* FLAT SEARCH OR SORTED GRID */
+        <div className="w-full max-w-6xl mx-auto space-y-3">
+          <div className="flex items-center justify-between px-1 text-xs text-muted-foreground">
+            <span>{filteredDrinks.length} {filteredDrinks.length === 1 ? 'bebida encontrada' : 'bebidas encontradas'}</span>
+            {search && (
               <button onClick={() => setSearch('')} className="text-purple-600 font-bold hover:underline">
                 Limpar pesquisa
               </button>
-            </div>
-          )}
+            )}
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+            {filteredDrinks.map((drink, i) => (
+              <motion.button
+                key={drink.id}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: Math.min(i * 0.015, 0.2) }}
+                whileHover={{ y: -3 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => setSelected(drink)}
+                className="group text-left rounded-2xl overflow-hidden bg-white border border-border/60 shadow-sm hover:shadow-lg transition-all flex flex-col"
+              >
+                <div className="relative aspect-[4/3] overflow-hidden bg-muted">
+                  <DrinkCardImage drink={drink} image={DRINK_IMAGES[drink.id]} />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
+
+                  {/* Top Badges */}
+                  <div className="absolute top-2 inset-x-2 flex items-center justify-between gap-1 pointer-events-none">
+                    <span
+                      className={`text-[9px] sm:text-[10px] px-2 py-0.5 rounded-full font-extrabold backdrop-blur-md shadow-sm ${
+                        drink.alcoholic
+                          ? 'bg-rose-500/90 text-white'
+                          : 'bg-emerald-500/90 text-white'
+                      }`}
+                    >
+                      {drink.alcoholic ? 'Alcoólica' : 'Sem Álcool'}
+                    </span>
+
+                    {drink.badge && (
+                      <span className="text-[9px] sm:text-[10px] px-2 py-0.5 rounded-full bg-white/95 text-foreground font-bold backdrop-blur-md shadow-sm truncate max-w-[120px]">
+                        {drink.badge}
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Title */}
+                  <h4 className="absolute bottom-2 left-2.5 right-2.5 font-heading font-bold text-xs sm:text-sm text-white leading-tight drop-shadow-md line-clamp-2">
+                    {drink.name}
+                  </h4>
+                </div>
+
+                <div className="p-2 sm:p-2.5 flex flex-col gap-1 text-[10px] text-muted-foreground mt-auto bg-card">
+                  <div className="flex items-center justify-between">
+                    <span className="font-semibold text-purple-700 bg-purple-50 px-2 py-0.5 rounded-md truncate max-w-[110px]">
+                      {drink.categoryLabel}
+                    </span>
+                    <span className="flex items-center gap-1 font-medium text-foreground/70">
+                      <Clock className="w-2.5 h-2.5 text-blue-500" />
+                      {drink.prep_time}
+                    </span>
+                  </div>
+                </div>
+              </motion.button>
+            ))}
+          </div>
         </div>
       )}
 
-      {/* Drinks Grid: Only renders when a category filter is active OR when search is typed */}
-      {(categoryFilter || search) && (
-        <>
-          {filteredDrinks.length === 0 ? (
-            <div className="text-center py-12 px-4 rounded-3xl bg-white/60 backdrop-blur-md border border-white max-w-lg mx-auto">
-              <GlassWater className="w-10 h-10 text-muted-foreground/40 mx-auto mb-2" />
-              <h3 className="font-heading font-bold text-base text-foreground">Nenhuma bebida encontrada</h3>
-              <p className="text-xs text-muted-foreground mt-1">Tenta alterar o filtro de álcool ou pesquisar por outro termo.</p>
-              <button
-                onClick={() => { setCategoryFilter(null); setSearch(''); }}
-                className="mt-3 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-purple-600 text-white text-xs font-bold shadow-sm"
-              >
-                <ArrowLeft className="w-3.5 h-3.5" />
-                <span>Voltar a Todos os Tipos</span>
-              </button>
-            </div>
-          ) : (
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
-              {filteredDrinks.map((drink, i) => (
-                <motion.button
-                  key={drink.id}
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: Math.min(i * 0.015, 0.2) }}
-                  whileHover={{ y: -3 }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={() => setSelected(drink)}
-                  className="group text-left rounded-2xl overflow-hidden bg-white border border-border/60 shadow-sm hover:shadow-lg transition-all flex flex-col"
+      {/* FILTER MENU MODAL (Opens via Filter Icon Button) */}
+      <AnimatePresence>
+        {isFilterModalOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4"
+            onClick={() => setIsFilterModalOpen(false)}
+          >
+            <motion.div
+              initial={{ y: '100%', opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: '100%', opacity: 0 }}
+              transition={{ type: 'spring', damping: 28, stiffness: 280 }}
+              className="bg-background w-full sm:max-w-lg rounded-t-3xl sm:rounded-3xl shadow-2xl max-h-[88vh] overflow-y-auto flex flex-col"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Filter Header */}
+              <div className="sticky top-0 bg-background/95 backdrop-blur-md flex items-center justify-between px-6 py-4 border-b border-border z-10">
+                <div className="flex items-center gap-2">
+                  <div className="p-2 rounded-xl bg-purple-100 text-purple-700">
+                    <Filter className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h3 className="font-heading font-extrabold text-base text-foreground leading-tight">Filtros de Bebidas</h3>
+                    <p className="text-[11px] text-muted-foreground">Filtra por álcool, estilo de barman ou ordenação</p>
+                  </div>
+                </div>
+                <button
+                  onClick={() => setIsFilterModalOpen(false)}
+                  className="p-1.5 rounded-full hover:bg-muted transition text-muted-foreground hover:text-foreground"
                 >
-                  <div className="relative aspect-[4/3] overflow-hidden bg-muted">
-                    <DrinkCardImage drink={drink} image={DRINK_IMAGES[drink.id]} />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
 
-                    {/* Top Badges */}
-                    <div className="absolute top-2 inset-x-2 flex items-center justify-between gap-1 pointer-events-none">
-                      <span
-                        className={`text-[9px] sm:text-[10px] px-2 py-0.5 rounded-full font-extrabold backdrop-blur-md shadow-sm ${
-                          drink.alcoholic
-                            ? 'bg-rose-500/90 text-white'
-                            : 'bg-emerald-500/90 text-white'
-                        }`}
-                      >
-                        {drink.alcoholic ? 'Alcoólica' : 'Sem Álcool'}
-                      </span>
+              {/* Filter Body */}
+              <div className="p-6 space-y-6">
+                {/* 1. Teor Alcoólico */}
+                <div>
+                  <label className="font-heading text-xs font-bold uppercase tracking-wider text-muted-foreground block mb-2.5">
+                    1. Teor Alcoólico
+                  </label>
+                  <div className="grid grid-cols-3 gap-2">
+                    {ALCOHOL_FILTERS.map((f) => {
+                      const active = alcoholFilter === f.id;
+                      return (
+                        <button
+                          key={f.id}
+                          onClick={() => setAlcoholFilter(f.id)}
+                          className={`py-2 px-2 rounded-xl text-xs font-bold transition-all border text-center ${
+                            active
+                              ? f.id === 'alcoolicas'
+                                ? 'bg-rose-500 text-white border-rose-500 shadow-sm shadow-rose-500/30'
+                                : f.id === 'nao_alcoolicas'
+                                ? 'bg-emerald-600 text-white border-emerald-600 shadow-sm shadow-emerald-600/30'
+                                : 'bg-purple-600 text-white border-purple-600 shadow-sm shadow-purple-500/25'
+                              : 'bg-white border-border/80 text-foreground/80 hover:bg-muted'
+                          }`}
+                        >
+                          {f.label}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
 
-                      {drink.badge && (
-                        <span className="text-[9px] sm:text-[10px] px-2 py-0.5 rounded-full bg-white/95 text-foreground font-bold backdrop-blur-md shadow-sm truncate max-w-[120px]">
-                          {drink.badge}
-                        </span>
-                      )}
-                    </div>
-
-                    {/* Category specific indicator badge */}
-                    {drink.category === 'cafes' && (
-                      <div className="absolute top-8 left-2 px-2 py-0.5 rounded-full bg-amber-900/90 text-amber-200 text-[9px] font-bold flex items-center gap-1 backdrop-blur-md border border-amber-400/20">
-                        <Coffee className="w-2.5 h-2.5" /> Barista & Café
-                      </div>
-                    )}
-                    {drink.category === 'fumo' && (
-                      <div className="absolute top-8 left-2 px-2 py-0.5 rounded-full bg-slate-900/90 text-amber-300 text-[9px] font-bold flex items-center gap-1 backdrop-blur-md border border-amber-400/30">
-                        <Wind className="w-2.5 h-2.5" /> Fumo Aromático
-                      </div>
-                    )}
-                    {drink.category === 'energy' && (
-                      <div className="absolute top-8 left-2 px-2 py-0.5 rounded-full bg-amber-500/90 text-black text-[9px] font-extrabold flex items-center gap-1 backdrop-blur-md">
-                        <Zap className="w-2.5 h-2.5" /> Energético
-                      </div>
-                    )}
-
-                    {/* Title */}
-                    <h3 className="absolute bottom-2 left-2.5 right-2.5 font-heading font-bold text-xs sm:text-sm text-white leading-tight drop-shadow-md line-clamp-2">
-                      {drink.name}
-                    </h3>
+                {/* 2. Categoria / Estilo */}
+                <div>
+                  <div className="flex items-center justify-between mb-2.5">
+                    <label className="font-heading text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                      2. Estilo de Bebida
+                    </label>
+                    <span className="text-[11px] font-semibold text-purple-700">
+                      {categoryFilter === 'todas' ? 'Todas Selecionadas' : '1 Selecionada'}
+                    </span>
                   </div>
 
-                  {/* Card Footer Info */}
-                  <div className="p-2 sm:p-2.5 flex flex-col gap-1.5 text-[10px] text-muted-foreground mt-auto bg-card">
-                    <div className="flex items-center justify-between">
-                      <span className="font-semibold text-purple-700 bg-purple-50 px-2 py-0.5 rounded-md truncate max-w-[110px]">
-                        {drink.categoryLabel}
+                  <div className="grid grid-cols-2 gap-2">
+                    <button
+                      onClick={() => setCategoryFilter('todas')}
+                      className={`p-2.5 rounded-xl text-xs font-bold border transition text-left flex items-center justify-between ${
+                        categoryFilter === 'todas'
+                          ? 'bg-purple-600 text-white border-purple-600 shadow-sm'
+                          : 'bg-white border-border/80 text-foreground/80 hover:bg-muted'
+                      }`}
+                    >
+                      <span className="flex items-center gap-1.5">
+                        <Sparkles className="w-3.5 h-3.5" />
+                        <span>Todas as Categorias</span>
                       </span>
-                      <span className="flex items-center gap-1 font-medium text-foreground/70">
-                        <Clock className="w-2.5 h-2.5 text-blue-500" />
-                        {drink.prep_time}
-                      </span>
-                    </div>
+                      <span className="text-[10px] opacity-80">({DRINKS.length})</span>
+                    </button>
 
-                    {drink.abv && (
-                      <div className="flex items-center justify-between text-[9px] text-muted-foreground border-t border-border/40 pt-1">
-                        <span className="truncate max-w-[120px] font-medium">{drink.glass}</span>
-                        <span className="font-bold text-foreground/80">{drink.abv.split(' ')[0]}</span>
-                      </div>
-                    )}
+                    {DRINK_CATEGORIES.filter(c => c.id !== 'todas').map((cat) => {
+                      const active = categoryFilter === cat.id;
+                      const count = categoryCounts[cat.id] || 0;
+                      return (
+                        <button
+                          key={cat.id}
+                          onClick={() => setCategoryFilter(cat.id)}
+                          className={`p-2.5 rounded-xl text-xs font-semibold border transition text-left flex items-center justify-between ${
+                            active
+                              ? 'bg-purple-600 text-white border-purple-600 shadow-sm font-bold'
+                              : 'bg-white border-border/80 text-foreground/80 hover:bg-muted'
+                          }`}
+                        >
+                          <span className="truncate pr-1">{cat.label}</span>
+                          <span className="text-[10px] opacity-75 shrink-0">({count})</span>
+                        </button>
+                      );
+                    })}
                   </div>
-                </motion.button>
-              ))}
-            </div>
-          )}
-        </>
-      )}
+                </div>
+
+                {/* 3. Ordenação */}
+                <div>
+                  <label className="font-heading text-xs font-bold uppercase tracking-wider text-muted-foreground block mb-2.5 flex items-center gap-1">
+                    <ArrowUpDown className="w-3.5 h-3.5" />
+                    <span>3. Ordenação na Página</span>
+                  </label>
+                  <div className="grid grid-cols-3 gap-2">
+                    {[
+                      { id: 'recomendada', label: 'Por Categoria' },
+                      { id: 'nome', label: 'Nome A a Z' },
+                      { id: 'tempo', label: 'Mais Rápidas' }
+                    ].map((s) => {
+                      const active = sortBy === s.id;
+                      return (
+                        <button
+                          key={s.id}
+                          onClick={() => setSortBy(s.id)}
+                          className={`py-2 px-2 rounded-xl text-xs font-bold transition border text-center ${
+                            active
+                              ? 'bg-purple-600 text-white border-purple-600 shadow-sm'
+                              : 'bg-white border-border/80 text-foreground/80 hover:bg-muted'
+                          }`}
+                        >
+                          {s.label}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+
+              {/* Filter Modal Footer */}
+              <div className="sticky bottom-0 bg-background/95 backdrop-blur-md p-4 border-t border-border flex items-center justify-between gap-3">
+                <button
+                  onClick={resetFilters}
+                  className="px-4 py-2.5 rounded-xl border border-border bg-white text-xs font-bold text-foreground/80 hover:bg-muted active:scale-95 transition"
+                >
+                  Limpar Tudo
+                </button>
+
+                <button
+                  onClick={() => setIsFilterModalOpen(false)}
+                  className="flex-1 py-2.5 px-4 rounded-xl bg-purple-600 hover:bg-purple-700 text-white text-xs font-bold shadow-md shadow-purple-500/25 active:scale-95 transition text-center"
+                >
+                  Ver {filteredDrinks.length} {filteredDrinks.length === 1 ? 'Bebida' : 'Bebidas'}
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Drink Detail Modal (Barman & Barista Masterclass View) */}
       <AnimatePresence>
