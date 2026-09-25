@@ -90,3 +90,59 @@
     @apply bg-background text-foreground font-body antialiased;
   }
 }
+
+/* ============================================================ */
+/* LUXURY BAR & PERFORMANCE OPTIMIZATIONS                      */
+/* ============================================================ */
+
+/* GPU Hardware Acceleration & Smooth Physics */
+.gpu-smooth {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  will-change: transform;
+}
+
+/* Category Section Rendering Optimization for 60/120fps Scroll */
+.luxury-category-section {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 480px;
+}
+
+/* Luxury Card Transitions (Apple Easing Curve) */
+.luxury-card {
+  contain: layout paint;
+  transform: translateZ(0);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s ease,
+              background-color 0.25s ease;
+}
+
+.luxury-card:hover {
+  transform: translateY(-4px) translateZ(0);
+}
+
+.luxury-card:active {
+  transform: scale(0.985) translateZ(0);
+}
+
+/* Custom Gold Speakeasy Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #09080e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #332719;
+  border-radius: 9999px;
+  border: 1px solid rgba(217, 119, 6, 0.25);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d97706;
+}
