@@ -18,7 +18,7 @@ export const DRINK_CATEGORIES = [
     "id": "todas",
     "label": "Todas as Bebidas 🍹",
     "icon": "Sparkles",
-    "desc": "Explora o cardápio completo com 131 opções"
+    "desc": "Explora o cardápio completo com 136 opções"
   },
   {
     "id": "fumo",
@@ -31,6 +31,12 @@ export const DRINK_CATEGORIES = [
     "label": "Gins de Autor & Botânicos 🍸",
     "icon": "Wine",
     "desc": "Taças balão geladas, botânicos raros, infusões florais, cítricas e zimbro selvagem"
+  },
+  {
+    "id": "caipirinhas",
+    "label": "Caipirinhas & Caipiroskas 🍹",
+    "icon": "GlassWater",
+    "desc": "Caipiblack, Morangoska, Caipirão, Caipiroska e variações tropicais com cachaça e vodkas de luxo"
   },
   {
     "id": "energy",
@@ -1346,40 +1352,40 @@ export const DRINKS = [
   },
   {
     "id": "caipirinha",
-    "name": "Caipirinha Brasileira Autêntica com Cachaça",
+    "name": "Caipirinha Brasileira de Cachaça Nobre",
     "alcoholic": true,
-    "category": "long",
-    "categoryLabel": "Long Drinks 🥤",
-    "technique": "Muddled & Shaken or Built",
-    "description": "A paixão brasileira: cachaça de alambique, lima verde fatiada com casca e açúcar macerados com energia e muito gelo.",
+    "category": "caipirinhas",
+    "categoryLabel": "Caipirinhas & Caipiroskas 🍹",
+    "technique": "Muddled & Built on Crushed Ice",
+    "description": "A rainha da coquetelaria brasileira: cachaça artesanal de alambique, lima verde fatiada com casca e açúcar macerados com energia e montanha de gelo picado.",
     "difficulty": "Fácil",
     "prep_time": "3 min",
-    "glass": "Copo Baixo Old Fashioned ou Caipirinha",
-    "ice": "Gelo em Cubos Quebrados ou Picado",
+    "glass": "Copo Baixo Old Fashioned de Cristal",
+    "ice": "Gelo Picado Compacto e Límpido",
     "abv": "20% ABV (Intenso & Tropical)",
     "badge": "Brasil Autêntico 🇧🇷",
     "smoking_technique": null,
     "bar_tools": [
       "Muddler de Madeira",
       "Tábua de Corte",
-      "Faca Afiada",
-      "Shaker (Opcional)"
+      "Faca Afiada de Citrinos",
+      "Colher de Bar"
     ],
     "ingredients": [
       {
-        "name": "Cachaça Brasileira Tradicional",
+        "name": "Cachaça de Alambique Artesanal",
         "quantity": "60 ml"
       },
       {
-        "name": "Lima Verde Inteira e Suculenta",
+        "name": "Lima Verde Fresca e Suculenta",
         "quantity": "1 unidade"
       },
       {
-        "name": "Açúcar Branco Refinado",
-        "quantity": "2 colheres de sobremesa"
+        "name": "Açúcar Branco Refinado ou de Cana",
+        "quantity": "2 colheres de chá cheias"
       },
       {
-        "name": "Gelo Quebrado",
+        "name": "Gelo Picado Cristalino",
         "quantity": "Até preencher o copo"
       }
     ],
@@ -1387,12 +1393,282 @@ export const DRINKS = [
       "Corta as duas extremidades da lima, divide-a ao meio no sentido do comprimento e retira a parte branca central (o miolo branco amarga o drink).",
       "Corta a lima em 8 pedaços pequenos e coloca-os no copo com a polpa virada para cima.",
       "Adiciona o açúcar sobre a polpa da lima.",
-      "Com o pilão, pressiona com firmeza mas sem esmagar em excesso a casca exterior.",
-      "Enche o copo com gelo quebrado até à borda.",
-      "Deita a cachaça e transfere para o shaker para uma rápida batida de 5 segundos (ou mexe muito bem no próprio copo de baixo para cima).",
-      "Serve com duas palhinhas curtas."
+      "Com o pilão, pressiona com firmeza mas sem esmagar em excesso a casca exterior para extrair óleos e sumo.",
+      "Enche o copo com gelo picado até à borda.",
+      "Deita a cachaça e envolve muito bem no copo de baixo para cima com a colher de bar.",
+      "Serve com duas palhinhas curtas ecológicas."
     ],
     "bartender_tip": "O segredo de ouro dos barmen brasileiros: retirar SEMPRE a nervura branca central da lima antes de pilar. É ela a responsável pelo amargor indesejado!"
+  },
+  {
+    "id": "caipiblack",
+    "name": "Caipiblack Black Velvet (Vodka Negra & Citrinos)",
+    "alcoholic": true,
+    "category": "caipirinhas",
+    "categoryLabel": "Caipirinhas & Caipiroskas 🍹",
+    "technique": "Muddled & Chilled Layered Build",
+    "description": "O ícone da noite sofisticada: vodka preta aveludada com notas profundas de groselha e frutos do bosque, contrastada com a acidez vibrante da lima macerada e montanha de gelo picado cintilante.",
+    "difficulty": "Fácil",
+    "prep_time": "3 min",
+    "glass": "Copo Baixo Old Fashioned de Cristal Lapidado",
+    "ice": "Gelo Picado Compacto até ao topo",
+    "abv": "18% ABV (Sedutor & Enigmático)",
+    "badge": "Noite VIP 🖤",
+    "smoking_technique": null,
+    "bar_tools": [
+      "Muddler de Bar",
+      "Jigger (Doser)",
+      "Faca Afiada de Citrinos",
+      "Colher Bailarina Espiralada"
+    ],
+    "ingredients": [
+      {
+        "name": "Vodka Preta Premium (ex: Eristoff Black)",
+        "quantity": "60 ml"
+      },
+      {
+        "name": "Lima Verde Fresca e Suculenta",
+        "quantity": "1 unidade inteira"
+      },
+      {
+        "name": "Açúcar Branco Fino ou Xarope de Cana",
+        "quantity": "2 colheres de chá cheias"
+      },
+      {
+        "name": "Gelo Picado Cristalino",
+        "quantity": "Até encher o copo"
+      },
+      {
+        "name": "Amoras Frescas para Decoração (Opcional)",
+        "quantity": "2 unidades"
+      }
+    ],
+    "steps": [
+      "Corta as pontas da lima, divide-a em quatro gomos verticais e extrai a membrana branca interior para prevenir qualquer travo amargo.",
+      "Coloca os pedaços de lima no fundo do copo de cristal com a polpa virada para cima e polvilha o açúcar uniformemente.",
+      "Com o muddler, pressiona os gomos de lima com movimentos firmes para extrair o sumo límpido e os óleos aromáticos essenciais da casca.",
+      "Enche o copo até ao cimo com gelo picado de alta densidade, criando uma cúpula gelada.",
+      "Verte a vodka preta lentamente sobre o gelo com a ajuda da colher bailarina, permitindo que a cor obsidiana escorra dramaticamente pelos cristais de gelo.",
+      "Finaliza com uma rodela fina de lima fresca no rebordo e palhinha curta preta reutilizável."
+    ],
+    "bartender_tip": "Para um efeito visual de cocktail de autor com camadas gradientes, serve com as duas camadas visíveis (verde-cítrico no fundo e preto misterioso no topo) e convida o cliente a misturar com a palhinha no primeiro brinde!"
+  },
+  {
+    "id": "morangoska",
+    "name": "Morangoska / Morangasca Silvestre Artesanal",
+    "alcoholic": true,
+    "category": "caipirinhas",
+    "categoryLabel": "Caipirinhas & Caipiroskas 🍹",
+    "technique": "Fresh Fruit Muddle & Shaken",
+    "description": "A lendária caipiroska de morango adorada nas noites de verão e esplanadas de luxo: morangos frescos maduros macerados no momento com lima verde, vodka premium destilada 5 vezes e uma cúpula cintilante de gelo picado.",
+    "difficulty": "Fácil",
+    "prep_time": "4 min",
+    "glass": "Copo Tumbler Rocks em Cristal Pesado",
+    "ice": "Gelo Picado Fresco em Abundância",
+    "abv": "17% ABV (Frutado, Doce & Vibrante)",
+    "badge": "Sucesso Absoluto 🍓",
+    "smoking_technique": null,
+    "bar_tools": [
+      "Muddler de Inox com Ponta Dentada",
+      "Shaker Boston ou Copo Misturador",
+      "Jigger",
+      "Tábua de Fruta"
+    ],
+    "ingredients": [
+      {
+        "name": "Vodka Neutra Premium (ex: Grey Goose ou Belvedere)",
+        "quantity": "60 ml"
+      },
+      {
+        "name": "Morangos Frescos Maduros e Vermelhos",
+        "quantity": "4 a 5 unidades"
+      },
+      {
+        "name": "Lima Fresca Suculenta",
+        "quantity": "1/2 unidade cortada em quartos"
+      },
+      {
+        "name": "Açúcar de Cana ou Açúcar em Pó",
+        "quantity": "2 colheres de chá"
+      },
+      {
+        "name": "Folhas de Hortelã Fresca",
+        "quantity": "2 folhas para perfumar"
+      },
+      {
+        "name": "Gelo Picado",
+        "quantity": "Até preencher o copo"
+      }
+    ],
+    "steps": [
+      "Lava e retira os pés dos morangos maduros. Reserva um morango perfeito para a guarnição final e corta os restantes em metades.",
+      "Coloca os morangos, os quartos de lima e o açúcar no fundo do copo ou no shaker.",
+      "Com o muddler, macera com energia até formar um puré sumarento e perfumado onde o sumo da lima dissolve os cristais de açúcar nos morangos.",
+      "Deita a dose de vodka premium selecionada.",
+      "Adiciona gelo picado até transbordar ligeiramente e mexe vigorosamente com a colher bailarina de baixo para cima para emulsionar o puré com o destilado.",
+      "Guarnece com um morango fresco fatiado no bordo, um ramo de hortelã fresca batido na palma da mão e duas palhinhas curtas."
+    ],
+    "bartender_tip": "O segredo da melhor Morangoska reside no equilíbrio entre a doçura do morango e a acidez da lima: nunca omitas a meia lima! O ácido cítrico corta a densidade do açúcar e intensifica a cor rubi natural do fruto."
+  },
+  {
+    "id": "caipirao",
+    "name": "Caipirão Lusitano (Licor Beirão & Limas Maceradas)",
+    "alcoholic": true,
+    "category": "caipirinhas",
+    "categoryLabel": "Caipirinhas & Caipiroskas 🍹",
+    "technique": "Portuguese Muddle & Build",
+    "description": "A mais famosa e consensual reinvenção portuguesa da caipirinha: as 13 ervas aromáticas e especiarias secretas do Licor Beirão encontram a acidez cortante da lima fresca e o frescor da hortelã sobre gelo picado. Dispensa adição de açúcar!",
+    "difficulty": "Muito Fácil",
+    "prep_time": "2 min",
+    "glass": "Copo Old Fashioned / Lowball Elegante",
+    "ice": "Gelo Picado em Abundância",
+    "abv": "16% ABV (Licoroso, Cítrico & Aromático)",
+    "badge": "Orgulho Nacional 🇵🇹",
+    "smoking_technique": null,
+    "bar_tools": [
+      "Muddler de Bar",
+      "Jigger",
+      "Faca de Barman",
+      "Colher Espiralada"
+    ],
+    "ingredients": [
+      {
+        "name": "Licor Beirão Tradicional",
+        "quantity": "60 ml"
+      },
+      {
+        "name": "Lima Inteira Fresca e Firme",
+        "quantity": "1 unidade"
+      },
+      {
+        "name": "Gelo Picado Cristalino",
+        "quantity": "Copo cheio"
+      },
+      {
+        "name": "Raminho de Hortelã Fresca",
+        "quantity": "1 unidade para guarnição"
+      }
+    ],
+    "steps": [
+      "Lava bem a lima, corta as extremidades, fatia ao meio e retira todo o fio branco interior.",
+      "Corta a lima em 8 pedaços uniformes e transfere-os diretamente para o copo de serviço.",
+      "Com o muddler, esmaga suavemente os pedaços de lima no fundo do copo para libertar o sumo ácido e os óleos da casca (dispensa açúcar, pois o Licor Beirão é naturalmente doce).",
+      "Enche o copo completamente com gelo picado cristalino.",
+      "Verte os 60 ml de Licor Beirão por cima do gelo.",
+      "Com a colher de bar, envolve com movimentos circulares verticais suaves para que o sumo da lima e o licor se fundam harmoniosamente.",
+      "Finaliza com um topo de folhas de hortelã frescas e serve com palhinha."
+    ],
+    "bartender_tip": "Regra de ouro de qualquer bartender profissional: NUNCA coloques açúcar no Caipirão! A complexidade do Licor Beirão (canela, cardamomo, eucalipto e alecrim) já equilibra na perfeição o sumo cítrico da lima."
+  },
+  {
+    "id": "caipiroska_classica",
+    "name": "Caipiroska Imperial de Vodka Super Premium",
+    "alcoholic": true,
+    "category": "caipirinhas",
+    "categoryLabel": "Caipirinhas & Caipiroskas 🍹",
+    "technique": "Muddled & Chilled Build",
+    "description": "A versão internacional e purista da caipirinha: vodka neutra premium destilada em alambique de cobre com lima verde madura e açúcar fino. O perfil limpo da vodka deixa a frescura pura dos citrinos brilhar no palato.",
+    "difficulty": "Fácil",
+    "prep_time": "3 min",
+    "glass": "Copo On The Rocks de Cristal Lapidado",
+    "ice": "Gelo Picado Granulado Fino",
+    "abv": "20% ABV (Límpido, Cítrico & Enérgico)",
+    "badge": "Clássico Global 🍸",
+    "smoking_technique": null,
+    "bar_tools": [
+      "Muddler Ergonómico",
+      "Jigger Graduado",
+      "Colher Bailarina"
+    ],
+    "ingredients": [
+      {
+        "name": "Vodka Super Premium (ex: Ketel One ou Belvedere)",
+        "quantity": "60 ml"
+      },
+      {
+        "name": "Lima Verde Suculenta de Casca Fina",
+        "quantity": "1 unidade"
+      },
+      {
+        "name": "Açúcar Branco Ultrafino",
+        "quantity": "2 colheres de bar cheias"
+      },
+      {
+        "name": "Gelo Picado Cristalino",
+        "quantity": "Copo repleto"
+      },
+      {
+        "name": "Zest de Lima para Aromatizar",
+        "quantity": "1 tira fina"
+      }
+    ],
+    "steps": [
+      "Higieniza a lima, remove as extremidades e corta longitudinalmente em quartos, retirando a nervura central branca.",
+      "Coloca os gomos no fundo do copo com o açúcar refinado.",
+      "Pressiona com o muddler extraindo o néctar e dissolvendo os grãos no sumo fresco.",
+      "Completa com gelo picado até ultrapassar ligeiramente a borda do copo.",
+      "Adiciona a vodka premium medida com o jigger.",
+      "Agita suavemente com a colher bailarina puxando os pedaços de lima para cima entre o gelo.",
+      "Decora com uma rodela fina de lima fresca e serve de imediato bem gelado."
+    ],
+    "bartender_tip": "Usa açúcar ultrafino (ou açúcar em pó) em vez de açúcar cristal grosso: como a vodka pura não tem o perfil de melaço da cachaça, o açúcar ultrafino dissolve instantaneamente no sumo frio sem deixar resíduos no fundo do copo."
+  },
+  {
+    "id": "caipiroska_frutos_vermelhos",
+    "name": "Caipiroska de Frutos Silvestres & Framboesas",
+    "alcoholic": true,
+    "category": "caipirinhas",
+    "categoryLabel": "Caipirinhas & Caipiroskas 🍹",
+    "technique": "Wild Berry Muddle & Build",
+    "description": "Uma sinfonia requintada de bagas silvestres: amoras pretas, framboesas e mirtilos frescos macerados com limas maduras, vodka de luxo e néctar suave. Um cocktail aromático, vibrante e visualmente deslumbrante.",
+    "difficulty": "Fácil",
+    "prep_time": "3 min",
+    "glass": "Copo Rocks de Cristal Lapidado",
+    "ice": "Gelo Picado Cristalino",
+    "abv": "17% ABV (Frutado Silvestre & Equilibrado)",
+    "badge": "Frutos do Bosque 🫐",
+    "smoking_technique": null,
+    "bar_tools": [
+      "Muddler de Bar",
+      "Jigger",
+      "Colher Bailarina",
+      "Pinça de Bar"
+    ],
+    "ingredients": [
+      {
+        "name": "Vodka Premium",
+        "quantity": "60 ml"
+      },
+      {
+        "name": "Mix de Frutos Silvestres Frescos (Amoras, Framboesas e Mirtilos)",
+        "quantity": "40 g (aprox. 8 bagas)"
+      },
+      {
+        "name": "Lima Fresca Suculenta",
+        "quantity": "1/2 unidade cortada em gomos"
+      },
+      {
+        "name": "Açúcar de Cana ou Xarope de Açúcar",
+        "quantity": "1.5 colher de sopa"
+      },
+      {
+        "name": "Ramo de Alecrim ou Tomilho Fresco",
+        "quantity": "1 raminho para aroma"
+      },
+      {
+        "name": "Gelo Picado Cristalino",
+        "quantity": "Até preencher o copo"
+      }
+    ],
+    "steps": [
+      "Coloca a meia lima fatiada e o mix de frutos silvestres no fundo do copo rocks.",
+      "Acrescenta o açúcar sobre a fruta.",
+      "Com o pilão de bar, macera suavemente libertando o suco vermelho intenso das amoras e framboesas sem triturar excessivamente as sementes.",
+      "Preenche todo o copo com gelo picado fresco.",
+      "Verte a vodka premium e mexe com a colher espiralada para que o néctar carmesim suba pelos blocos de gelo.",
+      "Finaliza espetando um raminho de alecrim ou tomilho e coroa com duas framboesas inteiras no topo do gelo."
+    ],
+    "bartender_tip": "Dar uma ligeira palmada no raminho de alecrim ou tomilho antes de o espetar no gelo ativa os óleos essenciais da erva aromática, proporcionando uma experiência olfativa inesquecível ao aproximar o copo do nariz."
   },
   {
     "id": "gin_tonico",

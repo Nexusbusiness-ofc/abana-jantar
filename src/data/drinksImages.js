@@ -132,6 +132,13 @@ import ginFourPillarsShirazImg from '@/assets/drinks/gin_four_pillars_shiraz.jpg
 import ginDryMartiniRoyalImg from '@/assets/drinks/gin_dry_martini_royal.jpg';
 import pinkLadyImg from '@/assets/drinks/pink_lady.jpg';
 
+// Caipirinhas & Caipiroskas
+import caipiblackImg from '@/assets/drinks/caipiblack.jpg';
+import morangoskaImg from '@/assets/drinks/morangoska.jpg';
+import caipiraoImg from '@/assets/drinks/caipirao.jpg';
+import caipiroskaClassicaImg from '@/assets/drinks/caipiroska.jpg';
+import caipiroskaFrutosVermelhosImg from '@/assets/drinks/caipiroska_frutos_vermelhos.jpg';
+
 export const DRINK_IMAGES = {
   cocktail_fumegante: cocktailFumeganteImg,
   smoked_old_fashioned: smokedOldFashionedImg,
@@ -266,4 +273,11 @@ export const DRINK_IMAGES = {
   gin_four_pillars_shiraz: ginFourPillarsShirazImg,
   gin_dry_martini_royal: ginDryMartiniRoyalImg,
   pink_lady: pinkLadyImg,
+
+  // Caipirinhas & Caipiroskas
+  caipiblack: caipiblackImg,
+  morangoska: morangoskaImg,
+  caipirao: caipiraoImg,
+  caipiroska_classica: caipiroskaClassicaImg,
+  caipiroska_frutos_vermelhos: caipiroskaFrutosVermelhosImg,
 };

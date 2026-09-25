@@ -43,6 +43,7 @@ import { useToast } from '@/components/ui/use-toast';
 const CATEGORY_ORDER = [
   'fumo',
   'gins',
+  'caipirinhas',
   'cocktails',
   'short',
   'long',
@@ -60,6 +61,8 @@ function getCategoryIcon(catId, className = 'w-4 h-4') {
   switch (catId) {
     case 'gins':
       return <Wine className={`${className} text-teal-300`} />;
+    case 'caipirinhas':
+      return <GlassWater className={`${className} text-emerald-400`} />;
     case 'cafes':
       return <Coffee className={`${className} text-amber-400`} />;
     case 'fumo':
@@ -119,6 +122,22 @@ export function getDrinkSensoryProfile(drink) {
     pairing = 'Salmão fumado norueguês, ostras frescas ao natural ou queijo de cabra artesanal';
     servingTemp = '-2ºC a 2ºC (Taça balão de cristal congelada)';
     iceRitual = 'Gelo maciço de alta densidade em cubos generosos';
+  } else if (cat === 'caipirinhas') {
+    flavor = name.includes('black')
+      ? 'Silvestre Mítico, Cítrico & Frutos Pretos'
+      : name.includes('morango')
+      ? 'Frutado Silvestre, Cítrico & Doce Refrescante'
+      : name.includes('beirão') || name.includes('caipirão')
+      ? 'Licoroso Nobre, Cítrico & Botânico Português'
+      : name.includes('silvestre') || name.includes('framboesa')
+      ? 'Bagas Silvestres, Rubi Vibrante & Néctar Cítrico'
+      : 'Cítrico Marcante, Refrescante & Cachaça Nobre';
+    sweetness = name.includes('beirão') || name.includes('morango') || name.includes('black') ? 3 : 2;
+    acidity = 4;
+    intensity = 3;
+    pairing = 'Petiscos de marisco, ceviche de robalo fresco, tábua de queijos suaves ou picanha grelhada';
+    servingTemp = '-1ºC a 2ºC (Copo rocks congelado com cúpula de gelo picado)';
+    iceRitual = 'Gelo picado cristalino compacto até ao bordo';
   } else if (cat === 'cafes') {
     flavor = name.includes('gelado') || name.includes('cold') || name.includes('iced') || name.includes('mazagran') || name.includes('affogato')
       ? 'Torrado Nobre, Refrescante & Cacau'
