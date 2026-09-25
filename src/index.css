@@ -145,4 +145,35 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: #d97706;
-}
+}
+
+/* ============================================================ */
+/* MOBILE PWA, SAFE-AREA & NATIVE TOUCH OPTIMIZATIONS           */
+/* ============================================================ */
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  overscroll-behavior-y: none;
+  touch-action: manipulation;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
+}
+
+/* Standalone PWA adjustments (when installed on iOS / Android) */
+@media all and (display-mode: standalone) {
+  body {
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  input, textarea, [contenteditable="true"] {
+    user-select: text;
+    -webkit-user-select: text;
+  }
+}
+

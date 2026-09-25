@@ -1,0 +1,63 @@
+{
+  "id": "abana-o-jantar-app",
+  "name": "Abana o Jantar | Bar & Dinner Experience",
+  "short_name": "Abana Jantar",
+  "description": "Carta digital e experiência de bar e cocktails de luxo para noites memoráveis.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "window-controls-overlay"],
+  "orientation": "portrait",
+  "background_color": "#09080e",
+  "theme_color": "#09080e",
+  "lang": "pt-PT",
+  "dir": "ltr",
+  "categories": ["food", "lifestyle", "entertainment"],
+  "icons": [
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-192-maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./icons/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./icons/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Carta de Cocktails & Bar",
+      "short_name": "Cocktails",
+      "description": "Explorar a seleção de cocktails, gins e shots de luxo",
+      "url": "./index.html#/drinks",
+      "icons": [{ "src": "./icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Abanar para Decidir",
+      "short_name": "Abanar",
+      "description": "Deixa o telemóvel decidir o teu jantar",
+      "url": "./index.html#/",
+      "icons": [{ "src": "./icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}

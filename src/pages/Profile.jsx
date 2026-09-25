@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronLeft, Wheat, Milk, Check, Sparkles, User, Leaf } from 'lucide-react';
+import { ChevronLeft, Wheat, Milk, Check, User, Leaf, Smartphone } from 'lucide-react';
 import { usePreferences } from '@/hooks/usePreferences';
 import { Switch } from '@/components/ui/switch';
 import { Input } from '@/components/ui/input';
+import InstallAppButton from '@/components/InstallAppButton';
 
 const DIETS = [
   { id: 'omni', label: 'Tudo', desc: 'Sem restrições' },
@@ -126,6 +127,22 @@ export default function Profile() {
             placeholder="Ex: sem alho, baixo teor de sal…"
             className="rounded-xl bg-white/70"
           />
+        </section>
+
+        {/* Instalar App Móvel */}
+        <section className="mb-8 p-4 rounded-2xl bg-white/70 border border-white shadow-sm">
+          <div className="flex items-center justify-between gap-3">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center">
+                <Smartphone className="w-5 h-5 text-amber-600" />
+              </div>
+              <div>
+                <h3 className="font-heading font-semibold text-sm">Instalar no Telemóvel</h3>
+                <p className="text-xs text-muted-foreground">Disponível para iOS e Android</p>
+              </div>
+            </div>
+            <InstallAppButton />
+          </div>
         </section>
 
         <div className="flex items-center gap-2 text-sm text-emerald-600 font-medium">

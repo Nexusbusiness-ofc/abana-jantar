@@ -5,7 +5,6 @@ import {
   ChefHat,
   Navigation,
   Camera,
-  Vibrate,
   Sparkles,
   User,
   ShoppingCart,
@@ -25,6 +24,7 @@ import PortugueseRecipes from '@/components/PortugueseRecipes';
 import DrinksMode from '@/components/DrinksMode';
 import FavoritesView from '@/components/FavoritesView';
 import ShoppingList from '@/components/ShoppingList';
+import InstallAppButton from '@/components/InstallAppButton';
 
 export default function Home() {
   const [activeMode, setActiveMode] = useState(null); // 'fridge' | 'restaurant' | null
@@ -107,6 +107,7 @@ export default function Home() {
       } mx-auto`}>
         {/* top bar */}
         <div className="w-full flex justify-end gap-2 mb-3">
+          <InstallAppButton tab={tab} />
           <button
             onClick={() => setShoppingOpen(true)}
             className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-2xl backdrop-blur-xl border text-xs sm:text-sm font-semibold hover:shadow-md active:scale-95 transition-all ${

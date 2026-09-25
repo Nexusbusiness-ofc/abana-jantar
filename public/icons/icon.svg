@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a1226"/>
+      <stop offset="100%" stop-color="#07060c"/>
+    </linearGradient>
+    <radialGradient id="glowGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#07060c" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="50%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <linearGradient id="liquidGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f43f5e"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="512" height="512" rx="108" fill="url(#bgGrad)"/>
+
+  <!-- Radial Glow -->
+  <circle cx="256" cy="244" r="180" fill="url(#glowGrad)"/>
+
+  <!-- Outer Ring -->
+  <circle cx="256" cy="244" r="204" fill="none" stroke="#d97706" stroke-width="2.5" stroke-opacity="0.4"/>
+  <circle cx="256" cy="244" r="195" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-opacity="0.3" stroke-dasharray="6,6"/>
+
+  <!-- Shaker (Tilted) -->
+  <g transform="translate(220, 240) rotate(-12)">
+    <!-- Body -->
+    <polygon points="-38,-28 38,-28 27,95 -27,95" fill="url(#goldGrad)" stroke="#fde68a" stroke-width="2"/>
+    <line x1="-20" y1="-22" x2="-14" y2="85" stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+    <!-- Shoulder -->
+    <polygon points="-42,-28 42,-28 25,-70 -25,-70" fill="url(#goldGrad)" stroke="#fde68a" stroke-width="2"/>
+    <!-- Cap -->
+    <ellipse cx="0" cy="-84" rx="18" ry="14" fill="#fef3c7" stroke="#fbbf24" stroke-width="2"/>
+  </g>
+
+  <!-- Coupe Martini Glass -->
+  <g transform="translate(300, 260)">
+    <!-- Bowl -->
+    <polygon points="-50,-40 50,-40 0,18" fill="none" stroke="#ffffff" stroke-width="3"/>
+    <!-- Liquid -->
+    <polygon points="-38,-24 38,-24 0,14" fill="url(#liquidGrad)" opacity="0.85"/>
+    <!-- Stem & Base -->
+    <line x1="0" y1="18" x2="0" y2="80" stroke="#fbbf24" stroke-width="3.5" stroke-linecap="round"/>
+    <line x1="-34" y1="80" x2="34" y2="80" stroke="#fbbf24" stroke-width="4" stroke-linecap="round"/>
+    <!-- Skewer & Olive -->
+    <line x1="-24" y1="-50" x2="16" y2="-5" stroke="#fbbf24" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="-8" cy="-32" r="7" fill="#84cc16"/>
+  </g>
+
+  <!-- Luxury Sparkles -->
+  <path d="M 170 180 Q 170 195 155 195 Q 170 195 170 210 Q 170 195 185 195 Q 170 195 170 180 Z" fill="#fef3c7"/>
+  <path d="M 355 165 Q 355 178 342 178 Q 355 178 355 191 Q 355 178 368 178 Q 355 178 355 165 Z" fill="#fde68a"/>
+  <path d="M 210 360 Q 210 370 200 370 Q 210 370 210 380 Q 210 370 220 370 Q 210 370 210 360 Z" fill="#fef3c7" opacity="0.8"/>
+  <path d="M 350 320 Q 350 328 342 328 Q 350 328 350 336 Q 350 328 358 328 Q 350 328 350 320 Z" fill="#fef3c7" opacity="0.85"/>
+
+  <!-- Monogram text -->
+  <text x="256" y="468" text-anchor="middle" font-family="'Georgia', serif" font-size="20" font-weight="bold" fill="url(#goldGrad)" letter-spacing="4">ABANA O JANTAR</text>
+</svg>
