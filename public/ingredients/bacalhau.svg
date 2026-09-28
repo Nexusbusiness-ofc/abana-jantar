@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <filter id="shadow-bacalhau" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="5" stdDeviation="4" flood-color="#000" flood-opacity="0.18"/>
+    </filter>
+    <radialGradient id="base-glow-bacalhau" cx="50%" cy="80%" r="50%">
+      <stop offset="0%" stop-color="#000" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    
+    <linearGradient id="codGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="40%" stop-color="#fef3c7"/>
+      <stop offset="80%" stop-color="#fde68a"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <linearGradient id="codSkin" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#64748b"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </linearGradient>
+  
+  </defs>
+  <!-- Ambient ground shadow -->
+  <ellipse cx="60" cy="100" rx="38" ry="8" fill="url(#base-glow-bacalhau)"/>
+  <g filter="url(#shadow-bacalhau)">
+    
+    <path d="M 24 50 Q 60 40 96 50 L 94 58 Q 60 48 24 58 Z" fill="url(#codSkin)"/>
+    <path d="M 24 54 C 24 54, 30 84, 40 88 C 55 94, 75 92, 86 86 C 96 80, 96 54, 96 54 Z" fill="url(#codGrad)" stroke="#b45309" stroke-width="1.5"/>
+    <path d="M 34 62 Q 60 56 86 62" stroke="#d97706" stroke-width="1.5" fill="none" opacity="0.6"/>
+    <path d="M 38 72 Q 60 66 82 72" stroke="#d97706" stroke-width="1.5" fill="none" opacity="0.6"/>
+    <path d="M 44 80 Q 60 76 76 80" stroke="#d97706" stroke-width="1.5" fill="none" opacity="0.6"/>
+    <rect x="52" y="60" width="3" height="3" fill="#ffffff" stroke="#cbd5e1" stroke-width="0.5"/>
+    <rect x="66" y="68" width="3.5" height="3.5" fill="#ffffff" stroke="#cbd5e1" stroke-width="0.5"/>
+  
+  </g>
+</svg>

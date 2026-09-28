@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <filter id="shadow-frango" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="5" stdDeviation="4" flood-color="#000" flood-opacity="0.18"/>
+    </filter>
+    <radialGradient id="base-glow-frango" cx="50%" cy="80%" r="50%">
+      <stop offset="0%" stop-color="#000" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    
+    <linearGradient id="chickenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fed7aa"/>
+      <stop offset="40%" stop-color="#fb923c"/>
+      <stop offset="80%" stop-color="#ea580c"/>
+      <stop offset="100%" stop-color="#9a3412"/>
+    </linearGradient>
+  
+  </defs>
+  <!-- Ambient ground shadow -->
+  <ellipse cx="60" cy="100" rx="38" ry="8" fill="url(#base-glow-frango)"/>
+  <g filter="url(#shadow-frango)">
+    
+    <circle cx="30" cy="80" r="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2"/>
+    <circle cx="36" cy="86" r="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2"/>
+    <rect x="32" y="68" width="8" height="15" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2" transform="rotate(-40 36 75)"/>
+    <path d="M 42 66 C 36 50, 48 30, 68 30 C 88 30, 96 46, 92 64 C 88 80, 68 84, 54 78 Z" fill="url(#chickenGrad)" stroke="#7c2d12" stroke-width="1.5"/>
+    <ellipse cx="70" cy="46" rx="14" ry="8" fill="#fef08a" opacity="0.6" transform="rotate(-20 70 46)"/>
+  
+  </g>
+</svg>

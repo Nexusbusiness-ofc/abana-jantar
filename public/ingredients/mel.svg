@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <filter id="shadow-mel" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="5" stdDeviation="4" flood-color="#000" flood-opacity="0.18"/>
+    </filter>
+    <radialGradient id="base-glow-mel" cx="50%" cy="80%" r="50%">
+      <stop offset="0%" stop-color="#000" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    
+    <linearGradient id="honeyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a"/>
+      <stop offset="40%" stop-color="#facc15"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+  
+  </defs>
+  <!-- Ambient ground shadow -->
+  <ellipse cx="60" cy="100" rx="38" ry="8" fill="url(#base-glow-mel)"/>
+  <g filter="url(#shadow-mel)">
+    
+    <rect x="44" y="24" width="32" height="10" rx="3" fill="#ca8a04"/>
+    <path d="M 38 34 L 82 34 L 86 86 C 86 92, 34 92, 34 86 Z" fill="url(#honeyGrad)" stroke="#b45309" stroke-width="1.5"/>
+    <ellipse cx="60" cy="56" rx="14" ry="12" fill="#ffffff" opacity="0.8"/>
+    <text x="60" y="60" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="bold" fill="#78350f" text-anchor="middle">MEL</text>
+  
+  </g>
+</svg>

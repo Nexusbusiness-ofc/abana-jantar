@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <filter id="shadow-oleo" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="5" stdDeviation="4" flood-color="#000" flood-opacity="0.18"/>
+    </filter>
+    <radialGradient id="base-glow-oleo" cx="50%" cy="80%" r="50%">
+      <stop offset="0%" stop-color="#000" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    
+    <linearGradient id="vegOil" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a"/>
+      <stop offset="50%" stop-color="#facc15"/>
+      <stop offset="100%" stop-color="#eab308"/>
+    </linearGradient>
+  
+  </defs>
+  <!-- Ambient ground shadow -->
+  <ellipse cx="60" cy="100" rx="38" ry="8" fill="url(#base-glow-oleo)"/>
+  <g filter="url(#shadow-oleo)">
+    
+    <rect x="54" y="18" width="12" height="12" rx="2" fill="#ef4444"/>
+    <path d="M 42 36 L 42 45 L 36 55 L 36 94 L 84 94 L 84 55 L 78 45 L 78 36 Z" fill="url(#vegOil)" stroke="#ca8a04" stroke-width="1.5"/>
+    <rect x="44" y="58" width="32" height="22" rx="3" fill="#ffffff" opacity="0.9"/>
+    <circle cx="60" cy="69" r="6" fill="#facc15"/>
+    <path d="M 42 60 L 42 88" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+  
+  </g>
+</svg>

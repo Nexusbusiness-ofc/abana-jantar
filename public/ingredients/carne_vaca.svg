@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <filter id="shadow-carne_vaca" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="5" stdDeviation="4" flood-color="#000" flood-opacity="0.18"/>
+    </filter>
+    <radialGradient id="base-glow-carne_vaca" cx="50%" cy="80%" r="50%">
+      <stop offset="0%" stop-color="#000" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    
+    <linearGradient id="beefGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f87171"/>
+      <stop offset="40%" stop-color="#dc2626"/>
+      <stop offset="85%" stop-color="#991b1b"/>
+      <stop offset="100%" stop-color="#450a0a"/>
+    </linearGradient>
+  
+  </defs>
+  <!-- Ambient ground shadow -->
+  <ellipse cx="60" cy="100" rx="38" ry="8" fill="url(#base-glow-carne_vaca)"/>
+  <g filter="url(#shadow-carne_vaca)">
+    
+    <path d="M 28 50 C 24 35, 52 26, 75 32 C 95 38, 98 65, 92 80 C 86 94, 55 96, 38 90 C 26 84, 30 65, 28 50 Z" fill="url(#beefGrad)" stroke="#450a0a" stroke-width="1.5"/>
+    <path d="M 32 35 C 50 28, 70 30, 85 36" stroke="#fef2f2" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <path d="M 45 46 Q 55 48 68 44 M 40 60 Q 56 64 74 58 M 48 76 Q 62 78 78 72" stroke="#fee2e2" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.8"/>
+  
+  </g>
+</svg>

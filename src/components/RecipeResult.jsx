@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-import { Sparkles, Clock, Utensils, ShoppingCart, Heart, Flame } from 'lucide-react';
-import { Image as UIImage } from '@/components/ui/image';
+import React, { useState, useMemo } from 'react';
+import { Clock, Utensils, ShoppingCart, Heart, Flame, LayoutGrid, List, CheckCheck } from 'lucide-react';
 import ShareButton from '@/components/ShareButton';
 import StepTimer from '@/components/StepTimer';
 import { useFavorites } from '@/hooks/useFavorites';
@@ -11,6 +10,8 @@ import {
 } from '@/components/ui/alert-dialog';
 import { useShoppingList } from '@/hooks/useShoppingList';
 import { useToast } from '@/components/ui/use-toast';
+import IngredientCard from '@/components/IngredientCard';
+import { expandRecipeIngredients, getIngredientInfo } from '@/data/ingredientImages';
 
 export const recipeSchema = {
   type: 'object',
@@ -39,7 +40,13 @@ export default function RecipeResult({ recipe, image }) {
   const { isFavorite, toggleFavorite } = useFavorites();
   const { toast } = useToast();
   const [pending, setPending] = useState(null);
+  const [viewMode, setViewMode] = useState('grid'); // 'grid' | 'list'
   const fav = isFavorite(recipe);
+
+  // Expand compound seasonings for optimal visual presentation
+  const displayIngredients = useMemo(() => {
+    return expandRecipeIngredients(recipe?.ingredients || []);
+  }, [recipe?.ingredients]);
 
   const handleFavorite = () => {
     toggleFavorite(recipe, image);
@@ -56,11 +63,23 @@ export default function RecipeResult({ recipe, image }) {
     setPending(null);
   };
 
+  const handleAddAll = () => {
+    if (!displayIngredients.length) return;
+    displayIngredients.forEach((ing) => {
+      add(ing.name, ing.quantity || '');
+    });
+    toast({
+      title: 'Todos os ingredientes foram adicionados!',
+      description: `${displayIngredients.length} itens adicionados à tua lista de compras.`,
+      duration: 3000
+    });
+  };
+
   if (!recipe) return null;
   return (
-    <div className="space-y-5">
+    <div className="space-y-6">
       {image && (
-        <div className="relative w-full h-44 sm:h-52 rounded-3xl overflow-hidden bg-muted shadow-md">
+        <div className="relative w-full h-44 sm:h-56 rounded-3xl overflow-hidden bg-muted shadow-md">
           <img
             src={image}
             alt={recipe.recipe_name}
@@ -76,7 +95,7 @@ export default function RecipeResult({ recipe, image }) {
           <Utensils className="w-6 h-6 stroke-[2.2]" />
         </div>
         <div>
-          <h3 className="font-heading text-xl font-bold leading-tight text-foreground">{recipe.recipe_name}</h3>
+          <h3 className="font-heading text-xl sm:text-2xl font-bold leading-tight text-foreground">{recipe.recipe_name}</h3>
           {recipe.description && <p className="text-sm text-muted-foreground mt-1 leading-snug">{recipe.description}</p>}
         </div>
       </div>
@@ -110,29 +129,112 @@ export default function RecipeResult({ recipe, image }) {
         </div>
       </div>
 
-      {recipe.ingredients?.length > 0 && (
-        <div>
-          <div className="flex items-center justify-between mb-3">
-            <h4 className="font-heading font-semibold text-sm uppercase tracking-wide text-muted-foreground">Ingredientes</h4>
-            <span className="inline-flex items-center gap-1 text-[11px] text-muted-foreground/80">
-              <ShoppingCart className="w-3 h-3" /> toca para adicionar à lista
-            </span>
-          </div>
-          <ul className="space-y-2">
-            {recipe.ingredients.map((ing, i) => (
-              <li key={i}>
+      {displayIngredients?.length > 0 && (
+        <div className="space-y-3">
+          {/* Header of Ingredients */}
+          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border/60 pb-2.5">
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-orange-500 shadow-xs" />
+              <h4 className="font-heading font-bold text-sm sm:text-base text-foreground tracking-tight">
+                Ingredientes Necessários ({displayIngredients.length})
+              </h4>
+            </div>
+
+            <div className="flex items-center gap-1.5">
+              {/* Add All Button */}
+              <button
+                type="button"
+                onClick={handleAddAll}
+                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl text-[11px] font-semibold bg-orange-500/10 hover:bg-orange-500/20 text-orange-700 dark:text-orange-300 border border-orange-500/25 transition active:scale-95"
+                title="Adicionar todos os ingredientes à lista de compras"
+              >
+                <CheckCheck className="w-3.5 h-3.5 text-orange-500" />
+                <span className="hidden xs:inline">Adicionar Todos</span>
+              </button>
+
+              {/* View Switcher: Grid vs List */}
+              <div className="flex items-center p-0.5 rounded-xl bg-muted/60 border border-border/40">
                 <button
-                  onClick={() => setPending({ name: ing.name, quantity: ing.quantity })}
-                  className="w-full flex items-baseline gap-3 text-sm text-left rounded-lg px-2 py-1.5 -mx-2 hover:bg-orange-50 transition group"
+                  type="button"
+                  onClick={() => setViewMode('grid')}
+                  className={`p-1.5 rounded-lg transition ${
+                    viewMode === 'grid'
+                      ? 'bg-white dark:bg-black/50 text-foreground shadow-xs'
+                      : 'text-muted-foreground hover:text-foreground'
+                  }`}
+                  title="Vista em Grelha Visual"
                 >
-                  <span className="w-1.5 h-1.5 rounded-full bg-orange-400 shrink-0 translate-y-1 group-hover:bg-orange-500" />
-                  <span className="font-medium">{ing.name}</span>
-                  {ing.quantity && <span className="text-muted-foreground">— {ing.quantity}</span>}
-                  <ShoppingCart className="w-3.5 h-3.5 text-orange-400 opacity-0 group-hover:opacity-100 transition ml-auto shrink-0 translate-y-0.5" />
+                  <LayoutGrid className="w-3.5 h-3.5" />
                 </button>
-              </li>
-            ))}
-          </ul>
+                <button
+                  type="button"
+                  onClick={() => setViewMode('list')}
+                  className={`p-1.5 rounded-lg transition ${
+                    viewMode === 'list'
+                      ? 'bg-white dark:bg-black/50 text-foreground shadow-xs'
+                      : 'text-muted-foreground hover:text-foreground'
+                  }`}
+                  title="Vista em Lista Simples"
+                >
+                  <List className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-[11px] text-muted-foreground/80 flex items-center justify-between">
+            <span>Toca em qualquer ingrediente para adicionar à lista de compras</span>
+          </div>
+
+          {/* Cards View (Default) */}
+          {viewMode === 'grid' ? (
+            <div className="grid grid-cols-2 xs:grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-3 pt-1">
+              {displayIngredients.map((ing, i) => (
+                <IngredientCard
+                  key={`${ing.name}-${i}`}
+                  ingredient={ing}
+                  onAddToList={(item) => setPending({ name: item.name, quantity: item.quantity })}
+                />
+              ))}
+            </div>
+          ) : (
+            /* List View */
+            <ul className="space-y-2 pt-1">
+              {displayIngredients.map((ing, i) => {
+                const info = getIngredientInfo(ing.name, ing.quantity);
+                return (
+                  <li key={`${ing.name}-${i}`}>
+                    <button
+                      type="button"
+                      onClick={() => setPending({ name: ing.name, quantity: ing.quantity })}
+                      className="w-full flex items-center justify-between gap-3 text-sm text-left rounded-2xl p-2.5 bg-white/70 dark:bg-[#13111c]/70 hover:bg-orange-50/70 dark:hover:bg-white/5 border border-border/60 hover:border-orange-500/40 transition group shadow-xs"
+                    >
+                      <div className="flex items-center gap-3 min-w-0">
+                        <div className="w-10 h-10 rounded-xl bg-gradient-to-b from-black/[0.02] to-black/[0.06] dark:from-white/[0.04] dark:to-white/[0.02] border border-border/40 flex items-center justify-center p-1 shrink-0">
+                          <img
+                            src={info.image}
+                            alt={ing.name}
+                            className="w-full h-full object-contain filter drop-shadow-xs"
+                          />
+                        </div>
+                        <span className="font-semibold text-foreground truncate text-xs sm:text-sm">
+                          {ing.name}
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-2 shrink-0">
+                        {ing.quantity && (
+                          <span className={`px-2.5 py-0.5 rounded-full text-[11px] font-bold border ${info.theme.badge}`}>
+                            {ing.quantity}
+                          </span>
+                        )}
+                        <ShoppingCart className="w-4 h-4 text-orange-400 opacity-50 group-hover:opacity-100 transition" />
+                      </div>
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
+          )}
         </div>
       )}
 
